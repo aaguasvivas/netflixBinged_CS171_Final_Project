@@ -1,15 +1,22 @@
 
 loadData();
 
+let titles;
+
 // load data
 function loadData() {
-    d3.csv("data/netflix").then(data => {
+    d3.csv("data/netflix_titles.csv").then(titles => {
 
-        csv = data;
+        console.log(titles)
 
-        console.log(csv)
 
-        matrix = new Matrix("matrix", csv, dataMarriages, dataBusiness);
 
     });
+}
+
+function createVis() {
+    let vis = this;
+
+    vis.alltitlechart = new BubbleChart("alltitlechart", titles);
+
 }
