@@ -1,7 +1,10 @@
+let titles;
+let platforms;
 
 loadData();
+createVis();
 
-let titles;
+
 
 // load data
 function loadData() {
@@ -18,11 +21,10 @@ function loadData() {
 
 
     });
-}
 
+}
 function createVis() {
     let vis = this;
 
     vis.alltitlechart = new BubbleChart("alltitlechart", titles);
-
 }
