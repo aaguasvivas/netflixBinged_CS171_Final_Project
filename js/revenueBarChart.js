@@ -1,18 +1,5 @@
 // https://www.macrotrends.net/stocks/charts/NFLX/netflix/revenue
 
-// set the dimensions and margins of the graph
-// let margin = {top: 20, right: 20, bottom: 40, left: 70},
-//     width = 700 - margin.left - margin.right,
-//     height = 700 - margin.top - margin.bottom;
-
-// set the ranges
-// let x = d3.scaleBand()
-//     .range([0, width])
-//     .padding(0.1);
-// let y = d3.scaleLinear()
-//     .range([height, 0]);
-
-
 // Append svg to correct html
 let svgRevenue = d3.select("div#revenueNetflix.col.revenue").append("svg")
     .attr("width", width + margin.left + margin.right)
