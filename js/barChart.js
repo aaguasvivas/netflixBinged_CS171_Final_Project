@@ -29,6 +29,8 @@ d3.csv("data/streamingPlatformsSubscribers.csv", function(error, data) {
         d.numSubscribers = +d.numSubscribers;
     });
 
+    console.log(data)
+
     // Scale the range of the data in the domains
     x.domain(data.map(function(d) { return d.platform; }));
     y.domain([0, d3.max(data, function(d) { return d.numSubscribers; })]);
