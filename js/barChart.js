@@ -24,7 +24,7 @@ let svg = d3.select("div#subscribersByPlatform.col").append("svg")
 let dataset = d3.csv("data/streamingPlatformsSubscribers.csv");
 dataset.then(function(data) {
     data.map(function(d) {
-        d.numSubscribers = +d.numSubscribers;
+        d.numSubscribers = parseInt(d.numSubscribers);
         return d;
     });
 });
