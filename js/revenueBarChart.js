@@ -25,6 +25,7 @@ let svgRevenue = d3.select("div#revenueNetflix.col.revenue").append("svg")
 let revenueData = d3.csv("data/revenueNetflix.csv");
 revenueData.then(function(data) {
     data.map(function(d) {
+        d.revenue = parseInt(d.revenue)
         return d;
     });
 });
@@ -41,14 +42,12 @@ revenueData.then(function(data) {
         .data(data)
         .enter().append("rect")
         .attr("class", "bar")
-        .attr("x", function(d) { return x(d.platform); })
+        .attr("x", function(d) { return x(d.year); })
         .attr("width", x.bandwidth())
-        .attr("y", function(d) { return y(d.numSubscribers); })
-        .attr("height", function(d) { return height - y(d.numSubscribers);
+        .attr("y", function(d) { return y(d.revenue); })
+        .attr("height", function(d) { return height - y(d.revenue);
         })
-        .attr("fill", (d, i) => {
-            return color[i % 6]
-        });
+        .attr("fill", "white");
 
     // add x-axis
     svgRevenue.append("g")
@@ -65,7 +64,7 @@ revenueData.then(function(data) {
             "translate(" + (width/2) + " ," +
             (height + margin.top + 20) + ")")
         .style("text-anchor", "middle")
-        .text("Platform")
+        .text("Year")
         .attr("fill", "white")
         .attr("fontSize", 22);
 
@@ -76,26 +75,26 @@ revenueData.then(function(data) {
         .attr("x",0 - (height / 2))
         .attr("dy", "1em")
         .style("text-anchor", "middle")
-        .text("Subscribers (in Millions)")
+        .text("Revenue (in Millions US Dollars)")
         .attr("fill", "white")
         .attr("fontSize", 22);
 
     // TODO add labels to bars
-    // svg.selectAll("text")
-    //     .data(data)
-    //     .enter()
-    //     .append("text")
-    //     .text(function(d) { return d.numSubscribers; })
-    //     .attr("x", function(d){
-    //         return x(d.platform) + x.bandwidth() / 2;
-    //     })
-    //     .attr("y", function(d){
-    //         return height - y(d.numSubscribers) + 14;
-    //     })
-    //     .attr("font-family" , "sans-serif")
-    //     .attr("font-size" , 18)
-    //     .attr("fill" , "white")
-    //     .attr("text-anchor", "middle");
+    svgRevenue.selectAll("text")
+        .data(data)
+        .enter()
+        .append("text")
+        .text(function(d) { return d.revenue; })
+        .attr("x", function(d){
+            return x(d.year) + x.bandwidth() / 2;
+        })
+        .attr("y", function(d){
+            return height - y(d.revenue) + 14;
+        })
+        .attr("font-family" , "sans-serif")
+        .attr("font-size" , 18)
+        .attr("fill" , "red")
+        .attr("text-anchor", "middle");
 
 
 })

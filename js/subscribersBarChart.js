@@ -13,7 +13,7 @@ let y = d3.scaleLinear()
 let color = ["#E50914", "#00A8E1", "#b8d6e9", "#3DBB3D", "#c4302b", "#f6f3ed"]
 
 // Append svg to correct html
-let svg = d3.select("div#subscribersByPlatform.col").append("svg")
+let svgSubscribers = d3.select("div#subscribersByPlatform.col").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
@@ -21,23 +21,23 @@ let svg = d3.select("div#subscribersByPlatform.col").append("svg")
         "translate(" + margin.left + "," + margin.top + ")");
 
 // get the data, using promises
-let dataset = d3.csv("data/streamingPlatformsSubscribers.csv");
-dataset.then(function(data) {
+let subsDataset = d3.csv("data/streamingPlatformsSubscribers.csv");
+subsDataset.then(function(data) {
     data.map(function(d) {
         d.numSubscribers = parseInt(d.numSubscribers);
         return d;
     });
 });
 
-console.log(dataset)
+console.log(subsDataset)
 
-dataset.then(function(data) {
+subsDataset.then(function(data) {
     // Set domains
     x.domain(data.map(function(d) { return d.platform; }));
     y.domain([0, d3.max(data, function(d) { return d.numSubscribers; })]);
 
     // appending rectangles
-    svg.selectAll(".bar")
+    svgSubscribers.selectAll(".bar")
         .data(data)
         .enter().append("rect")
         .attr("class", "bar")
@@ -51,16 +51,16 @@ dataset.then(function(data) {
         });
 
     // add x-axis
-    svg.append("g")
+    svgSubscribers.append("g")
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x));
 
     // add y-axis
-    svg.append("g")
+    svgSubscribers.append("g")
         .call(d3.axisLeft(y));
 
     // text label for the x axis
-    svg.append("text")
+    svgSubscribers.append("text")
         .attr("transform",
             "translate(" + (width/2) + " ," +
             (height + margin.top + 20) + ")")
@@ -70,7 +70,7 @@ dataset.then(function(data) {
         .attr("fontSize", 22);
 
     // text label for the y axis
-    svg.append("text")
+    svgSubscribers.append("text")
         .attr("transform", "rotate(-90)")
         .attr("y", 0 - margin.left)
         .attr("x",0 - (height / 2))
@@ -81,21 +81,21 @@ dataset.then(function(data) {
         .attr("fontSize", 22);
 
     // TODO add labels to bars
-    // svg.selectAll("text")
-    //     .data(data)
-    //     .enter()
-    //     .append("text")
-    //     .text(function(d) { return d.numSubscribers; })
-    //     .attr("x", function(d){
-    //         return x(d.platform) + x.bandwidth() / 2;
-    //     })
-    //     .attr("y", function(d){
-    //         return height - y(d.numSubscribers) + 14;
-    //     })
-    //     .attr("font-family" , "sans-serif")
-    //     .attr("font-size" , 18)
-    //     .attr("fill" , "white")
-    //     .attr("text-anchor", "middle");
+    svgSubscribers.selectAll("text")
+        .data(data)
+        .enter()
+        .append("text")
+        .text(function(d) { return d.numSubscribers; })
+        .attr("x", function(d){
+            return x(d.platform) + x.bandwidth() / 2;
+        })
+        .attr("y", function(d){
+            return height - y(d.numSubscribers) + 14;
+        })
+        .attr("font-family" , "sans-serif")
+        .attr("font-size" , 18)
+        .attr("fill" , "white")
+        .attr("text-anchor", "middle");
 
 
 })
