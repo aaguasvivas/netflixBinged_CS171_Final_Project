@@ -1,7 +1,7 @@
 // set the dimensions and margins of the graph
 let margin = {top: 20, right: 20, bottom: 30, left: 40},
-    width = 500 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+    width = 700 - margin.left - margin.right,
+    height = 700 - margin.top - margin.bottom;
 
 // set the ranges
 let x = d3.scaleBand()
@@ -44,7 +44,9 @@ dataset.then(function(data) {
         .attr("x", function(d) { return x(d.platform); })
         .attr("width", x.bandwidth())
         .attr("y", function(d) { return y(d.numSubscribers); })
-        .attr("height", function(d) { return height - y(d.numSubscribers); });
+        .attr("height", function(d) { return height - y(d.numSubscribers);
+        })
+        .attr("fill", "white");
 
     // add the x Axis
     svg.append("g")
