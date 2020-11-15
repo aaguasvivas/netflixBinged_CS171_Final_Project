@@ -1,6 +1,6 @@
 // set the dimensions and margins of the graph
 let margin = {top: 20, right: 20, bottom: 30, left: 40},
-    width = 960 - margin.left - margin.right,
+    width = 500 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
 // set the ranges
@@ -13,7 +13,7 @@ let y = d3.scaleLinear()
 // append the svg object to the body of the page
 // append a 'group' element to 'svg'
 // moves the 'group' element to the top left margin
-let svg = d3.select(".subscribersByPlatform").append("svg")
+let svg = d3.select("div#subscribersByPlatform.col").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
@@ -21,16 +21,17 @@ let svg = d3.select(".subscribersByPlatform").append("svg")
         "translate(" + margin.left + "," + margin.top + ")");
 
 // get the data
-d3.csv("data/streamingPlatformsSubscribers.csv", function(error, data) {
-    if (error) throw error;
-
-    // format the data
-    data.forEach(function(d) {
+let dataset = d3.csv("data/streamingPlatformsSubscribers.csv");
+dataset.then(function(data) {
+    data.map(function(d) {
         d.numSubscribers = +d.numSubscribers;
+        return d;
     });
+});
 
-    console.log(data)
+console.log(dataset)
 
+dataset.then(function(data) {
     // Scale the range of the data in the domains
     x.domain(data.map(function(d) { return d.platform; }));
     y.domain([0, d3.max(data, function(d) { return d.numSubscribers; })]);
@@ -54,4 +55,6 @@ d3.csv("data/streamingPlatformsSubscribers.csv", function(error, data) {
     svg.append("g")
         .call(d3.axisLeft(y));
 
-});
+
+})
+

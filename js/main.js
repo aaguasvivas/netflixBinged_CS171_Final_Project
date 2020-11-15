@@ -1,5 +1,4 @@
 let titles;
-let platforms;
 
 loadData();
 createVis();
