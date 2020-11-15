@@ -1,7 +1,7 @@
 
 class BubbleChart {
 
-    constructor(parentElement, data) {
+    constructor(parentElement, titles) {
         this.parentElement = parentElement;
         this.titles = titles;
 
@@ -19,6 +19,6 @@ class BubbleChart {
     }
 
     updateVis() {
-        
+
     }
 }
