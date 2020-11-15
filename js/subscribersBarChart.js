@@ -1,5 +1,5 @@
 // set the dimensions and margins of the graph
-let margin = {top: 20, right: 20, bottom: 50, left: 70},
+let margin = {top: 50, right: 20, bottom: 50, left: 70},
     width = 700 - margin.left - margin.right,
     height = 700 - margin.top - margin.bottom;
 
@@ -79,6 +79,23 @@ dataset.then(function(data) {
         .text("Subscribers (in Millions)")
         .attr("fill", "white")
         .attr("fontSize", 22);
+
+    // TODO add labels to bars
+    svg.selectAll("text")
+        .data(data)
+        .enter()
+        .append("text")
+        .text(function(d) { return d.numSubscribers; })
+        .attr("x", function(d){
+            return x(d.platform) + x.bandwidth() / 2;
+        })
+        .attr("y", function(d){
+            return height - y(d.numSubscribers) + 14;
+        })
+        .attr("font-family" , "sans-serif")
+        .attr("font-size" , 18)
+        .attr("fill" , "white")
+        .attr("text-anchor", "middle");
 
 
 })
