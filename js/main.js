@@ -1,24 +1,64 @@
 let titles;
+let genres = [];
 
-loadData();
+//loadData();
 
+let promises = [
+    d3.csv("data/netflix_titles.csv")
+];
 
+Promise.all(promises)
+    .then(function(data) {initMainPage(data)})
+    .catch(function(err){console.log(err)})
 
-// load data
-function loadData() {
-    d3.csv("data/netflix_titles.csv").then(titles => {
+function initMainPage(data){
 
-        // console.log(titles)
+    titles = data[0]
 
-        // TODO: create list of listed_in
-        // TODO: separate by format, then separate by listed_in
-        // TODO: create bubbles - https://observablehq.com/@d3/bubble-chart
-        // options - separate by genre, color by genre (tough for multiple genres) or enable filtering
-        // refer to bechdel test
+    // parse out genres
+    let genreString = titles[0].listed_in;
 
-        MyBubbleChart = new BubbleChart('bubblechart', titles);
+    for(let i = 1; i < titles.length; i++){
+        genreString = genreString + ", " + titles[i].listed_in;
+    }
 
+    genreArray = genreString.split(",");
 
-    });
+    // https://stackoverflow.com/questions/9229645/remove-duplicate-values-from-js-array
+    genres = genreArray.filter(function(genre, index){
+        return genreArray.indexOf(genre) == index;
+    })
+
+    console.log(genres);
+    // initialize bubble chart
+    MyBubbleChart = new BubbleChart('bubblechart', titles)
 
 }
+
+
+// // load data
+// function loadData() {
+//     d3.csv("data/netflix_titles.csv").then(titles => {
+//
+//         console.log(titles[0].listed_in)
+//
+//         let temp;
+//
+//         titles.forEach(function(title, index){
+//             temp = title.listed_in.split(",");
+//
+//         })
+//
+//
+//         // TODO: create list of listed_in
+//         // TODO: separate by format, then separate by listed_in
+//         // TODO: create bubbles - https://observablehq.com/@d3/bubble-chart
+//         // options - separate by genre, color by genre (tough for multiple genres) or enable filtering
+//         // refer to bechdel test
+//
+//         MyBubbleChart = new BubbleChart('bubblechart', titles);
+//
+//
+//     });
+
+//}
