@@ -117,3 +117,4 @@ class BubbleChart {
 
 // TODO: color circles accordingly
 // TODO: add tooltips
+// TODO: https://www.freecodecamp.org/news/a-gentle-introduction-to-d3-how-to-build-a-reusable-bubble-chart-9106dc4f6c46/ 
