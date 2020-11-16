@@ -1,9 +1,10 @@
 
 class BubbleChart {
 
-    constructor(parentElement, titles) {
+    constructor(parentElement, titles, dummydata) {
         this.parentElement = parentElement;
         this.titles = titles;
+        this.dummydata = dummydata;
 
         this.initVis();
     }
@@ -84,15 +85,15 @@ class BubbleChart {
         //     .range([5,18]);
 
 
-        vis.MovieCircles = vis.svg.selectAll(".circle")
-            .data(vis.movies)
-
-            .enter()
-            .append("circle")
-            .attr("class", "circle")
-            .attr("r", 5)
-            .attr("fill", "red")
-            .attr('transform', 'translate(' + [vis.width / 2, vis.height / 2] + ')')
+        // vis.ShowCircles = vis.svg.selectAll(".circle")
+        //     .data(vis.shows)
+        //
+        //     .enter()
+        //     .append("circle")
+        //     .attr("class", "circle")
+        //     .attr("r", 5)
+        //     .attr("fill", "red")
+        //     .attr('transform', 'translate(' + [vis.width / 2, vis.height / 2] + ')')
             // .merge(vis.MovieCircles);
 
         // function ticked(e) {
@@ -117,4 +118,4 @@ class BubbleChart {
 
 // TODO: color circles accordingly
 // TODO: add tooltips
-// TODO: https://www.freecodecamp.org/news/a-gentle-introduction-to-d3-how-to-build-a-reusable-bubble-chart-9106dc4f6c46/ 
+// TODO: https://www.freecodecamp.org/news/a-gentle-introduction-to-d3-how-to-build-a-reusable-bubble-chart-9106dc4f6c46/
