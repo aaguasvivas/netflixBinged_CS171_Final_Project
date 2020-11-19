@@ -4,7 +4,8 @@ let genres = [];
 //loadData();
 
 let promises = [
-    d3.csv("data/netflix_titles.csv")
+    d3.csv("data/netflix_titles.csv"),
+    d3.csv("data/dummyshow")
 ];
 
 Promise.all(promises)
@@ -14,6 +15,8 @@ Promise.all(promises)
 function initMainPage(data){
 
     titles = data[0]
+    dummy = data[1]
+    console.log(dummy)
 
     // parse out genres
     let genreString = titles[0].listed_in;
@@ -31,7 +34,7 @@ function initMainPage(data){
 
     console.log(genres);
     // initialize bubble chart
-    MyBubbleChart = new BubbleChart('bubblechart', titles)
+    MyBubbleChart = new BubbleChart('bubblechart', titles, dummy)
 
 }
 

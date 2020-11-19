@@ -1,10 +1,10 @@
 
 class BubbleChart {
 
-    constructor(parentElement, titles, dummydata) {
+    constructor(parentElement, titles, dummy) {
         this.parentElement = parentElement;
         this.titles = titles;
-        this.dummydata = dummydata;
+        this.dummy = dummy;
 
         this.initVis();
     }
@@ -64,8 +64,8 @@ class BubbleChart {
             }
         })
 
-        console.log(vis.movies)
-        console.log(vis.shows)
+        // console.log(vis.movies)
+        // console.log(vis.shows)
 
         vis.updateVis();
     }
@@ -75,7 +75,37 @@ class BubbleChart {
         let vis = this;
 
         // bubble chart packing not working, building circles
+        // experimenting with dummy data
 
+        // vis.pack = d3.pack()
+        //     .size([vis.width, vis.height - 50])
+        //     // .children(d => d.)
+        //     .padding(10);
+        //
+        // vis.force = d3.force()
+        //     .size([width, height - 50]);
+        //
+        // vis.force.nodes(dummy).start();
+
+        // var nodes = pack.nodes(data);
+        //
+        // var node = chart.selectAll(".node")
+        //     .data(nodes).enter()
+        //     .append("g")
+        //     .attr("class", "node")
+        //     .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
+        //     .call(force.drag);
+        //
+        // node.append("circle")
+        //     .attr("r",function(d) { return d.r; })
+        //     .attr("fill", function(d){ return d.children ? "#fff" : color(d.domain); }) //make nodes with children invisible
+        //     .attr("opacity", 0.6)
+        //
+        // node.append("a")
+        //     .attr("href", function(d){ return d.link; })
+        //     .append("text")
+        //     .attr("dy", ".3em").style("text-anchor", "middle")
+        //     .text(function(d) { return d.children ? "" : d.name; });
 
         // not using since the circles will be the same size
         // vis.scaleRadius = d3.scaleLinear()
@@ -119,3 +149,5 @@ class BubbleChart {
 // TODO: color circles accordingly
 // TODO: add tooltips
 // TODO: https://www.freecodecamp.org/news/a-gentle-introduction-to-d3-how-to-build-a-reusable-bubble-chart-9106dc4f6c46/
+
+// TODO: OH - how to nest data? how to do pack layout
