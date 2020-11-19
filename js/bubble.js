@@ -28,6 +28,28 @@ class BubbleChart {
             .append('g')
             .attr('transform', `translate (${vis.margin.left}, ${vis.margin.top})`);
 
+
+        // vis.displayData = d3.stratify(dummy);
+        // console.log(vis.displayData)
+
+        // vis.dummy.forEach((d,i) => {
+        //
+        // })
+
+        vis.grouped_dummmy = d3.group(dummy, d => d.type, d => d.listed_in)
+
+        vis.flatNodeHeirarchy = d3.hierarchy({
+            children: dummy
+        })
+            .sum(d => d.type);
+
+        console.log(vis.flatNodeHeirarchy)
+
+        //     {
+        //     let vis.base = {children: dummy.slice(1)}; // remove the first value from the dataset - which is an aggregate we don't need
+        //     return d3.hierarchy(vis.base).count(d => d.listed_in),
+        // }
+
         vis.wrangleData();
     }
 
@@ -77,13 +99,13 @@ class BubbleChart {
         // bubble chart packing not working, building circles
         // experimenting with dummy data
 
-        // vis.pack = d3.pack()
-        //     .size([vis.width, vis.height - 50])
-        //     // .children(d => d.)
-        //     .padding(10);
-        //
-        // vis.force = d3.force()
-        //     .size([width, height - 50]);
+        vis.pack = d3.pack()
+            .size([vis.width, vis.height - 50])
+            // .children(d => d.)
+            .padding(10);
+
+        vis.force = d3.force()
+            .size([width, height - 50]);
         //
         // vis.force.nodes(dummy).start();
 
@@ -151,3 +173,5 @@ class BubbleChart {
 // TODO: https://www.freecodecamp.org/news/a-gentle-introduction-to-d3-how-to-build-a-reusable-bubble-chart-9106dc4f6c46/
 
 // TODO: OH - how to nest data? how to do pack layout
+// TODO: loop through data to check with existing genres
+// TODO: d3.hierarchy

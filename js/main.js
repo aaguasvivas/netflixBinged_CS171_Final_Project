@@ -25,7 +25,7 @@ function initMainPage(data){
         genreString = genreString + ", " + titles[i].listed_in;
     }
 
-    genreArray = genreString.split(",");
+    genreArray = genreString.split(", ");
 
     // https://stackoverflow.com/questions/9229645/remove-duplicate-values-from-js-array
     genres = genreArray.filter(function(genre, index){
