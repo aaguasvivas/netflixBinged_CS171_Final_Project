@@ -33,6 +33,16 @@ function initMainPage(data){
     })
 
     console.log(genres);
+
+    // assigning super genres
+    // titles.forEach((d,i) => {
+    //     if (d.listed_in.includes("Children & Family Movies" || "Comedies")) {
+    //         d['supergenre'] = "Family"
+    //     }
+    // })
+
+    console.log("s", titles)
+
     // initialize bubble chart
     MyBubbleChart = new BubbleChart('bubblechart', titles, dummy)
 

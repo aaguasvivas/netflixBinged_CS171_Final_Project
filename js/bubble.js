@@ -36,14 +36,20 @@ class BubbleChart {
         //
         // })
 
-        vis.grouped_dummmy = d3.group(dummy, d => d.type, d => d.listed_in)
 
-        vis.flatNodeHeirarchy = d3.hierarchy({
-            children: dummy
-        })
-            .sum(d => d.type);
+        // vis.grouped_dummmy = d3.group(dummy, d => d.type, d => d.listed_in)
+        //
 
-        console.log(vis.flatNodeHeirarchy)
+        vis.grouped_dummy = d3.stratify()(vis.dummy)
+        console.log(vis.grouped_dummy)
+        // vis.flatNodeHierarchy = d3.hierarchy({
+        //     children: dummy
+        // })
+        //     .sum(d => d.type);
+        //
+        // console.log(vis.flatNodeHierarchy)
+
+        // one root node, children for each genre,
 
         //     {
         //     let vis.base = {children: dummy.slice(1)}; // remove the first value from the dataset - which is an aggregate we don't need
