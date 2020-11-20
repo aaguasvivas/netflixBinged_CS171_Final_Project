@@ -30,3 +30,15 @@ h2 {
     text-align: center;
     position: relative;
 }
+
+.rating-guess {
+    padding-top: 20px;
+}
+
+#movie-ratings {
+    padding-right: 50px;
+}
+
+#show-ratings {
+    padding-left: 50px;
+}
