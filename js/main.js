@@ -32,8 +32,7 @@ function initMainPage(data){
         return genreArray.indexOf(genre) == index;
     })
 
-    console.log(genres);
-    // initialize bubble chart
+    // Visualization Initializations
     MyBubbleChart = new BubbleChart('bubblechart', titles, dummy)
 
 }
