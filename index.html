@@ -127,5 +127,14 @@
     <script src="js/bubble.js"></script>
     <script src="js/viewerEnjoyment.js"></script>
 
+    <script type="text/javascript">
+        window.onload = function () {
+            if (localStorage.getItem("hasCodeRunBefore") === null) {
+                document.getElementById("intro-audio").play();
+                localStorage.setItem("hasCodeRunBefore", true);
+            }
+        }
+    </script>
+
 </body>
 </html>

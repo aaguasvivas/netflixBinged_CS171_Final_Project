@@ -8,6 +8,8 @@
     position: relative;
 }
 
+
+/* Intro Page */
 #intro {
 
     font-size: 6em;
@@ -15,6 +17,10 @@
     color: red;
     text-align: center;
     position: relative;
+}
+
+#intro-audio {
+    display: none
 }
 
 /* Scroll Icon */
@@ -87,6 +93,7 @@ h2 {
     position: relative;
 }
 
+/* Viewer Enjoyment */
 .rating-guess {
     padding-top: 20px;
 }
