@@ -19,9 +19,12 @@
     position: relative;
 }
 
-#intro-audio {
-    display: none
+h2 {
+    font-size: 30px;
+    font-family: 'Bebas Neue';
+    color: white;
 }
+
 
 /* Scroll Icon */
 /* https://codepen.io/nxworld/pen/OyRrGy */
@@ -78,13 +81,7 @@
     }
 }
 
-/* Subheading */
-h2 {
-    font-size: 30px;
-    font-family: 'Bebas Neue';
-    color: white;
-}
-
+/* Background Info */
 .background {
     font-size: 1em;
     font-family: helvetica, arial;
@@ -94,6 +91,13 @@ h2 {
 }
 
 /* Viewer Enjoyment */
+#viewer-enjoyment {
+    font-size: 1em;
+    font-family: helvetica, arial;
+    color: white;
+    text-align: center;
+}
+
 .rating-guess {
     padding-top: 20px;
 }

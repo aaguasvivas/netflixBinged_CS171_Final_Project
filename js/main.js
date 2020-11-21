@@ -1,11 +1,14 @@
 let titles;
 let genres = [];
+let imdbMovies = [];
+let imdbShows = [];
 
 //loadData();
 
 let promises = [
     d3.csv("data/netflix_titles.csv"),
-    d3.csv("data/dummyshow")
+    d3.csv("data/dummyshow"),
+    d3.csv("data/netflixIMDB.csv")
 ];
 
 Promise.all(promises)
@@ -14,9 +17,20 @@ Promise.all(promises)
 
 function initMainPage(data){
 
+    // data
     titles = data[0]
     dummy = data[1]
-    console.log(dummy)
+    imdb = data[2]
+
+    // create imdb movie and shows array
+    imdbMovies = imdb.filter(function(e){
+        return e.type == "Movie"
+    })
+
+    imdbShows = imdb.filter(function(e){
+        return e.type == "TV Show"
+    })
+
 
     // parse out genres
     let genreString = titles[0].listed_in;
@@ -35,32 +49,7 @@ function initMainPage(data){
     MyBubbleChart = new BubbleChart('bubblechart', titles, dummy)
 
 }
-<<<<<<< HEAD
-=======
 
 
-// // load data
-// function loadData() {
-//     d3.csv("data/netflix_titles.csv").then(titles => {
-//
-//         console.log(titles[0].listed_in)
-//
-//         let temp;
-//
-//         titles.forEach(function(title, index){
-//             temp = title.listed_in.split(",");
-//
-//         })
-//
-//
-//         // TODO: create bubbles - https://observablehq.com/@d3/bubble-chart
-//         // options - separate by genre, color by genre (tough for multiple genres) or enable filtering
-//         // refer to bechdel test
-//
-//         MyBubbleChart = new BubbleChart('bubblechart', titles);
-//
-//
-//     });
 
-//}
->>>>>>> ff464db1d717ac6e3ff0e6dd0ea2af4fdb3839ef
+
