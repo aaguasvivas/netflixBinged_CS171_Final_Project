@@ -93,17 +93,23 @@
             <div class="row d-flex justify-content-center">
                 <!-- Movie Rating Slider -->
                 <div class="col-5" id="movie-ratings">
-                    <p> Guess what the average IMDB rating of Netflix's movies is. </p>
+                    <p> What's the average IMDB rating (scored out of 10) of Netflix's movies?
+                    <br> Take a guess using the slider! </p>
                     <div id="movie-slider"></div>
-                    <div class="rating-guess">Your guess is <span id="movie-guess"></span> star average rating.</div>
+                    <div class="rating-guess">Your guess is an average rating of <span id="movie-guess"></span>.</div>
+                    <input type="button" name="answer" value="Check" onclick="showMovie()" />
+                    <div class="rating-actual" id="m-act">The actual average rating is <span id="movie-actual"></span>.</div>
                     <div id="movie-ratings-viz"></div>
                 </div>
 
                 <!-- TV Shows Rating Slider -->
                 <div class="col-5" id="show-ratings">
-                    <p> Guess what the average IMDB rating of Netflix's shows is. </p>
+                    <p> What's the average IMDB rating (scored out of 10) of Netflix's TV shows?
+                        <br> Take a guess using the slider! </p>
                     <div id="show-slider"></div>
-                    <div class="rating-guess">Your guess is <span id="show-guess"></span> star average rating.</div>
+                    <div class="rating-guess">Your guess is an average rating of <span id="show-guess"></span>.</div>
+                    <input type="button" name="answer" value="Check" onclick="showTV()" />
+                    <div class="rating-actual" id="s-act">The actual average rating is <span id="show-actual"></span>.</div>
                     <div id="show-ratings-viz"></div>
                 </div>
             </div>

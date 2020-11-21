@@ -14,7 +14,7 @@ class Grid {
         vis.displayData = [];
 
         // SVG dimensions
-        vis.margin = {top: 100, right: 0, bottom: 60, left: 0};
+        vis.margin = {top: 80, right: 0, bottom: 60, left: 0};
         vis.width = $('#' + vis.parentElement).width() - vis.margin.left - vis.margin.right;
         vis.height = vis.width;
         vis.cellHeight = 3.5;

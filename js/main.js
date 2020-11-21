@@ -36,6 +36,29 @@ function initMainPage(data){
         return e.type == "TV Show"
     })
 
+    // calculate average ratings
+    var movieCounter = 0;
+    var showCounter = 0;
+    let movieAverage = 0;
+    let showAverage = 0;
+
+    // calculate average ratings
+    imdbMovies.forEach(function(d){
+        movieCounter = movieCounter + d.rating;
+    })
+
+    imdbShows.forEach(function(d){
+        showCounter = showCounter + d.rating;
+    })
+
+    movieAverage = (movieCounter/imdbMovies.length).toFixed(2);
+    showAverage = (showCounter/imdbShows.length).toFixed(2);
+
+    // update HTML with calculation
+    document.getElementById('movie-actual').innerHTML = movieAverage;
+    document.getElementById('show-actual').innerHTML = showAverage;
+
+
     // parse out genres
     let genreString = titles[0].listed_in;
 
@@ -56,6 +79,13 @@ function initMainPage(data){
 
 }
 
+function showMovie() {
+    document.getElementById('m-act').style.display = "block";
+}
 
+function showTV(){
+    document.getElementById('s-act').style.display = "block";
+
+}
 
 

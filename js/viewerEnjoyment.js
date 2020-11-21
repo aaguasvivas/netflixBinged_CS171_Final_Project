@@ -34,3 +34,4 @@ movieSlider.noUiSlider.on('update', function(values, handle){
 showSlider.noUiSlider.on('update', function (values, handle) {
     userShowGuess.innerHTML = values[handle];
 });
+
