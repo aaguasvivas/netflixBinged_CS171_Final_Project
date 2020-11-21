@@ -22,6 +22,11 @@ function initMainPage(data){
     dummy = data[1]
     imdb = data[2]
 
+    // convert string to integer
+    imdb.forEach(function(d){
+        d.rating = +d.rating;
+    })
+
     // create imdb movie and shows array
     imdbMovies = imdb.filter(function(e){
         return e.type == "Movie"
@@ -30,7 +35,6 @@ function initMainPage(data){
     imdbShows = imdb.filter(function(e){
         return e.type == "TV Show"
     })
-
 
     // parse out genres
     let genreString = titles[0].listed_in;
@@ -46,8 +50,9 @@ function initMainPage(data){
         return genreArray.indexOf(genre) == index;
     })
 
-    MyBubbleChart = new BubbleChart('bubblechart', titles, dummy)
-    movieRatings = new Grid('movie-ratings-viz', imdbMovies)
+    MyBubbleChart = new BubbleChart('bubblechart', titles, dummy);
+    movieRatings = new Grid('movie-ratings-viz', imdbMovies);
+    showRatings = new Grid('show-ratings-viz', imdbShows);
 
 }
 
