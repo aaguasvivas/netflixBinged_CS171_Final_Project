@@ -37,13 +37,20 @@
         <!-- Background -->
         <div class="section background">
             <div class="slide">
-                In an increasingly virtual world, 
+                In an increasingly virtual world, streaming platforms are becoming more and more popular. Netflix began
+                offering movie streaming to its subscribers in 2007 and promptly became one of the world's largest streaming
+                platforms. In 2010, Netflix converted into a streaming-only provider and began expanding outside of the United
+                States. Today, Netflix has not only become the go-to streaming platform, but a widespread cultural norm.
             </div>
 
             <!-- By Platform -->
             <div class="slide">
                 <div class="row">
-                    <div class="col">Text Placeholder</div>
+                    <div class="col">
+                        <audio data-autoplay>
+                            <source src="intro-sound.mp3" type="audio/mp3">
+                        </audio>
+                    </div>
                     <div class="col subscribers" id="subscribersByPlatform">
                         Subscribers by Platform
                     </div>
@@ -82,12 +89,14 @@
 
         <!-- Viewer Enjoyment -->
         <div class="section" id="viewer-enjoyment">
+            <h1>Viewer Enjoyment</h1>
             <div class="row d-flex justify-content-center">
                 <!-- Movie Rating Slider -->
                 <div class="col-5" id="movie-ratings">
                     <p> Guess what the average IMDB rating of Netflix's movies is. </p>
                     <div id="movie-slider"></div>
                     <div class="rating-guess">Your guess is <span id="movie-guess"></span> star average rating.</div>
+                    <div id="movie-ratings-viz"></div>
                 </div>
 
                 <!-- TV Shows Rating Slider -->
@@ -128,6 +137,7 @@
     <script src="js/revenueBarChart.js"></script>
     <script src="js/bubble.js"></script>
     <script src="js/viewerEnjoyment.js"></script>
+    <script src="js/ratings.js"></script>
 
     <script type="text/javascript">
         window.onload = function () {

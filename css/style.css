@@ -96,6 +96,14 @@ h2 {
     font-family: helvetica, arial;
     color: white;
     text-align: center;
+
+}
+
+#viewer-enjoyment h1 {
+    font-family: 'Bebas Neue';
+    color: red;
+    text-align: left;
+    padding-left: 40px;
 }
 
 .rating-guess {

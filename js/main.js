@@ -47,6 +47,7 @@ function initMainPage(data){
     })
 
     MyBubbleChart = new BubbleChart('bubblechart', titles, dummy)
+    movieRatings = new Grid('movie-ratings-viz', imdbMovies)
 
 }
 
