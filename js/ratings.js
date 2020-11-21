@@ -94,9 +94,5 @@ class Grid {
                 else
                     return "white"
             })
-
-
     }
-
-
 }
