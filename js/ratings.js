@@ -62,11 +62,15 @@ class Grid {
     updateVis(){
         let vis = this;
 
-        vis.text = vis.svg.selectAll("text").data(vis.displayData)
-            .enter()
-            .append("text")
+        vis.text = vis.svg.append("text")
             .text(vis.percent + "% are rated 6 or higher on IMDB.")
             .attr("fill", "white")
+
+            // .selectAll("text").data(vis.displayData)
+            // .enter()
+            // .append("text")
+            // .text(vis.percent + "% are rated 6 or higher on IMDB.")
+            // .attr("fill", "white")
 
         vis.row = vis.svg.selectAll(".row").data(vis.displayData)
             .enter()
