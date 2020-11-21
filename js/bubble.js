@@ -40,8 +40,8 @@ class BubbleChart {
         // vis.grouped_dummmy = d3.group(dummy, d => d.type, d => d.listed_in)
         //
 
-        vis.grouped_dummy = d3.stratify()(vis.dummy)
-        console.log(vis.grouped_dummy)
+        vis.grouped_titles = d3.stratify()(vis.titles)
+        console.log(vis.grouped_titles)
         // vis.flatNodeHierarchy = d3.hierarchy({
         //     children: dummy
         // })
@@ -63,34 +63,34 @@ class BubbleChart {
 
         let vis = this;
 
-        vis.displayData = vis.titles;
+        // vis.displayData = vis.titles;
 
         // console.log(vis.titles)
 
-        vis.movies = [];
-        vis.shows = [];
-
-        vis.displayData.forEach((d,i) => {
-            if (d.type === "Movie") {
-                let movie = {
-                    "year": d.release_year,
-                    "title": d.title,
-                    "type": d.type,
-                    "description": d.description,
-                    "listed_in": d.listed_in
-                }
-                vis.movies.push(movie);
-            } else {
-                let show = {
-                    "year": d.release_year,
-                    "title": d.title,
-                    "type": d.type,
-                    "description": d.description,
-                    "listed_in": d.listed_in
-                }
-                vis.shows.push(show);
-            }
-        })
+        // vis.movies = [];
+        // vis.shows = [];
+        //
+        // vis.displayData.forEach((d,i) => {
+        //     if (d.type === "Movie") {
+        //         let movie = {
+        //             "year": d.release_year,
+        //             "title": d.title,
+        //             "type": d.type,
+        //             "description": d.description,
+        //             "listed_in": d.listed_in
+        //         }
+        //         vis.movies.push(movie);
+        //     } else {
+        //         let show = {
+        //             "year": d.release_year,
+        //             "title": d.title,
+        //             "type": d.type,
+        //             "description": d.description,
+        //             "listed_in": d.listed_in
+        //         }
+        //         vis.shows.push(show);
+        //     }
+        // })
 
         // console.log(vis.movies)
         // console.log(vis.shows)
@@ -106,14 +106,44 @@ class BubbleChart {
         // experimenting with dummy data
 
         vis.pack = d3.pack()
-            .size([vis.width, vis.height - 50])
-            // .children(d => d.)
-            .padding(10);
+            .size([vis.width, vis.height])
+            .padding(3)
 
-        vis.force = d3.force()
-            .size([width, height - 50]);
+        vis.packedData = vis.pack(vis.grouped_titles)
+
+        console.log(vis.packedData)
+
+        vis.leaf = vis.svg.selectAll("g")
+            .data(vis.packedData.leaves())
+            .enter().append("g")
+            // .attr("transform", d => `translate(${d.x + 1},${d.y + 1})`);
+
+        // TODO: figure out NaN for circles
+        
+        // ** USING : https://bl.ocks.org/denjn5/6d5ddd4226506d644bb20062fc60b53f
+        // vis.pack = d3.pack()
+        //     .size([vis.width, vis.height - 50]);
+        // .children(d => d.)
+        // .padding(10);
+        // vis.root = d3.hierarchy(vis.grouped_titles);
+        // vis.nodes = vis.root.descendants();
+        //
+        // console.log(vis.root)
+        // console.log(vis.nodes)
+        //
+        // vis.pack(vis.root)
+
+        // vis.slices = vis.svg.selectAll("circle")
+        //     .data(vis.nodes)
+        //     .enter()
+        //     .append("circle")
+        //     .attr('cx', function (d) { return d.x; })
+        //     .attr('cy', function (d) { return d.y; })
+        //     .attr('r', 1);
         //
         // vis.force.nodes(dummy).start();
+
+        // **END OF USING: https://bl.ocks.org/denjn5/6d5ddd4226506d644bb20062fc60b53f
 
         // var nodes = pack.nodes(data);
         //

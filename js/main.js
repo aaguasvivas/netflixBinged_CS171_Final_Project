@@ -51,8 +51,6 @@ function initMainPage(data){
 //         })
 //
 //
-//         // TODO: create list of listed_in
-//         // TODO: separate by format, then separate by listed_in
 //         // TODO: create bubbles - https://observablehq.com/@d3/bubble-chart
 //         // options - separate by genre, color by genre (tough for multiple genres) or enable filtering
 //         // refer to bechdel test
