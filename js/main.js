@@ -35,3 +35,32 @@ function initMainPage(data){
     MyBubbleChart = new BubbleChart('bubblechart', titles, dummy)
 
 }
+<<<<<<< HEAD
+=======
+
+
+// // load data
+// function loadData() {
+//     d3.csv("data/netflix_titles.csv").then(titles => {
+//
+//         console.log(titles[0].listed_in)
+//
+//         let temp;
+//
+//         titles.forEach(function(title, index){
+//             temp = title.listed_in.split(",");
+//
+//         })
+//
+//
+//         // TODO: create bubbles - https://observablehq.com/@d3/bubble-chart
+//         // options - separate by genre, color by genre (tough for multiple genres) or enable filtering
+//         // refer to bechdel test
+//
+//         MyBubbleChart = new BubbleChart('bubblechart', titles);
+//
+//
+//     });
+
+//}
+>>>>>>> ff464db1d717ac6e3ff0e6dd0ea2af4fdb3839ef
