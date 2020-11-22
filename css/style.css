@@ -126,3 +126,15 @@ h2 {
 #show-ratings {
     padding-left: 50px;
 }
+
+.tooltip {
+    position: absolute;
+    text-align: center;
+    font: 12px sans-serif;
+}
+.tooltip h3,h4 {
+    text-align: left;
+}
+.tooltip h4 {
+    font: 14px sans-serif;
+}
