@@ -40,7 +40,7 @@ class StackedAreaChart {
     initVis(){
         let vis = this;
 
-        vis.margin = {top: 20, right: 20, bottom: 60, left: 60};
+        vis.margin = {top: 100, right: 20, bottom: 100, left: 150};
 
         vis.width = $('#' + vis.parentElement).width() - vis.margin.left - vis.margin.right;
         vis.height = $('#' + vis.parentElement).height() - vis.margin.top - vis.margin.bottom;
@@ -169,8 +169,8 @@ class StackedAreaChart {
 
         vis.svg.append("text")
             .attr("transform",
-                "translate(" + (width/2) + " ," +
-                (height + margin.top + 20) + ")")
+                "translate(" + (vis.width/2) + " ," +
+                (vis.height + vis.margin.top - 40) + ")")
             .style("text-anchor", "middle")
             .text("Year")
             .attr("fill", "white")
@@ -179,8 +179,8 @@ class StackedAreaChart {
         // text label for the y axis
         vis.svg.append("text")
             .attr("transform", "rotate(-90)")
-            .attr("y", 0 - margin.left)
-            .attr("x",0 - (height / 2))
+            .attr("y", 0 - vis.margin.left + 75)
+            .attr("x",0 - (vis.height / 2) + 10)
             .attr("dy", "1em")
             .style("text-anchor", "middle")
             .text("Subscribers (in Millions)")
