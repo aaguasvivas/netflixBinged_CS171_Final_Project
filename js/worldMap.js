@@ -6,7 +6,7 @@ class MapVis {
         this.internationalData = internationalData;
 
         // define colors
-        this.colors = ['#fddbc7','#f4a582','#d6604d','#E50914']
+        this.colors = ['#fee5d9','#fcae91','#fb6a4a','#cb181d']
 
         this.initVis()
     }
@@ -131,6 +131,7 @@ class MapVis {
             // }
             // find a way to add shows and movies in here maybe through variables
             // if else statement, if no data show no data
+            // use if/else to divide into 4 categories
             let randomCountryValue = Math.random() * 4
             vis.countryInfo[d.properties.name] = {
                 name: d.properties.name,
@@ -185,7 +186,6 @@ class MapVis {
             });
 
         // update legend
-
         vis.world.forEach(function(d) {
             d.properties.value = vis.countryInfo[d.properties.name].value;
 
@@ -203,7 +203,8 @@ class MapVis {
             .attr("x", 80)
             .attr("y", (d, i) => i * 23 - 70)
 
-        vis.legend.selectAll().data(vis.colors)
+        vis.legend.selectAll()
+            .data(vis.colors)
             .enter()
             .append("rect")
             .attr("x", 50)
