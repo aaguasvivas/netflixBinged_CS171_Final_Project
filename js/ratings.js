@@ -28,6 +28,11 @@ class Grid {
             .append("g")
             .attr("transform", "translate(" + vis.margin.left + "," + vis.margin.top + ")");
 
+        // append tooltip
+        vis.tooltip = d3.select("body").append('div')
+          //  .attr('class', "ratingsTooltip")
+            .attr('id', 'ratingsTooltip')
+
         vis.wrangleData();
     }
 
@@ -66,12 +71,6 @@ class Grid {
             .text(vis.percent + "% are rated 6 or higher on IMDB.")
             .attr("fill", "white")
 
-            // .selectAll("text").data(vis.displayData)
-            // .enter()
-            // .append("text")
-            // .text(vis.percent + "% are rated 6 or higher on IMDB.")
-            // .attr("fill", "white")
-
         vis.row = vis.svg.selectAll(".row").data(vis.displayData)
             .enter()
             .append('g')
@@ -83,6 +82,39 @@ class Grid {
         vis.row.selectAll('.rectangle').data(function(d, i) {return vis.displayData[i]})
             .enter()
             .append("rect")
+
+            // tooltip
+            .on("mouseover", function(event, d){
+
+                d3.select(this)
+                    .attr("stroke", "white")
+
+                vis.tooltip
+                    .style("opacity", 1)
+                    .style("left", event.pageX + 20 + "px")
+                    .style("top", event.pageY + "px")
+                    .html(`
+                     <div class="tooltip-box">
+                         <h1> ${d.title}</h1>
+                         <h4> ${d.rating}</h4>
+                     </div>`);
+
+            })
+            .on("mouseout", function(event, d){
+                d3.select(this)
+                    .attr("stroke", "none")
+
+                vis.tooltip
+                    .style("opacity", 0)
+                    .style("left", 0)
+                    .style("top", 0)
+                    .html(``);
+
+            })
+
+            // rectangle attributes
+            .transition()
+            .duration(1000)
             .attr("class", "rectangle")
             .attr("height", vis.cellHeight)
             .attr("width", vis.cellWidth)

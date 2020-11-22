@@ -128,6 +128,13 @@ h2 {
     padding-left: 50px;
 }
 
+.tooltip-box {
+    border: thin solid grey;
+    border-radius: 5px;
+    background: lightgrey;
+    padding: 20px
+}
+
 /* International Presence */
 #worldMap {
     height: 71vh;
