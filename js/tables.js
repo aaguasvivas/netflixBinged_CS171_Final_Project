@@ -298,7 +298,7 @@ var internationalPresenceTable = new Tabulator("#world_table", {
         {column:"numTVShows", dir:"des"},
     ],
     columns:[                 //define the table columns
-        {title:"Country", field:"country", editor:"input"},
+        {title:"Country", field:"country"},
         {title:"Number of TV Shows", field:"numTVShows", hozAlign:"center", sorter:"number"},
         {title:"Number of Movies", field:"numMovies", hozAlign:"center", sorter:"number"},
     ],
