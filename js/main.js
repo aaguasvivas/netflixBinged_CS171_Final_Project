@@ -36,9 +36,9 @@ function initMainPage(data){
         d.Year = parseDate(d.Year)
     })
 
-    console.log(globalExpansion)
+   // console.log(globalExpansion)
     
-    // convert string to integer
+    // convert string to integer in data
     imdb.forEach(function(d){
         d.rating = +d.rating;
     })
@@ -51,6 +51,26 @@ function initMainPage(data){
     imdbShows = imdb.filter(function(e){
         return e.type == "TV Show"
     })
+
+    // calculate IMDB average ratings
+    var mCounter = 0;
+    var sCounter = 0;
+    let movieAverage = 0;
+    let showAverage = 0;
+
+    imdbMovies.forEach(function(d){
+        mCounter = mCounter + d.rating;
+    })
+
+    imdbShows.forEach(function(d){
+        sCounter = sCounter + d.rating;
+    })
+
+    movieAverage = (mCounter/imdbMovies.length).toFixed(2);
+    showAverage = (sCounter/imdbShows.length).toFixed(2);
+
+    document.getElementById('movie-actual').innerHTML = movieAverage;
+    document.getElementById('show-actual').innerHTML = showAverage;
 
     // parse out genres
     let genreString = titles[0].listed_in;
@@ -74,29 +94,6 @@ function initMainPage(data){
     MyAreaChart = new StackedAreaChart("stacked-area-chart", globalExpansion.layers)
     MyAreaChart.initVis();
 
-
-    // calculate average ratings
-    var movieCounter = 0;
-    var showCounter = 0;
-    let movieAverage = 0;
-    let showAverage = 0;
-
-    // calculate average ratings
-    imdbMovies.forEach(function(d){
-        movieCounter = movieCounter + d.rating;
-    })
-
-    imdbShows.forEach(function(d){
-        showCounter = showCounter + d.rating;
-    })
-
-    movieAverage = (movieCounter/imdbMovies.length).toFixed(2);
-    showAverage = (showCounter/imdbShows.length).toFixed(2);
-
-    // update HTML with calculation
-    document.getElementById('movie-actual').innerHTML = movieAverage;
-    document.getElementById('show-actual').innerHTML = showAverage;
-
 }
 
 // display answer after user clicks button to check their guess
@@ -106,7 +103,6 @@ function showMovie() {
 
 function showTV(){
     document.getElementById('s-act').style.display = "block";
-
 }
 
 
