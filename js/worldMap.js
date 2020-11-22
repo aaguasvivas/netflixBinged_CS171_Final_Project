@@ -118,7 +118,7 @@ class MapVis {
     wrangleData(){
         let vis = this;
         // console.log(vis.internationalData.country["Cuba"])
-        console.log(vis.geoData.objects.countries.geometries)
+        // console.log(vis.geoData.objects.countries.geometries)
 
         // create random data structure with information for each land
         vis.countryInfo = {};
@@ -128,10 +128,10 @@ class MapVis {
             vis.countryList.push(place.country);
         })
 
-        console.log("country", vis.countryList)
+        // console.log("country", vis.countryList)
 
         vis.geoData.objects.countries.geometries.forEach( d => {
-            console.log(d.properties.name)
+            // console.log(d.properties.name)
             // USE INDICES, make two more arrays corresponding to movies and shows, see if they line up then use indices
 
             // if (vis.countryList.includes(d.properties.name)) {

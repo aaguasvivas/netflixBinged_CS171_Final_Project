@@ -1,4 +1,3 @@
-
 class BubbleChart {
 
     constructor(parentElement, titles, dummy) {
@@ -32,7 +31,7 @@ class BubbleChart {
         //     .attr('transform', `translate (${vis.margin.left}, ${vis.margin.top})`);
 
         // vis.grouped_titles = d3.stratify()(vis.titles)
-            // .count(d => d.count)
+        // .count(d => d.count)
 
         // console.log(vis.grouped_titles)
 
@@ -70,12 +69,12 @@ class BubbleChart {
             .padding(3)
 
         vis.root = vis.pack(vis.grouped_titles)
-        let focus = vis.root;
+        vis.focus = vis.root;
         vis.view;
 
         vis.color = d3.scaleLinear()
             .domain([0, 5])
-            .range(["hsl(0,15%,94%)", "hsl(356,29%,54%)", "hsl(348,70%,33%)"])
+            .range(["hsl(0,0%,96%)", "hsl(0,97%,49%)"])
             .interpolate(d3.interpolateHcl)
 
         vis.svg = d3.select("#" + vis.parentElement).append("svg")
@@ -84,7 +83,7 @@ class BubbleChart {
             .attr("viewBox", `-${vis.width / 2} -${vis.height / 2} ${vis.width} ${vis.height}`)
             .style("display", "block")
             .style("margin", "0 -14px")
-            .style("background", vis.color(0))
+            .style("background", "black")
             .style("cursor", "pointer")
             .on("click", (event) => vis.zoom(event, vis.root));
 
@@ -143,8 +142,12 @@ class BubbleChart {
             .attr("class", d => d.data.parentId)
             .attr("fill", d => d.children ? vis.color(d.depth) : "white")
             .attr("pointer-events", d => !d.children ? "none" : null)
-            .on("mouseover", function() { d3.select(this).attr("stroke", "#860404"); })
-            .on("mouseout", function() { d3.select(this).attr("stroke", null); })
+            .on("mouseover", function () {
+                d3.select(this).attr("stroke", "#860404");
+            })
+            .on("mouseout", function () {
+                d3.select(this).attr("stroke", null);
+            })
             .on("click", (event, d) => focus !== d && (vis.zoom(event, d), event.stopPropagation()));
 
         vis.label = vis.svg.append("g")
@@ -156,8 +159,14 @@ class BubbleChart {
             .join("text")
             .style("fill-opacity", d => d.parent === vis.root ? 1 : 0)
             .style("display", d => d.parent === vis.root ? "inline" : "none")
-            .text(d => d.data.id);
-
+            .text(d => {
+                console.log(d.data.id)
+                if (d.data.id.substring(0, 2) === "m_") {
+                    return d.data.id.substring(2, d.data.id.length)
+                } else {
+                    return d.data.id;
+                }
+            });
         // vis.genrelabel = vis.g.append("text")
         //     .style("font", "10px sans-serif")
         //     .attr("pointer-events", "none")
@@ -179,6 +188,9 @@ class BubbleChart {
 
         vis.focus0 = vis.focus;
 
+        // console.log(vis.focus)
+        // console.log(d)
+
         vis.focus = d;
 
         vis.transition = vis.svg.transition()
@@ -189,12 +201,17 @@ class BubbleChart {
             });
 
         vis.label
-            .filter(function(d) { return d.parent === focus || this.style.display === "inline"; })
+            .filter(function (d) {
+                return d.parent === vis.focus || this.style.display === "inline";
+            })
             .transition(vis.transition)
-            .style("fill-opacity", d => d.parent === focus ? 1 : 0)
-            .on("start", function(d) { if (d.parent === focus) this.style.display = "inline"; })
-            .on("end", function(d) { if (d.parent !== focus) this.style.display = "none"; });
-
+            .style("fill-opacity", d => d.parent === vis.focus ? 0 : 1)
+            .on("start", function (d) {
+                if (d.parent === vis.focus) this.style.display = "inline";
+            })
+            .on("end", function (d) {
+                if (d.parent !== vis.focus) this.style.display = "none";
+            });
 
     }
 
@@ -209,6 +226,29 @@ class BubbleChart {
         vis.label
             .attr("transform", d => `translate(${(d.x - v[0]) * vis.k},${(d.y - v[1]) * vis.k})`)
             .attr("font-size", 30);
+
+        // vis.genrelabel = vis.svg.append("g")
+        //     .style("font", "10px sans-serif")
+        //     .attr("pointer-events", "none")
+        //     .attr("text-anchor", "middle")
+        //     .selectAll("text")
+        //     .data(vis.root)
+        //     .join("text")
+        //     .style("fill-opacity", d => d.parent === vis.root ? 0 : 1)
+        //     .style("display", d => d.parent === vis.root ? "inline" : "none")
+        //
+        //
+        //     // .attr("transform", d => `translate(${(d.x - v[0]) * vis.k},${(d.y - v[1]) * vis.k})`)
+        //     // .attr("font-size", 30)
+        //
+        //     .text(d => function() {
+        //         console.log(d.data.id)
+        //         if (d.data.id.substring(0, 2) === "m_") {
+        //             return d.data.id.substring(2, d.data.id.length)
+        //         } else {
+        //             return d.data.id;
+        //         }
+        //     });
 
         vis.node
             .attr("transform", d => `translate(${(d.x - v[0]) * vis.k},${(d.y - v[1]) * vis.k})`)
@@ -226,6 +266,8 @@ class BubbleChart {
 // TODO: color circles accordingly
 // TODO: add tooltips for circles and movies
 // TODO: update and format text
+// TODO: changing between circles, labels show up?
+// TODO: colors look weird
 
 // ** RESOURCES **
 // TODO: V1 John Haldeman: https://observablehq.com/@johnhaldeman/tutorial-on-d3-basics-and-circle-packing-heirarchical-bubb
