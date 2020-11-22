@@ -79,7 +79,7 @@
         <!-- International Presence -->
         <div class="section" id="international-presence">
             <div class="row">
-                <div class="col">International Presence Map</div>
+                <div class="col" id="worldMap">International Presence Map</div>
                 <div class="col">
                     <div class="row">Table Placeholder</div>
                     <div class="row">Visualization Placeholder</div>
@@ -141,6 +141,9 @@
 
     <!-- d3 -->
     <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://d3js.org/topojson.v2.min.js"></script>
+    <script src="https://d3js.org/d3-queue.v3.min.js"></script>
 
     <!-- own js files -->
     <script src="js/main.js"></script>
@@ -149,6 +152,7 @@
     <script src="js/bubble.js"></script>
     <script src="js/viewerEnjoyment.js"></script>
     <script src="js/ratings.js"></script>
+    <script src="js/worldMap.js"></script>
 
     <script type="text/javascript">
         window.onload = function () {
