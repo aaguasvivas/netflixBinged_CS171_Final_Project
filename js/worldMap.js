@@ -1,11 +1,12 @@
 class MapVis {
 
-    constructor(parentElement, geoData) {
+    constructor(parentElement, geoData, internationalData) {
         this.parentElement = parentElement;
         this.geoData = geoData;
+        this.internationalData = internationalData;
 
         // define colors
-        this.colors = ['#fddbc7','#f4a582','#d6604d','#b2182b']
+        this.colors = ['#fddbc7','#f4a582','#d6604d','#E50914']
 
         this.initVis()
     }
@@ -116,10 +117,20 @@ class MapVis {
 
     wrangleData(){
         let vis = this;
+        console.log(vis.internationalData)
+        console.log(vis.geoData.objects.countries.geometries)
 
         // create random data structure with information for each land
         vis.countryInfo = {};
         vis.geoData.objects.countries.geometries.forEach( d => {
+            console.log(d.properties.name)
+            // if (d.properties.name in vis.internationalData.country) {
+            //     vis.countryInfo[d.properties.name] = {
+            //
+            //     }
+            // }
+            // find a way to add shows and movies in here maybe through variables
+            // if else statement, if no data show no data
             let randomCountryValue = Math.random() * 4
             vis.countryInfo[d.properties.name] = {
                 name: d.properties.name,

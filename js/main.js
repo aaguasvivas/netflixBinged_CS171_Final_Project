@@ -11,7 +11,8 @@ let promises = [
     d3.csv("data/netflix_titles.csv"),
     d3.csv("data/dummyshow"),
     d3.csv("data/netflixIMDB.csv"),
-    d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json")
+    d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json"),
+    d3.csv("data/internationalPresence.csv")
 ];
 
 Promise.all(promises)
@@ -25,6 +26,7 @@ function initMainPage(data){
     dummy = data[1]
     imdb = data[2]
     mapData = data[3]
+    internationalData = data[4]
 
     // convert string to integer
     imdb.forEach(function(d){
@@ -58,7 +60,7 @@ function initMainPage(data){
     MyBubbleChart = new BubbleChart('bubblechart', titles, dummy);
     movieRatings = new Grid('movie-ratings-viz', imdbMovies);
     showRatings = new Grid('show-ratings-viz', imdbShows);
-    MyMap = new MapVis("worldMap", mapData);
+    MyMap = new MapVis("worldMap", mapData, internationalData);
 
     // calculate average ratings
     var movieCounter = 0;
