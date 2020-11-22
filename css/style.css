@@ -127,6 +127,17 @@ h2 {
     padding-left: 50px;
 }
 
+/* International Presence */
+#worldMap {
+    height: 71vh;
+    width: 100%;
+}
+
+#stacked-area-chart {
+    height: 71vh;
+    width: 100%;
+}
+
 .tooltip {
     position: absolute;
     text-align: center;
