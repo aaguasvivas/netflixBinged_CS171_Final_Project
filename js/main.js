@@ -4,6 +4,7 @@ let imdbMovies = [];
 let imdbShows = [];
 
 let worldMap;
+let MyAreaChart;
 
 //loadData();
 
@@ -12,7 +13,8 @@ let promises = [
     d3.csv("data/dummyshow"),
     d3.csv("data/netflixIMDB.csv"),
     d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json"),
-    d3.csv("data/internationalPresence.csv")
+    d3.csv("data/internationalPresence.csv"),
+    d3.json("data/globalExpansion.json")
 ];
 
 Promise.all(promises)
@@ -20,6 +22,7 @@ Promise.all(promises)
     .catch(function(err){console.log(err)})
 
 function initMainPage(data){
+    let parseDate = d3.timeParse("%Y");
 
     // data
     titles = data[0]
@@ -27,7 +30,14 @@ function initMainPage(data){
     imdb = data[2]
     mapData = data[3]
     internationalData = data[4]
+    globalExpansion = data[5]
 
+    globalExpansion.layers.forEach(function(d) {
+        d.Year = parseDate(d.Year)
+    })
+
+    console.log(globalExpansion)
+    
     // convert string to integer
     imdb.forEach(function(d){
         d.rating = +d.rating;
@@ -61,6 +71,9 @@ function initMainPage(data){
     movieRatings = new Grid('movie-ratings-viz', imdbMovies);
     showRatings = new Grid('show-ratings-viz', imdbShows);
     MyMap = new MapVis("worldMap", mapData, internationalData);
+    MyAreaChart = new StackedAreaChart("stacked-area-chart", globalExpansion.layers)
+    MyAreaChart.initVis();
+
 
     // calculate average ratings
     var movieCounter = 0;

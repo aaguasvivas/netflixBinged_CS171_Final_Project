@@ -117,7 +117,7 @@ class MapVis {
 
     wrangleData(){
         let vis = this;
-        console.log(vis.internationalData.country["Cuba"])
+        // console.log(vis.internationalData.country["Cuba"])
         console.log(vis.geoData.objects.countries.geometries)
 
         // create random data structure with information for each land
@@ -133,11 +133,11 @@ class MapVis {
         vis.geoData.objects.countries.geometries.forEach( d => {
             console.log(d.properties.name)
 
-            if (vis.countryList.includes(d.properties.name)) {
-                vis.countryInfo[d.properties.name] = {
-                    name: d.properties.name
-                }
-            }
+            // if (vis.countryList.includes(d.properties.name)) {
+            //     vis.countryInfo[d.properties.name] = {
+            //         name: d.properties.name
+            //     }
+            // }
             // if (d.properties.name in vis.internationalData.country) {
             //     vis.countryInfo[d.properties.name] = {
             //
