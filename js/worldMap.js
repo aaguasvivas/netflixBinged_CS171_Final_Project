@@ -132,6 +132,7 @@ class MapVis {
 
         vis.geoData.objects.countries.geometries.forEach( d => {
             console.log(d.properties.name)
+            // USE INDICES, make two more arrays corresponding to movies and shows, see if they line up then use indices
 
             // if (vis.countryList.includes(d.properties.name)) {
             //     vis.countryInfo[d.properties.name] = {
