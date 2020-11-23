@@ -82,10 +82,23 @@ h2 {
 }
 
 /* Background Info */
-.background {
+.background h1 {
+    font-family: 'Bebas Neue';
+    color: red;
+    font-size: 4em;
+}
+
+.card {
+    width: 60em;
+    height: 18em;
+    margin: 0 auto;
+    float: none;
+}
+
+.card-body {
     font-size: 1em;
     font-family: helvetica, arial;
-    color: white;
+    color: black;
     text-align: center;
     position: relative;
 }
@@ -96,7 +109,6 @@ h2 {
     font-family: helvetica, arial;
     color: white;
     text-align: center;
-
 }
 
 #viewer-enjoyment h1 {
