@@ -58,6 +58,9 @@ class BubbleChart {
 
         // ** END OF WORKING V1 John Haldeman
 
+        // drawing tooltip
+        vis.genretooltip = new Tooltip('genre_tooltip', 240);
+
 
         // V2 using zoomable circle packing
         vis.grouped_titles = d3.stratify()(vis.titles)
@@ -142,8 +145,26 @@ class BubbleChart {
             .attr("class", d => d.data.parentId)
             .attr("fill", d => d.children ? vis.color(d.depth) : "white")
             .attr("pointer-events", d => !d.children ? "none" : null)
-            .on("mouseover", function () {
+            .on("mouseover", function (d, event) {
                 d3.select(this).attr("stroke", "#860404");
+
+                // console.log(d)
+                // console.log(event)
+                // console.log(event.data.id)
+
+                let genre;
+                if (event.data.id.substring(0, 2) === "m_") {
+                    genre = event.data.id.substring(2, event.data.id.length)
+                    // console.log(genre)
+                } else {
+                    genre = event.data.id;
+                }
+
+                vis.content = '<span class="name">Genre </span><span class="value">' + genre
+
+                vis.genretooltip.showTooltip(vis.content, event);
+                //
+                // console.log(d3.event)
             })
             .on("mouseout", function () {
                 d3.select(this).attr("stroke", null);
@@ -160,7 +181,7 @@ class BubbleChart {
             .style("fill-opacity", d => d.parent === vis.root ? 1 : 0)
             .style("display", d => d.parent === vis.root ? "inline" : "none")
             .text(d => {
-                console.log(d.data.id)
+                // console.log(d.data.id)
                 if (d.data.id.substring(0, 2) === "m_") {
                     return d.data.id.substring(2, d.data.id.length)
                 } else {
