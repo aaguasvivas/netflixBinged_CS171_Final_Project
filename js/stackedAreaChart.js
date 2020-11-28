@@ -164,7 +164,7 @@ class StackedAreaChart {
             .on("mouseover", function(event, d) {
 
                 vis.svg.selectAll(".tooltips")
-                    .text(d.key)
+                    .text("You are hovering over: " + d.key).style("font-size", "24px")
             })
 
         vis.svg.append("text")

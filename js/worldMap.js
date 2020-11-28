@@ -135,8 +135,6 @@ class MapVis {
         // console.log("country", vis.countryList)
 
         vis.geoData.objects.countries.geometries.forEach( d => {
-            console.log(d.properties.name)
-
             let country = vis.internationalData.find(c => {
                 return d.properties.name === c.country
             })
