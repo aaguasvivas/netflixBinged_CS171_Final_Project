@@ -115,9 +115,8 @@ h2 {
     font-family: 'Bebas Neue';
     color: red;
     font-size: 4em;
-    padding-left: 50px;
-    padding-top: 40px;
     padding-bottom: 50px;
+    padding-top: 0px;
 }
 
 .rating-guess {
@@ -138,6 +137,13 @@ h2 {
 
 #show-ratings {
     padding-left: 50px;
+}
+
+#viewer-enjoyment h2 {
+    font-family: "Bebas Neue";
+    color: red;
+    font-size: 4em;
+    padding-top: 40px;
 }
 
 .tooltip-box {

@@ -70,6 +70,7 @@ class Grid {
         vis.text = vis.svg.append("text")
             .text(vis.percent + "% are rated 6 or higher on IMDB.")
             .attr("fill", "white")
+            .attr("class", "ratings-viz-text")
 
         vis.row = vis.svg.selectAll(".row").data(vis.displayData)
             .enter()

@@ -117,38 +117,52 @@
 
     <!-- Viewer Enjoyment -->
     <div class="section" id="viewer-enjoyment">
-        <h1>Viewer Enjoyment</h1>
+        <!-- Guess Sliders -->
+        <div class="slide">
+            <h1>Viewer Enjoyment</h1>
+            <div class="row d-flex justify-content-center">
 
-        <div class="row d-flex justify-content-center">
-
-            <!-- Movies -->
-            <div class="col-5" id="movie-ratings">
-                <!-- Slider -->
-                <p> What's the average IMDB rating (scored out of 10) of Netflix's movies?
-                    <br> Take a guess using the slider! </p>
-                <div id="movie-slider"></div>
-                <div class="rating-guess">Your guess is an average rating of <span id="movie-guess"></span>.</div>
-                <input type="button" name="answer" value="Check" onclick="showMovie()"/>
-                <div class="rating-actual" id="m-act">The actual average rating is <span id="movie-actual"></span>.
+                <!-- Movies -->
+                <div class="col-5" id="movie-ratings">
+                    <!-- Slider -->
+                    <p> What's the average IMDB rating (scored out of 10) of Netflix's movies?
+                        <br> Take a guess using the slider! </p>
+                    <div id="movie-slider"></div>
+                    <div class="rating-guess">Your guess is an average rating of <span id="movie-guess"></span>.</div>
+                    <input type="button" name="answer" value="Check" onclick="showMovie()"/>
+                    <div class="rating-actual" id="m-act">The actual average rating is <span id="movie-actual"></span>.
+                    </div>
                 </div>
-                <!-- Viz -->
-                <div id="movie-ratings-viz"></div>
-            </div>
 
-            <!-- TV Shows -->
-            <div class="col-5" id="show-ratings">
-                <!-- Slider -->
-                <p> What's the average IMDB rating (scored out of 10) of Netflix's TV shows?
-                    <br> Take a guess using the slider! </p>
-                <div id="show-slider"></div>
-                <div class="rating-guess">Your guess is an average rating of <span id="show-guess"></span>.</div>
-                <input type="button" name="answer" value="Check" onclick="showTV()"/>
-                <div class="rating-actual" id="s-act">The actual average rating is <span id="show-actual"></span>.</div>
-                <!-- Viz -->
-                <div id="show-ratings-viz"></div>
+                <!-- TV Shows -->
+                <div class="col-5" id="show-ratings">
+                    <!-- Slider -->
+                    <p> What's the average IMDB rating (scored out of 10) of Netflix's TV shows?
+                        <br> Take a guess using the slider! </p>
+                    <div id="show-slider"></div>
+                    <div class="rating-guess">Your guess is an average rating of <span id="show-guess"></span>.</div>
+                    <input type="button" name="answer" value="Check" onclick="showTV()"/>
+                    <div class="rating-actual" id="s-act">The actual average rating is <span id="show-actual"></span>.</div>
+                </div>
             </div>
-
         </div>
+
+        <!-- Visualization -->
+        <div class="slide">
+            <div class="row d-flex justify-content-center">
+                <div class="col-5">
+                    <h2>Movies</h2>
+                    <div id="movie-ratings-viz"></div>
+                </div>
+                <div class="col-5">
+                    <h2>TV Shows</h2>
+                    <div id="show-ratings-viz"></div>
+                </div>
+            </div>
+        </div>
+
+
+
     </div>
 
     <!-- Recommendations -->
