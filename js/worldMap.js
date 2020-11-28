@@ -85,6 +85,15 @@ class MapVis {
             .attr('class', 'legend')
             .attr('transform', `translate(${vis.width * 2.8 / 4}, ${vis.height - 20})`)
 
+        // TODO: Get the right domain
+        let dataExtent = d3.extent(vis.internationalData)
+        console.log("Data Extent", dataExtent)
+
+        vis.colorScale = d3.scaleQuantize()
+            .domain(d3.extent(vis.internationalData))
+            .range(vis.colors)
+            .unknown("gray");
+
 
         let m0,
             o0;
@@ -122,39 +131,35 @@ class MapVis {
 
         // create random data structure with information for each land
         vis.countryInfo = {};
-        vis.countryList = []
-
-        vis.internationalData.forEach(place => {
-            vis.countryList.push(place.country);
-        })
 
         // console.log("country", vis.countryList)
 
         vis.geoData.objects.countries.geometries.forEach( d => {
-            // console.log(d.properties.name)
-            // USE INDICES, make two more arrays corresponding to movies and shows, see if they line up then use indices
+            console.log(d.properties.name)
 
-            // if (vis.countryList.includes(d.properties.name)) {
-            //     vis.countryInfo[d.properties.name] = {
-            //         name: d.properties.name
-            //     }
-            // }
-            // if (d.properties.name in vis.internationalData.country) {
-            //     vis.countryInfo[d.properties.name] = {
-            //
-            //     }
-            // }
-            // find a way to add shows and movies in here maybe through variables
-            // if else statement, if no data show no data
-            // use if/else to divide into 4 categories
-            let randomCountryValue = Math.random() * 4
-            vis.countryInfo[d.properties.name] = {
-                name: d.properties.name,
-                category: 'category_' + Math.floor(randomCountryValue),
-                color: vis.colors[Math.floor(randomCountryValue)],
-                value: randomCountryValue/4 * 100
+            let country = vis.internationalData.find(c => {
+                return d.properties.name === c.country
+            })
+
+            if (country) {
+                vis.countryInfo[d.properties.name] = {
+                    name: d.properties.name,
+                    numTVShows: country.numTVShows,
+                    numMovies: country.numMovies,
+                    totalCatalog: (country.numTVShows + country.numMovies),
+                }
+            } else {
+                vis.countryInfo[d.properties.name] = {
+                    name: d.properties.name,
+                    numTVShows: null,
+                    numMovies: null,
+                    totalCatalog: null,
+                }
             }
+
+
         })
+        console.log("Country Info", vis.countryInfo);
 
         vis.updateVis()
     }
@@ -167,7 +172,7 @@ class MapVis {
         // TODO
         vis.countries
             .attr("opacity","0.8")
-            .style("fill", (d) => vis.countryInfo[d.properties.name].color)
+            .style("fill", (d) => vis.colorScale(vis.countryInfo[d.properties.name].totalCatalog))
             .on('mouseover', function(event, d){
                 d3.select(this)
                     .attr('stroke-width', '2px')
@@ -183,15 +188,15 @@ class MapVis {
                          <div style="border: thin solid grey; border-radius: 5px; background: lightgrey; padding: 20px">
                              <h3>${d.properties.name}<h3>
                              <h4> Name: ${d.properties.name}</h4>      
-                             <h4> Category: ${vis.countryInfo[d.properties.name].category}</h4> 
-                             <h4> Color: ${vis.countryInfo[d.properties.name].color}</h4>   
-                             <h4> Value: ${vis.countryInfo[d.properties.name].value}</h4>                         
+                             <h4> Number of TV Shows: ${vis.countryInfo[d.properties.name].numTVShows}</h4> 
+                             <h4> Number of Movies: ${vis.countryInfo[d.properties.name].numMovies}</h4>   
+                             <h4> Total Catalog: ${vis.countryInfo[d.properties.name].totalCatalog}</h4>                         
                          </div>`);
             })
             .on('mouseout', function(event, d){
                 d3.select(this)
                     .attr('stroke-width', '0px')
-                    .attr("fill", d => vis.countryInfo[d.properties.name].color)
+                    .attr("fill", d => vis.colorScale(vis.countryInfo[d.properties.name].totalCatalog))
 
                 vis.tooltip
                     .style("opacity", 0)

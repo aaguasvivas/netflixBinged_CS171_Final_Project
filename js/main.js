@@ -36,6 +36,13 @@ function initMainPage(data){
         d.Year = parseDate(d.Year)
     })
 
+    internationalData.forEach(d => {
+        d.numTVShows = +d.numTVShows;
+        d.numMovies = +d.numMovies;
+
+        return d;
+    })
+
    // console.log(globalExpansion)
     
     // convert string to integer in data
