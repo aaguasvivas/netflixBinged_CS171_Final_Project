@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
-.section {
-    font-size: 1em;
-    font-family: helvetica, arial;
-    color: white;
-    text-align: center;
-    position: relative;
-}
+/*.section {*/
+/*    font-size: 1em;*/
+/*    font-family: helvetica, arial;*/
+/*    color: white;*/
+/*    text-align: center;*/
+/*    position: relative;*/
+/*}*/
 
 
 /* Intro Page */
@@ -86,6 +86,8 @@ h2 {
     font-family: 'Bebas Neue';
     color: red;
     font-size: 4em;
+    text-align: center;
+    position: relative;
 }
 
 .card {
@@ -198,4 +200,41 @@ h2 {
 }
 .tooltip h4 {
     font: 14px sans-serif;
+}
+
+/* Recommendations */
+#recs .row {
+    height: 90%;
+}
+
+#rec-header {
+    font-family: "Bebas Neue";
+    color: red;
+    font-size: 4em;
+    text-align: center;
+    padding-top: 40px;
+}
+
+#recs img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 80px;
+}
+
+#recs h2 {
+    font-family: Helvetica;
+    font-size: 2em;
+    padding-top: 15px;
+    text-align: center;
+}
+
+/* Acknowledgements */
+
+#end {
+    font-size: 1em;
+    font-family: helvetica, arial;
+    color: white;
+    text-align: center;
+    position: relative;
 }
