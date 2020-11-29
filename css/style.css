@@ -103,6 +103,30 @@ h2 {
     position: relative;
 }
 
+/* Content Diversity */
+
+#content-diversity {
+    font-size: 1em;
+    font-family: helvetica, arial;
+    color: white;
+    text-align: center;
+}
+
+#content-diversity h1 {
+    font-family: 'Bebas Neue';
+    color: red;
+    font-size: 4em;
+    padding-bottom: 50px;
+    padding-top: 0px;
+}
+
+#content-diversity h2 {
+    font-family: "Bebas Neue";
+    color: red;
+    font-size: 4em;
+    padding-top: 40px;
+}
+
 /* Viewer Enjoyment */
 #viewer-enjoyment {
     font-size: 1em;

@@ -279,16 +279,19 @@ class BubbleChart {
 
 }
 
-// TODO: how to get labels to show up after zooming back out
-// TODO: change background color to black
+// mtg with Ben
+// TODO: walk through the process of making the code
 // TODO: figure out outliers - 6263 vs. 6237 ??
+// TODO: review tooltip js
+
+// TODO: how to get labels to show up after zooming back out
+// TODO: * add tooltips for circles and movies - is this easiest?
 // TODO: fix data labels why they all off? ask ben
-// TODO: add label w/ zoomable packing
+
+// Minor changes
 // TODO: color circles accordingly
-// TODO: add tooltips for circles and movies
 // TODO: update and format text
 // TODO: changing between circles, labels show up?
-// TODO: colors look weird
 
 // ** RESOURCES **
 // TODO: V1 John Haldeman: https://observablehq.com/@johnhaldeman/tutorial-on-d3-basics-and-circle-packing-heirarchical-bubb
