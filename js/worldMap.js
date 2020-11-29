@@ -95,7 +95,7 @@ class MapVis {
         vis.colorScale = d3.scaleQuantize()
             .domain([233, 5665])
             .range(vis.colors)
-            .unknown("gray");
+            .unknown("#ccc");
 
 
         let m0,
@@ -152,9 +152,9 @@ class MapVis {
             } else {
                 vis.countryInfo[d.properties.name] = {
                     name: d.properties.name,
-                    numTVShows: null,
-                    numMovies: null,
-                    totalCatalog: null,
+                    numTVShows: undefined,
+                    numMovies: undefined,
+                    totalCatalog: undefined,
                 }
             }
 
