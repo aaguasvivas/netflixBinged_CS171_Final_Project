@@ -144,32 +144,32 @@ class BubbleChart {
             .join("circle")
             .attr("class", d => d.data.parentId)
             .attr("fill", d => d.children ? vis.color(d.depth) : "white")
-            .attr("pointer-events", d => !d.children ? "none" : null)
-            .on("mouseover", function (d, event) {
+            // TODO: set the event property pointer-events to be only applicable - none for smallest circles when zoomed all the way out, when zoomed in a little, should be allowable
+            .on("mouseover", function (event, d) {
                 d3.select(this).attr("stroke", "#860404");
 
-                // console.log(d)
-                // console.log(event)
-                // console.log(event.data.id)
-
                 let genre;
-                if (event.data.id.substring(0, 2) === "m_") {
-                    genre = event.data.id.substring(2, event.data.id.length)
+                if (d.data.id.substring(0, 2) === "m_") {
+                    genre = d.data.id.substring(2, d.data.id.length)
                     // console.log(genre)
                 } else {
-                    genre = event.data.id;
+                    genre = d.data.id;
                 }
 
                 vis.content = '<span class="name">Genre </span><span class="value">' + genre
 
                 vis.genretooltip.showTooltip(vis.content, event);
-                //
-                // console.log(d3.event)
+
             })
             .on("mouseout", function () {
                 d3.select(this).attr("stroke", null);
             })
-            .on("click", (event, d) => focus !== d && (vis.zoom(event, d), event.stopPropagation()));
+            .on("click", (event, d) => {
+
+                // when you zoom, check if leaf and if so, zoom on parent
+                // if not, zoom in on d itself
+                vis.focus !== d && (vis.zoom(event, d), event.stopPropagation())
+            });
 
         vis.label = vis.svg.append("g")
             .style("font", "10px sans-serif")

@@ -26,6 +26,7 @@ function initMainPage(data){
 
     // data
     titles = data[0]
+    console.log(titles.length)
     dummy = data[1]
     imdb = data[2]
     mapData = data[3]
