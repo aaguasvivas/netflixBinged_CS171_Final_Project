@@ -160,9 +160,12 @@ class BubbleChart {
 
                 vis.genretooltip.showTooltip(vis.content, event);
 
+                // TODO: tooltip when scrolling out
+
             })
             .on("mouseout", function () {
                 d3.select(this).attr("stroke", null);
+                vis.genretooltip.hideTooltip();
             })
             .on("click", (event, d) => {
 
