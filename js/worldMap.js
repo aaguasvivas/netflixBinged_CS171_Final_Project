@@ -89,8 +89,11 @@ class MapVis {
         let dataExtent = d3.extent(vis.internationalData)
         console.log("Data Extent", dataExtent)
 
+        let minMaxScale = [{country: "Albania", numTVShows: 33, numMovies: 200, totalCatalog: 233},
+            {country: "United States of America", numTVShows: 1326, numMovies: 4339, totalCatalog: 5665}]
+
         vis.colorScale = d3.scaleQuantize()
-            .domain(d3.extent(vis.internationalData))
+            .domain([233, 5665])
             .range(vis.colors)
             .unknown("gray");
 
