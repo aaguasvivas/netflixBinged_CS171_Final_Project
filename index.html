@@ -22,7 +22,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $('#fullpage').fullpage({
-                sectionsColor: ['#000000', '#000000', '#000000', '#000000', '#000000', '#000000', '#000000']
+                sectionsColor: ['#000000', '#000000', '#000000', '#000000', '#000000', '#000000', '#000000'],
             });
         });
     </script>
@@ -42,7 +42,7 @@
     <!-- Background -->
     <div class="section background">
         <div class="slide">
-            <h1> Background </h1>
+            <h1 class="section-headers">Background</h1>
             <div class="card text-center">
                 <div class="card-body">
                     <br><br><br>
@@ -59,9 +59,6 @@
             <div class="row">
                 <div class="col">
                     Text Placeholder
-                    <audio data-autoplay>
-                        <source src="intro-sound.mp3" type="audio/mp3">
-                    </audio>
                 </div>
                 <div class="col subscribers" id="subscribersByPlatform">
                     Subscribers by Platform
@@ -82,7 +79,7 @@
 
     <!-- Content Diversity -->
     <div class="section" id="content-diversity">
-        <h1>Netflix Listings</h1>
+        <h1 class="section-headers">Netflix Listings</h1>
         <div class="row">
                 Netflix has a wide array of listings across thousands of movies and TV shows. From drama, romance,
                 horror, comedy, and more, Netflix users are able to finds a show or movie to suit their interests.
@@ -94,6 +91,7 @@
 
     <!-- International Presence -->
     <div class="section" id="international-presence">
+        <h1 class="section-headers">International Presence</h1>
         <!-- Map and Table Slide -->
         <div class="slide">
             <div class="row">
@@ -118,7 +116,7 @@
     <div class="section" id="viewer-enjoyment">
         <!-- Guess Sliders -->
         <div class="slide">
-            <h1>Viewer Enjoyment</h1>
+            <h1 class="section-headers">Viewer Enjoyment</h1>
             <div class="row d-flex justify-content-center">
 
                 <!-- Movies -->
@@ -146,38 +144,44 @@
             </div>
         </div>
 
-        <!-- Visualization -->
+        <!-- Movie Visualization -->
         <div class="slide">
             <div class="row d-flex justify-content-center">
-                <div class="col-5">
-                    <h2>Movies</h2>
+                <div class="col">
+                    <h1 class="section-headers">Movies</h1>
                     <div id="movie-ratings-viz"></div>
-                </div>
-                <div class="col-5">
-                    <h2>TV Shows</h2>
-                    <div id="show-ratings-viz"></div>
                 </div>
             </div>
         </div>
 
-
-
+        <!-- TV Show Visualization -->
+        <div class="slide">
+            <div class="row d-flex justify-content-center">
+                <div class="col">
+                    <h1 class="section-headers">TV Shows</h1>
+                    <div id="show-ratings-viz"></div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Recommendations -->
     <div class="section" id="recs">
-        <h1 id="rec-header"> Our Recommendations </h1>
+        <h1 class="section-headers"> Our Recommendations </h1>
+        <audio data-autoplay>
+            <source src="intro-sound.mp3" type="audio/mp3">
+        </audio>
         <div class="row">
             <div class="col">
-                <img src="img/icon-1.png">
+                <img class="icons" src="img/icon-1.png">
                 <h2> Adelson's Recs </h2>
             </div>
             <div class="col">
-                <img src="img/icon-2.png">
+                <img class="icons" src="img/icon-2.png">
                 <h2> Belinda's Recs </h2>
             </div>
             <div class="col">
-                <img src="img/icon-3.png">
+                <img class="icons" src="img/icon-3.png">
                 <h2> Michelle's Recs </h2>
             </div>
         </div>
