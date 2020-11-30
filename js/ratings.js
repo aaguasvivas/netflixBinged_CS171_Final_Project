@@ -14,19 +14,19 @@ class Grid {
         vis.displayData = [];
 
         // SVG dimensions
-        vis.margin = {top: 80, right: 0, bottom: 60, left: 0};
+        vis.margin = {top: 10, right: 0, bottom: 20, left: 0};
         vis.width = $('#' + vis.parentElement).width() - vis.margin.left - vis.margin.right;
         vis.height = vis.width;
-        vis.cellHeight = 3.5;
+        vis.cellHeight = 4.5;
         vis.cellWidth = vis.cellHeight;
-        vis.cellPadding = 10;
+        vis.cellPadding = 20;
 
         // SVG drawing area
         vis.svg = d3.select("#" + vis.parentElement).append("svg")
             .attr("width", vis.width + vis.margin.left + vis.margin.right)
             .attr("height", vis.height + vis.margin.top + vis.margin.bottom)
             .append("g")
-            .attr("transform", "translate(" + vis.margin.left + "," + vis.margin.top + ")");
+            .attr("transform", "translate(" + vis.width/3 + "," + vis.margin.bottom + ")");
 
         // append tooltip
         vis.tooltip = d3.select("body").append('div')
@@ -110,7 +110,6 @@ class Grid {
                     .style("left", 0)
                     .style("top", 0)
                     .html(``);
-
             })
 
             // rectangle attributes
