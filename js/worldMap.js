@@ -54,6 +54,7 @@ class MapVis {
             .attr("stroke","rgba(129,129,129,0.35)")
             .attr("d", vis.path);
 
+
         // graticule
         vis.svg.append("path")
             .datum(d3.geoGraticule())
@@ -170,7 +171,7 @@ class MapVis {
     updateVis(){
         let vis = this;
 
-        // TODO
+        // TODO Add country outlines, change ocean background, make undrag-able, fix white bar chart color with tootltip
         vis.countries
             .attr("opacity","0.8")
             .style("fill", (d) => vis.colorScale(vis.countryInfo[d.properties.name].totalCatalog))
