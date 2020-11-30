@@ -160,7 +160,7 @@ class MapVis {
 
 
         })
-        console.log("Country Info", vis.countryInfo);
+        // console.log("Country Info", vis.countryInfo);
 
         vis.updateVis()
     }
