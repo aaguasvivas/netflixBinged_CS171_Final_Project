@@ -6,7 +6,7 @@ class MapVis {
         this.internationalData = internationalData;
 
         // define colors
-        this.colors = ['#fee5d9','#fcae91','#fb6a4a','#cb181d']
+        this.colors = ['#fcae91','#fb6a4a','#cb181d']
 
         this.initVis()
     }
@@ -33,7 +33,6 @@ class MapVis {
             .attr('transform', `translate(${vis.width / 2}, 20)`)
             .attr('text-anchor', 'middle');
 
-        // TODO
 
         // Create a projection
         vis.projection = d3.geoNaturalEarth1().scale(220) // d3.geoStereographic()
@@ -50,15 +49,16 @@ class MapVis {
         vis.svg.append("path")
             .datum({type: "Sphere"})
             .attr("class", "graticule")
-            .attr('fill', '#ADDEFF')
+            .attr('fill', "black")
             .attr("stroke","rgba(129,129,129,0.35)")
             .attr("d", vis.path);
+
 
         // graticule
         vis.svg.append("path")
             .datum(d3.geoGraticule())
             .attr("class", "graticule")
-            .attr('fill', '#ADDEFF')
+            .attr('fill', 'black')
             .attr("stroke","rgba(129,129,129,0.35)")
             .attr("d", vis.path);
 
@@ -84,13 +84,6 @@ class MapVis {
         vis.legendText = vis.svg.append("g")
             .attr('class', 'legend')
             .attr('transform', `translate(${vis.width * 2.8 / 4}, ${vis.height - 20})`)
-
-        // TODO: Get the right domain
-        let dataExtent = d3.extent(vis.internationalData)
-        console.log("Data Extent", dataExtent)
-
-        let minMaxScale = [{country: "Albania", numTVShows: 33, numMovies: 200, totalCatalog: 233},
-            {country: "United States of America", numTVShows: 1326, numMovies: 4339, totalCatalog: 5665}]
 
         vis.colorScale = d3.scaleQuantize()
             .domain([233, 5665])
@@ -129,13 +122,9 @@ class MapVis {
 
     wrangleData(){
         let vis = this;
-        // console.log(vis.internationalData.country["Cuba"])
-        // console.log(vis.geoData.objects.countries.geometries)
 
         // create random data structure with information for each land
         vis.countryInfo = {};
-
-        // console.log("country", vis.countryList)
 
         vis.geoData.objects.countries.geometries.forEach( d => {
             let country = vis.internationalData.find(c => {
@@ -160,7 +149,6 @@ class MapVis {
 
 
         })
-        // console.log("Country Info", vis.countryInfo);
 
         vis.updateVis()
     }
@@ -170,7 +158,7 @@ class MapVis {
     updateVis(){
         let vis = this;
 
-        // TODO
+        // TODO Add country outlines, change ocean background, make undrag-able, fix white bar chart color with tootltip
         vis.countries
             .attr("opacity","0.8")
             .style("fill", (d) => vis.colorScale(vis.countryInfo[d.properties.name].totalCatalog))
@@ -208,7 +196,7 @@ class MapVis {
 
         // update legend
         vis.world.forEach(function(d) {
-            d.properties.value = vis.countryInfo[d.properties.name].value;
+            d.properties.value = vis.countryInfo[d.properties.name].totalCatalog;
 
         })
 
@@ -220,19 +208,25 @@ class MapVis {
             .data(vis.colors)
             .enter()
             .append('text')
-            .text((d, i) => ((domain[1] - domain[0]) / 4 * i + domain[0]).toFixed(5))
-            .attr("x", 80)
-            .attr("y", (d, i) => i * 23 - 70)
+            .text((d, i) => ((domain[1] - domain[0]) / 4 * i + domain[0]))
+            .attr("x", 100)
+            .attr("y", (d, i) => i * 20 - 85).attr("fill", "white");
 
         vis.legend.selectAll()
             .data(vis.colors)
             .enter()
             .append("rect")
-            .attr("x", 50)
-            .attr("y", (d, i) => i * 20 - 80)
+            .attr("x", 70)
+            .attr("y", (d, i) => i * 20 - 100)
             .attr("width", 20)
             .attr("height", 20)
             .attr("fill", d => d);
+
+        vis.legendText.append('text')
+            .attr("class", "legendTitle")
+            .text("Total Catalog")
+            .attr("x", 40)
+            .attr("y",  "-115")
 
 
     }

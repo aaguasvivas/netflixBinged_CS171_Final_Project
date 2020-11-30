@@ -28,6 +28,12 @@ h2 {
     color: white;
 }
 
+text.legendTitle {
+    font-size: 22px;
+    font-family: 'Helvetica';
+    fill: white;
+}
+
 
 /* Scroll Icon */
 /* https://codepen.io/nxworld/pen/OyRrGy */
