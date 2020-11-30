@@ -96,8 +96,8 @@ function initMainPage(data){
 
     // initialize visualizations
     MyBubbleChart = new BubbleChart('bubblechart', titles, dummy);
-    movieRatings = new Grid('movie-ratings-viz', imdbMovies);
-    showRatings = new Grid('show-ratings-viz', imdbShows);
+    movieRatings = new Grid('movie-ratings-viz', imdbMovies, true);
+    showRatings = new Grid('show-ratings-viz', imdbShows, false);
     MyMap = new MapVis("worldMap", mapData, internationalData);
     MyAreaChart = new StackedAreaChart("stacked-area-chart", globalExpansion.layers)
     MyAreaChart.initVis();

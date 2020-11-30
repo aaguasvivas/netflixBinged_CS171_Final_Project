@@ -2,9 +2,10 @@
 
 class Grid {
 
-    constructor(parentElement, data){
+    constructor(parentElement, data, isMovies){
         this.parentElement = parentElement;
         this.data = data;
+        this.isMovies = isMovies;
 
         this.initVis();
     }
@@ -17,16 +18,18 @@ class Grid {
         vis.margin = {top: 10, right: 0, bottom: 20, left: 0};
         vis.width = $('#' + vis.parentElement).width() - vis.margin.left - vis.margin.right;
         vis.height = vis.width;
-        vis.cellHeight = 4.5;
+        vis.cellHeight = 5;
         vis.cellWidth = vis.cellHeight;
-        vis.cellPadding = 20;
+        vis.cellPadding = 10;
 
         // SVG drawing area
         vis.svg = d3.select("#" + vis.parentElement).append("svg")
             .attr("width", vis.width + vis.margin.left + vis.margin.right)
             .attr("height", vis.height + vis.margin.top + vis.margin.bottom)
             .append("g")
-            .attr("transform", "translate(" + vis.width/3 + "," + vis.margin.bottom + ")");
+            .attr("transform", "translate(" + vis.width/3 + "," + vis.margin.bottom + ")")
+            .attr("width", vis.width + vis.margin.left + vis.margin.right)
+            .attr("height", vis.height + vis.margin.top + vis.margin.bottom);
 
         // append tooltip
         vis.tooltip = d3.select("body").append('div')
@@ -85,32 +88,33 @@ class Grid {
             .append("rect")
 
             // tooltip
-            .on("mouseover", function(event, d){
-
-                d3.select(this)
-                    .attr("stroke", "white")
-
-                vis.tooltip
-                    .style("opacity", 1)
-                    .style("left", event.pageX + 20 + "px")
-                    .style("top", event.pageY + "px")
-                    .html(`
-                     <div class="tooltip-box">
-                         <h1> ${d.title}</h1>
-                         <h4> ${d.rating}</h4>
-                     </div>`);
-
-            })
-            .on("mouseout", function(event, d){
-                d3.select(this)
-                    .attr("stroke", "none")
-
-                vis.tooltip
-                    .style("opacity", 0)
-                    .style("left", 0)
-                    .style("top", 0)
-                    .html(``);
-            })
+            .on('click', moreInfo)
+            // .on("mouseover", function(event, d){
+            //
+            //     d3.select(this)
+            //         .attr("stroke", "white")
+            //
+            //     vis.tooltip
+            //         .style("opacity", 1)
+            //         .style("left", event.pageX + 20 + "px")
+            //         .style("top", event.pageY + "px")
+            //         .html(`
+            //          <div class="tooltip-box">
+            //              <h1> ${d.title}</h1>
+            //              <h4> ${d.rating}</h4>
+            //          </div>`);
+            //
+            // })
+            // .on("mouseout", function(event, d){
+            //     d3.select(this)
+            //         .attr("stroke", "none")
+            //
+            //     vis.tooltip
+            //         .style("opacity", 0)
+            //         .style("left", 0)
+            //         .style("top", 0)
+            //         .html(``);
+            // })
 
             // rectangle attributes
             .transition()
@@ -118,7 +122,7 @@ class Grid {
             .attr("class", "rectangle")
             .attr("height", vis.cellHeight)
             .attr("width", vis.cellWidth)
-            .attr("x", (d, i) => (i * 5) + 5.5)
+            .attr("x", (d, i) => (i * 6) + 50)
             .attr("y", 20)
             .attr("fill", function(d){
                 if(d.rating >= 6)
@@ -127,4 +131,27 @@ class Grid {
                     return "white"
             })
     }
+}
+
+function moreInfo(event, d) {
+
+    // clear any existing data
+    d3.selectAll(".title-row").remove()
+
+    if (isMovie == true){
+        // append data to bootstrap table
+        d3.select("#movie-title").append("th").attr("scope", "row").text("Title").attr("class", "title-row")
+        d3.select("#movie-title").append("td").text(d.title).attr("class", "title-row")
+    }
+
+    else {
+        // append data to bootstrap table
+        d3.select("#tv-title").append("th").attr("scope", "row").text("Title").attr("class", "title-row")
+        d3.select("#tv-title").append("td").text(d.title).attr("class", "title-row")
+    }
+
+    console.log("clicked")
+    console.log(vis.isMovie)
+
+
 }
