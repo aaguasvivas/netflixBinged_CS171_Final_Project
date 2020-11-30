@@ -174,24 +174,7 @@ class BubbleChart {
                 vis.focus !== d && (vis.zoom(event, d), event.stopPropagation())
             });
 
-        vis.label = vis.svg.append("g")
-            .style("font", "10px sans-serif")
-            .attr("pointer-events", "none")
-            .attr("text-anchor", "middle")
-            .selectAll("text")
-            .data(vis.root.descendants())
-            .join("text")
-            .style("fill-opacity", d => d.parent === vis.root ? 1 : 0)
-            .style("display", d => d.parent === vis.root ? "inline" : "none")
-            .text(d => {
-                // console.log(d.data.id)
-                if (d.data.id.substring(0, 2) === "m_") {
-                    return d.data.id.substring(2, d.data.id.length)
-                } else {
-                    return d.data.id;
-                }
-            });
-        // vis.genrelabel = vis.g.append("text")
+        // vis.label = vis.svg.append("g")
         //     .style("font", "10px sans-serif")
         //     .attr("pointer-events", "none")
         //     .attr("text-anchor", "middle")
@@ -200,7 +183,14 @@ class BubbleChart {
         //     .join("text")
         //     .style("fill-opacity", d => d.parent === vis.root ? 1 : 0)
         //     .style("display", d => d.parent === vis.root ? "inline" : "none")
-        //     .text(d => d.data.id);
+        //     .text(d => {
+        //         // console.log(d.data.id)
+        //         if (d.data.id.substring(0, 2) === "m_") {
+        //             return d.data.id.substring(2, d.data.id.length)
+        //         } else {
+        //             return d.data.id;
+        //         }
+        //     });
 
 
         vis.zoomTo([vis.root.x, vis.root.y, vis.root.r * 2]);
@@ -224,18 +214,18 @@ class BubbleChart {
                 return t => vis.zoomTo(i(t));
             });
 
-        vis.label
-            .filter(function (d) {
-                return d.parent === vis.focus || this.style.display === "inline";
-            })
-            .transition(vis.transition)
-            .style("fill-opacity", d => d.parent === vis.focus ? 0 : 1)
-            .on("start", function (d) {
-                if (d.parent === vis.focus) this.style.display = "inline";
-            })
-            .on("end", function (d) {
-                if (d.parent !== vis.focus) this.style.display = "none";
-            });
+        // vis.label
+        //     .filter(function (d) {
+        //         return d.parent === vis.focus || this.style.display === "inline";
+        //     })
+        //     .transition(vis.transition)
+        //     .style("fill-opacity", d => d.parent === vis.focus ? 0 : 1)
+        //     .on("start", function (d) {
+        //         if (d.parent === vis.focus) this.style.display = "inline";
+        //     })
+        //     .on("end", function (d) {
+        //         if (d.parent !== vis.focus) this.style.display = "none";
+        //     });
 
     }
 
@@ -247,9 +237,9 @@ class BubbleChart {
 
         vis.view = v;
 
-        vis.label
-            .attr("transform", d => `translate(${(d.x - v[0]) * vis.k},${(d.y - v[1]) * vis.k})`)
-            .attr("font-size", 30);
+        // vis.label
+        //     .attr("transform", d => `translate(${(d.x - v[0]) * vis.k},${(d.y - v[1]) * vis.k})`)
+        //     .attr("font-size", 30);
 
         // vis.genrelabel = vis.svg.append("g")
         //     .style("font", "10px sans-serif")
