@@ -85,16 +85,6 @@ class MapVis {
             .attr('class', 'legend')
             .attr('transform', `translate(${vis.width * 2.8 / 4}, ${vis.height - 20})`)
 
-<<<<<<< HEAD
-        // TODO: Get the right domain
-        let dataExtent = d3.extent(vis.internationalData)
-        // console.log("Data Extent", dataExtent)
-
-        let minMaxScale = [{country: "Albania", numTVShows: 33, numMovies: 200, totalCatalog: 233},
-            {country: "United States of America", numTVShows: 1326, numMovies: 4339, totalCatalog: 5665}]
-
-=======
->>>>>>> 381abed6436cf1159ff59959b7767898a0e83cd5
         vis.colorScale = d3.scaleQuantize()
             .domain([233, 5665])
             .range(vis.colors)
