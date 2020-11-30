@@ -87,7 +87,7 @@ class MapVis {
 
         // TODO: Get the right domain
         let dataExtent = d3.extent(vis.internationalData)
-        console.log("Data Extent", dataExtent)
+        // console.log("Data Extent", dataExtent)
 
         let minMaxScale = [{country: "Albania", numTVShows: 33, numMovies: 200, totalCatalog: 233},
             {country: "United States of America", numTVShows: 1326, numMovies: 4339, totalCatalog: 5665}]

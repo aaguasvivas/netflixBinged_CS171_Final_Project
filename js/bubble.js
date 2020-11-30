@@ -17,47 +17,6 @@ class BubbleChart {
         // vis.height = $("#" + vis.parentElement).height() - vis.margin.top - vis.margin.bottom;
         vis.height = vis.width;
 
-        // WORKING V1 - using John Haldeman: https://observablehq.com/@johnhaldeman/tutorial-on-d3-basics-and-circle-packing-heirarchical-bubb
-
-        // init drawing area
-        // vis.svg = d3.select("#" + vis.parentElement).append("svg")
-        //     .attr("width", vis.width + vis.margin.left + vis.margin.right)
-        //     .attr("height", vis.height + vis.margin.top + vis.margin.bottom)
-        //     .attr("viewBox", [0, 0, vis.width, vis.height])
-        //     .attr("font-size", 10)
-        //     .attr("font-family", "sans-serif")
-        //     .attr("text-anchor", "middle")
-        //     .append('g')
-        //     .attr('transform', `translate (${vis.margin.left}, ${vis.margin.top})`);
-
-        // vis.grouped_titles = d3.stratify()(vis.titles)
-        // .count(d => d.count)
-
-        // console.log(vis.grouped_titles)
-
-        // vis.pack = d3.pack()
-        //     .size([vis.width, vis.height])
-        //     .padding(3)
-        //
-        // vis.packedData = vis.pack(vis.grouped_titles)
-        //
-        // console.log(vis.packedData.leaves())
-        // console.log(vis.packedData.descendants())
-        // console.log(vis.titles)
-
-        // vis.leaf = vis.svg.selectAll("g")
-        //     .data(vis.packedData.leaves())
-        //     .enter()
-        //     .append("g")
-        //     .attr("transform", d => `translate(${d.x + 1},${d.y + 1})`);
-        //
-        // vis.circle = vis.leaf
-        //     .append("circle")
-        //     .attr("r", 2)
-        //     .attr("fill", "#bbccff");
-
-        // ** END OF WORKING V1 John Haldeman
-
         // drawing tooltip
         vis.genretooltip = new Tooltip('genre_tooltip', 240);
 
@@ -66,6 +25,8 @@ class BubbleChart {
         vis.grouped_titles = d3.stratify()(vis.titles)
             .count(d => d.count)
         console.log(vis.grouped_titles)
+
+        // TODO: remove extraneous circles
 
         vis.pack = d3.pack()
             .size([vis.width, vis.height])
@@ -94,48 +55,12 @@ class BubbleChart {
         // END OF V2 ZOOMABLE PACKING
 
 
-        vis.wrangleData();
-    }
-
-    wrangleData() {
-
-        let vis = this;
-
-        // vis.displayData = vis.titles;
-
-        // console.log(vis.titles)
-
         vis.updateVis();
     }
 
     updateVis() {
 
         let vis = this;
-
-        // V3 SIMPLE CIRCLE PACK USING : https://bl.ocks.org/denjn5/6d5ddd4226506d644bb20062fc60b53f
-        // vis.pack = d3.pack()
-        //     .size([vis.width, vis.height - 50]);
-        // // .children(d => d.)
-        // // .padding(10);
-        // vis.root = d3.hierarchy(vis.grouped_titles);
-        // vis.nodes = vis.root.descendants();
-        // //
-        // console.log(vis.root)
-        // console.log(vis.nodes)
-        // //
-        // vis.pack(vis.root)
-        //
-        // vis.slices = vis.svg.selectAll("circle")
-        //     .data(vis.nodes)
-        //     .enter()
-        //     .append("circle")
-        //     .attr("fill", vis.color(3))
-        //     .attr('cx', d => d.data.x)
-        //     .attr('cy', d => d.data.y)
-        //     .attr('r', d => d.data.r);
-
-
-        // **END OF USING V# SIMPLE CIRCLE PACK
 
         // V2 ZOOMABLE PACKING
         vis.node = vis.svg.append("g")
@@ -144,23 +69,39 @@ class BubbleChart {
             .join("circle")
             .attr("class", d => d.data.parentId)
             .attr("fill", d => d.children ? vis.color(d.depth) : "white")
-            // TODO: set the event property pointer-events to be only applicable - none for smallest circles when zoomed all the way out, when zoomed in a little, should be allowable
+            // TODO: set the event property pointer-events to be only applicable -
+            //  none for smallest circles when zoomed all the way out,
+            //  when zoomed in a little, should be allowable
+            .attr("pointer-events", d => !d.children ? "none" : null)
             .on("mouseover", function (event, d) {
-                d3.select(this).attr("stroke", "#860404");
+                d3.select(this)
+                    .attr("stroke", "#860404");
 
-                let genre;
+                console.log(d.data.id)
+
+                let text;
                 if (d.data.id.substring(0, 2) === "m_") {
-                    genre = d.data.id.substring(2, d.data.id.length)
+                    text = d.data.id.substring(2, d.data.id.length)
                     // console.log(genre)
                 } else {
-                    genre = d.data.id;
+                    text = d.data.id;
                 }
 
-                vis.content = '<span class="name">Genre </span><span class="value">' + genre
+                console.log(d.depth)
+
+                if (d.depth === 1) {
+                    vis.content = '<span class="name">Format: </span><span class="value">' + text;
+                } if (d.depth === 2) {
+                    vis.content = '<span class="name">Genre: </span><span class="value">' + text;
+                } if (d.depth === 3) {
+                    vis.content = '<span class="name">Title: </span><span class="value">' + text;
+                }
 
                 vis.genretooltip.showTooltip(vis.content, event);
 
                 // TODO: tooltip when scrolling out
+                // TODO: movie / tv show label
+                // TODO: disable zooming in to circle
 
             })
             .on("mouseout", function () {
@@ -173,25 +114,6 @@ class BubbleChart {
                 // if not, zoom in on d itself
                 vis.focus !== d && (vis.zoom(event, d), event.stopPropagation())
             });
-
-        // vis.label = vis.svg.append("g")
-        //     .style("font", "10px sans-serif")
-        //     .attr("pointer-events", "none")
-        //     .attr("text-anchor", "middle")
-        //     .selectAll("text")
-        //     .data(vis.root.descendants())
-        //     .join("text")
-        //     .style("fill-opacity", d => d.parent === vis.root ? 1 : 0)
-        //     .style("display", d => d.parent === vis.root ? "inline" : "none")
-        //     .text(d => {
-        //         // console.log(d.data.id)
-        //         if (d.data.id.substring(0, 2) === "m_") {
-        //             return d.data.id.substring(2, d.data.id.length)
-        //         } else {
-        //             return d.data.id;
-        //         }
-        //     });
-
 
         vis.zoomTo([vis.root.x, vis.root.y, vis.root.r * 2]);
     }
@@ -214,18 +136,9 @@ class BubbleChart {
                 return t => vis.zoomTo(i(t));
             });
 
-        // vis.label
-        //     .filter(function (d) {
-        //         return d.parent === vis.focus || this.style.display === "inline";
-        //     })
-        //     .transition(vis.transition)
-        //     .style("fill-opacity", d => d.parent === vis.focus ? 0 : 1)
-        //     .on("start", function (d) {
-        //         if (d.parent === vis.focus) this.style.display = "inline";
-        //     })
-        //     .on("end", function (d) {
-        //         if (d.parent !== vis.focus) this.style.display = "none";
-        //     });
+        vis.node
+            .attr("pointer-events", d => !d.children ? "visibleFill" : null)
+
 
     }
 
@@ -237,49 +150,15 @@ class BubbleChart {
 
         vis.view = v;
 
-        // vis.label
-        //     .attr("transform", d => `translate(${(d.x - v[0]) * vis.k},${(d.y - v[1]) * vis.k})`)
-        //     .attr("font-size", 30);
-
-        // vis.genrelabel = vis.svg.append("g")
-        //     .style("font", "10px sans-serif")
-        //     .attr("pointer-events", "none")
-        //     .attr("text-anchor", "middle")
-        //     .selectAll("text")
-        //     .data(vis.root)
-        //     .join("text")
-        //     .style("fill-opacity", d => d.parent === vis.root ? 0 : 1)
-        //     .style("display", d => d.parent === vis.root ? "inline" : "none")
-        //
-        //
-        //     // .attr("transform", d => `translate(${(d.x - v[0]) * vis.k},${(d.y - v[1]) * vis.k})`)
-        //     // .attr("font-size", 30)
-        //
-        //     .text(d => function() {
-        //         console.log(d.data.id)
-        //         if (d.data.id.substring(0, 2) === "m_") {
-        //             return d.data.id.substring(2, d.data.id.length)
-        //         } else {
-        //             return d.data.id;
-        //         }
-        //     });
-
         vis.node
             .attr("transform", d => `translate(${(d.x - v[0]) * vis.k},${(d.y - v[1]) * vis.k})`)
             .attr("r", d => d.r * vis.k);
+
     }
 
 
 }
 
-// mtg with Ben
-// TODO: walk through the process of making the code
-// TODO: figure out outliers - 6263 vs. 6237 ??
-// TODO: review tooltip js
-
-// TODO: how to get labels to show up after zooming back out
-// TODO: * add tooltips for circles and movies - is this easiest?
-// TODO: fix data labels why they all off? ask ben
 
 // Minor changes
 // TODO: color circles accordingly

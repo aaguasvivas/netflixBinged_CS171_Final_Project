@@ -21,7 +21,7 @@ class StackedAreaChart {
         // grab all the keys from the key value pairs in data (filter out 'year' ) to get a list of categories
         this.dataCategories = Object.keys(this.data[0]).filter(d=>d !== "Year")
 
-        console.log(this.dataCategories)
+        // console.log(this.dataCategories)
 
         // prepare colors for range
         let colorArray = this.dataCategories.map( (d,i) => {
@@ -45,7 +45,7 @@ class StackedAreaChart {
         vis.width = $('#' + vis.parentElement).width() - vis.margin.left - vis.margin.right;
         vis.height = $('#' + vis.parentElement).height() - vis.margin.top - vis.margin.bottom;
 
-        console.log("data", vis.data)
+        // console.log("data", vis.data)
 
 
         // SVG drawing area

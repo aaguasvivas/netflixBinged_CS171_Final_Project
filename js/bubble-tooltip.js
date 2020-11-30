@@ -58,8 +58,8 @@ class Tooltip {
         vis.ttw = vis.tt.style('width');
         vis.tth = vis.tt.style('height');
 
-        console.log(event.pageX)
-        console.log(event.pageY)
+        // console.log(event.pageX)
+        // console.log(event.pageY)
 
         vis.tt
             .style('top', event.pageY + 'px')
