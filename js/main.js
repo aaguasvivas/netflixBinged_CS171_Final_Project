@@ -26,7 +26,6 @@ function initMainPage(data){
 
     // data
     titles = data[0]
-    console.log(titles.length)
     dummy = data[1]
     imdb = data[2]
     mapData = data[3]
@@ -44,8 +43,6 @@ function initMainPage(data){
         return d;
     })
 
-   // console.log(globalExpansion)
-    
     // convert string to integer in data
     imdb.forEach(function(d){
         d.rating = +d.rating;

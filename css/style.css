@@ -146,11 +146,20 @@ text.legendTitle {
     padding-left: 50px;
 }
 
-.tooltip-box {
-    border: thin solid grey;
+.table {
     border-radius: 5px;
-    background: lightgrey;
-    padding: 20px
+    width: 50%;
+    margin: 0px auto;
+    float: none;
+    /*display: none;*/
+}
+
+th {
+    color: white;
+}
+
+tr {
+    color: white;
 }
 
 /* International Presence */

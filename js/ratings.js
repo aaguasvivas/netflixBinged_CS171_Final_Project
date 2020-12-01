@@ -31,10 +31,34 @@ class Grid {
             .attr("width", vis.width + vis.margin.left + vis.margin.right)
             .attr("height", vis.height + vis.margin.top + vis.margin.bottom);
 
-        // append tooltip
-        vis.tooltip = d3.select("body").append('div')
-          //  .attr('class', "ratingsTooltip")
-            .attr('id', 'ratingsTooltip')
+        console.log(vis.height)
+
+        // legend
+        vis.svg.append('rect')
+            .attr("width", vis.cellWidth * 4)
+            .attr("height", vis.cellHeight * 4)
+            .attr("x", 50)
+            .attr("y", vis.height - (vis.margin.top * vis.margin.bottom))
+            .attr("fill", "#fee0d2")
+
+        vis.svg.append('rect')
+            .attr("width", vis.cellWidth * 4)
+            .attr("height", vis.cellHeight * 4)
+            .attr("x", 80)
+            .attr("y", vis.height - (vis.margin.top * vis.margin.bottom))
+            .attr("fill", "#fc9272")
+
+        vis.svg.append('rect')
+            .attr("width", vis.cellWidth * 4)
+            .attr("height", vis.cellHeight * 4)
+            .attr("x", 110)
+            .attr("y", vis.height - (vis.margin.top * vis.margin.bottom))
+            .attr("fill", "#de2d26")
+
+        vis.legendText = vis.svg.append("g")
+            .attr('class', 'ratings-legend')
+            .attr('transform', `translate(${vis.width * 2.8 / 4}, ${vis.height - 20})`)
+
 
         vis.wrangleData();
     }
@@ -70,10 +94,12 @@ class Grid {
     updateVis(){
         let vis = this;
 
+        // visualization caption
         vis.text = vis.svg.append("text")
             .text(vis.percent + "% are rated 6 or higher on IMDB.")
             .attr("fill", "white")
             .attr("class", "ratings-viz-text")
+            .attr("x", "50")
 
         vis.row = vis.svg.selectAll(".row").data(vis.displayData)
             .enter()
@@ -87,34 +113,41 @@ class Grid {
             .enter()
             .append("rect")
 
-            // tooltip
-            .on('click', moreInfo)
-            // .on("mouseover", function(event, d){
-            //
-            //     d3.select(this)
-            //         .attr("stroke", "white")
-            //
-            //     vis.tooltip
-            //         .style("opacity", 1)
-            //         .style("left", event.pageX + 20 + "px")
-            //         .style("top", event.pageY + "px")
-            //         .html(`
-            //          <div class="tooltip-box">
-            //              <h1> ${d.title}</h1>
-            //              <h4> ${d.rating}</h4>
-            //          </div>`);
-            //
-            // })
-            // .on("mouseout", function(event, d){
-            //     d3.select(this)
-            //         .attr("stroke", "none")
-            //
-            //     vis.tooltip
-            //         .style("opacity", 0)
-            //         .style("left", 0)
-            //         .style("top", 0)
-            //         .html(``);
-            // })
+            // linked view
+            .on('click', function(event, d){
+                // clear any existing data
+                d3.selectAll(".title-row").remove()
+
+                if (vis.isMovies == true){
+
+                    document.getElementById("movie-table").style.display = "block";
+
+                    // append data to bootstrap table
+                    d3.select("#movie-title-row").append("th").attr("scope", "row").text("Title").attr("class", "title-row")
+                    d3.select("#movie-title-row").append("td").text(d.title).attr("class", "title-row")
+
+                    d3.select("#movie-rating-row").append("th").attr("scope", "row").text("IMDB Rating").attr("class", "title-row")
+                    d3.select("#movie-rating-row").append("td").text(d.rating).attr("class", "title-row")
+
+                    d3.select("#movie-release-row").append("th").attr("scope", "row").text("Release Year").attr("class", "title-row")
+                    d3.select("#movie-release-row").append("td").text(d.release_year).attr("class", "title-row")
+                }
+
+                else {
+
+                    document.getElementById("tv-table").style.display = "block";
+
+                    // append data to bootstrap table
+                    d3.select("#tv-title-row").append("th").attr("scope", "row").text("Title").attr("class", "title-row")
+                    d3.select("#tv-title-row").append("td").text(d.title).attr("class", "title-row")
+
+                    d3.select("#tv-rating-row").append("th").attr("scope", "row").text("IMDB Rating").attr("class", "title-row")
+                    d3.select("#tv-rating-row").append("td").text(d.rating).attr("class", "title-row")
+
+                    d3.select("#tv-release-row").append("th").attr("scope", "row").text("Release Year").attr("class", "title-row")
+                    d3.select("#tv-release-row").append("td").text(d.release_year).attr("class", "title-row")
+                }
+            })
 
             // rectangle attributes
             .transition()
@@ -125,33 +158,15 @@ class Grid {
             .attr("x", (d, i) => (i * 6) + 50)
             .attr("y", 20)
             .attr("fill", function(d){
-                if(d.rating >= 6)
-                    return "red"
-                else
-                    return "white"
+                if (0 <= d.rating && d.rating <= 3)
+                    return "#fee0d2"
+
+                else if (3 < d.rating && d.rating <= 6)
+                    return "#fc9272"
+
+                else if (6 < d.rating && d.rating <= 10)
+                    return "#de2d26";
+
             })
     }
-}
-
-function moreInfo(event, d) {
-
-    // clear any existing data
-    d3.selectAll(".title-row").remove()
-
-    if (isMovie == true){
-        // append data to bootstrap table
-        d3.select("#movie-title").append("th").attr("scope", "row").text("Title").attr("class", "title-row")
-        d3.select("#movie-title").append("td").text(d.title).attr("class", "title-row")
-    }
-
-    else {
-        // append data to bootstrap table
-        d3.select("#tv-title").append("th").attr("scope", "row").text("Title").attr("class", "title-row")
-        d3.select("#tv-title").append("td").text(d.title).attr("class", "title-row")
-    }
-
-    console.log("clicked")
-    console.log(vis.isMovie)
-
-
 }

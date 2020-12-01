@@ -90,7 +90,6 @@ class MapVis {
             .range(vis.colors)
             .unknown("#ccc");
 
-
         let m0,
             o0;
 
