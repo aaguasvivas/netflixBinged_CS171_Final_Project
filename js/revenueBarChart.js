@@ -17,7 +17,14 @@ revenueData.then(function(data) {
     });
 });
 
-console.log("revenue", revenueData)
+var revenue_tip = d3.tip()
+    .attr('class', 'd3-tip revenue')
+    .html(function(d) {
+        return "<strong>Year:</strong> <span style='color:red'>" + d.year + "<br>" + "</span>" +
+            "<strong>Revenue:</strong> <span style='color:red'>" + parseInt(d.revenue); + "</span>";
+    })
+
+svgRevenue.call(revenue_tip);
 
 revenueData.then(function(data) {
     // Set domains
@@ -34,7 +41,8 @@ revenueData.then(function(data) {
         .attr("y", function(d) { return y(d.revenue); })
         .attr("height", function(d) { return height - y(d.revenue);
         })
-        .attr("fill", "white");
+        .attr("fill", "#df051a").on('mouseover', revenue_tip.show)
+        .on('mouseout', revenue_tip.hide);
 
     // add x-axis
     svgRevenue.append("g")
@@ -65,23 +73,5 @@ revenueData.then(function(data) {
         .text("Revenue (in Millions US Dollars)")
         .attr("fill", "white")
         .attr("fontSize", 22);
-
-    // TODO add labels to bars
-    svgRevenue.selectAll("text")
-        .data(data)
-        .enter()
-        .append("text")
-        .text(function(d) { return d.revenue; })
-        .attr("x", function(d){
-            return x(d.year) + x.bandwidth() / 2;
-        })
-        .attr("y", function(d){
-            return height - y(d.revenue) + 14;
-        })
-        .attr("font-family" , "sans-serif")
-        .attr("font-size" , 18)
-        .attr("fill" , "red")
-        .attr("text-anchor", "middle");
-
 
 })

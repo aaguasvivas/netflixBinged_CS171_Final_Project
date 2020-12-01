@@ -157,7 +157,6 @@ class MapVis {
     updateVis(){
         let vis = this;
 
-        // TODO Add country outlines, change ocean background, make undrag-able, fix white bar chart color with tootltip
         vis.countries
             .attr("opacity","0.8")
             .style("fill", (d) => vis.colorScale(vis.countryInfo[d.properties.name].totalCatalog))

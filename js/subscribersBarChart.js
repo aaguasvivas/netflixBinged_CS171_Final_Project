@@ -29,7 +29,14 @@ subsDataset.then(function(data) {
     });
 });
 
-console.log(subsDataset)
+var subscribers_tip = d3.tip()
+    .attr('class', 'd3-tip subscribers')
+    .html(function(d) {
+        return "<strong>Platform:</strong> <span style='color:red'>" + d.platform + "<br>" + "</span>" +
+            "<strong>Number of Subscribers:</strong> <span style='color:red'>" + parseInt(d.numSubscribers); + "</span>";
+    })
+
+svgSubscribers.call(subscribers_tip);
 
 subsDataset.then(function(data) {
     // Set domains
@@ -48,7 +55,9 @@ subsDataset.then(function(data) {
         })
         .attr("fill", (d, i) => {
             return color[i % 6]
-        });
+        })
+        .on('mouseover', subscribers_tip.show)
+        .on('mouseout', subscribers_tip.hide);
 
     // add x-axis
     svgSubscribers.append("g")
@@ -79,23 +88,6 @@ subsDataset.then(function(data) {
         .text("Subscribers (in Millions)")
         .attr("fill", "white")
         .attr("fontSize", 22);
-
-    // TODO add labels to bars
-    svgSubscribers.selectAll("text")
-        .data(data)
-        .enter()
-        .append("text")
-        .text(function(d) { return d.numSubscribers; })
-        .attr("x", function(d){
-            return x(d.platform) + x.bandwidth() / 2;
-        })
-        .attr("y", function(d){
-            return height - y(d.numSubscribers) + 14;
-        })
-        .attr("font-family" , "sans-serif")
-        .attr("font-size" , 18)
-        .attr("fill" , "white")
-        .attr("text-anchor", "middle");
 
 
 })
