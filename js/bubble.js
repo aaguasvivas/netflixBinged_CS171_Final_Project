@@ -14,8 +14,8 @@ class BubbleChart {
 
         vis.margin = {top: 20, right: 20, bottom: 20, left: 40};
         vis.width = $("#" + vis.parentElement).width() - vis.margin.left - vis.margin.right;
-        // vis.height = $("#" + vis.parentElement).height() - vis.margin.top - vis.margin.bottom;
-        vis.height = vis.width;
+        vis.height = $("#" + vis.parentElement).height() - vis.margin.top - vis.margin.bottom;
+        // vis.height = vis.width;
 
         // drawing tooltip
         vis.genretooltip = new Tooltip('genre_tooltip', 240);
