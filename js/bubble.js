@@ -38,7 +38,7 @@ class BubbleChart {
 
         vis.color = d3.scaleLinear()
             .domain([0, 5])
-            .range(["hsl(0,0%,96%)", "hsl(0,97%,49%)"])
+            .range(["hsl(14,93%,76%)", "hsl(358,83%,25%)"])
             .interpolate(d3.interpolateHcl)
 
         vis.svg = d3.select("#" + vis.parentElement).append("svg")
@@ -51,9 +51,12 @@ class BubbleChart {
             .style("cursor", "pointer")
             .on("click", (event) => vis.zoom(event, vis.root));
 
+        vis.formatLabel = vis.svg.append("g")
+            .attr('class', 'formatLabel')
+            .attr('transform', `translate(${vis.width / 2}, 0)`)
+
 
         // END OF V2 ZOOMABLE PACKING
-
 
         vis.updateVis();
     }
@@ -67,7 +70,7 @@ class BubbleChart {
             .selectAll("circle")
             .data(vis.root.descendants().slice(1))
             .join("circle")
-            .attr("class", d => d.data.parentId)
+            .attr("class", d => d.data.id)
             .attr("fill", d => d.children ? vis.color(d.depth) : "white")
             // TODO: set the event property pointer-events to be only applicable -
             //  none for smallest circles when zoomed all the way out,
@@ -77,7 +80,7 @@ class BubbleChart {
                 d3.select(this)
                     .attr("stroke", "#860404");
 
-                console.log(d.data.id)
+                // console.log(d.data.id)
 
                 let text;
                 if (d.data.id.substring(0, 2) === "m_") {
@@ -87,12 +90,12 @@ class BubbleChart {
                     text = d.data.id;
                 }
 
-                console.log(d.depth)
+                // console.log(d.depth)
 
                 if (d.depth === 1) {
-                    vis.content = '<span class="name">Format: </span><span class="value">' + text;
+                    vis.content = '<span class="value">' + text;
                 } if (d.depth === 2) {
-                    vis.content = '<span class="name">Genre: </span><span class="value">' + text;
+                    vis.content = '<span class="value">' + text;
                 } if (d.depth === 3) {
                     vis.content = '<span class="name">Title: </span><span class="value">' + text;
                 }
@@ -100,7 +103,7 @@ class BubbleChart {
                 vis.genretooltip.showTooltip(vis.content, event);
 
                 // TODO: tooltip when scrolling out
-                // TODO: movie / tv show label
+                // TODO: movie / tv show label on top
                 // TODO: disable zooming in to circle
 
             })
@@ -115,7 +118,14 @@ class BubbleChart {
                 vis.focus !== d && (vis.zoom(event, d), event.stopPropagation())
             });
 
+        vis.formatLabel.append('text')
+            .attr("class", "formatLabel")
+            .text("Movies")
+            .attr("x", 10)
+            .attr("y",  10)
+
         vis.zoomTo([vis.root.x, vis.root.y, vis.root.r * 2]);
+
     }
 
     zoom(event, d) {
@@ -132,7 +142,7 @@ class BubbleChart {
         vis.transition = vis.svg.transition()
             .duration(event.altKey ? 7500 : 750)
             .tween("zoom", d => {
-                let i = d3.interpolateZoom(vis.view, [vis.focus.x, vis.focus.y, vis.focus.r * 2]);
+                let i = d3.interpolateZoom(vis.view, [vis.focus.x, vis.focus.y, vis.focus.r * 2.5]);
                 return t => vis.zoomTo(i(t));
             });
 
@@ -159,6 +169,8 @@ class BubbleChart {
 
 }
 
+
+// TODO: romance movies? absorb into drama?
 
 // Minor changes
 // TODO: color circles accordingly

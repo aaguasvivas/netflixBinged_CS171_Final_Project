@@ -136,12 +136,23 @@ text.legendTitle {
     position: relative;
 }
 
+
 /* Content Diversity */
 #content-diversity {
     font-size: 1em;
     font-family: helvetica, arial;
     color: white;
     text-align: center;
+}
+
+.name {
+    font-size: 40px;
+    font-family: helvetica, arial;
+}
+
+.value {
+    font-size: 40px;
+    font-family: helvetica, arial;
 }
 
 /* Viewer Enjoyment */
