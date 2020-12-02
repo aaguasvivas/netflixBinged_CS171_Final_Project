@@ -21,6 +21,7 @@ class Grid {
         vis.cellHeight = 5;
         vis.cellWidth = vis.cellHeight;
         vis.cellPadding = 10;
+        vis.legendY = vis.height - (vis.margin.top * vis.margin.bottom)
 
         // SVG drawing area
         vis.svg = d3.select("#" + vis.parentElement).append("svg")
@@ -29,36 +30,47 @@ class Grid {
             .append("g")
             .attr("transform", "translate(" + vis.width/3 + "," + vis.margin.bottom + ")")
             .attr("width", vis.width + vis.margin.left + vis.margin.right)
-            .attr("height", vis.height + vis.margin.top + vis.margin.bottom);
-
-        console.log(vis.height)
+         //   .attr("height", vis.height + vis.margin.top + vis.margin.bottom);
 
         // legend
         vis.svg.append('rect')
             .attr("width", vis.cellWidth * 4)
             .attr("height", vis.cellHeight * 4)
             .attr("x", 50)
-            .attr("y", vis.height - (vis.margin.top * vis.margin.bottom))
+            .attr("y", vis.legendY)
             .attr("fill", "#fee0d2")
 
+        vis.svg.append('text')
+            .text("0-3")
+            .attr("x", 80)
+            .attr("y", vis.legendY + 15)
+            .attr("fill", "white")
+
         vis.svg.append('rect')
             .attr("width", vis.cellWidth * 4)
             .attr("height", vis.cellHeight * 4)
-            .attr("x", 80)
-            .attr("y", vis.height - (vis.margin.top * vis.margin.bottom))
+            .attr("x", 130)
+            .attr("y", vis.legendY)
             .attr("fill", "#fc9272")
 
+        vis.svg.append('text')
+            .text("4-6")
+            .attr("x", 160)
+            .attr("y", vis.legendY + 15)
+            .attr("fill", "white")
+
         vis.svg.append('rect')
             .attr("width", vis.cellWidth * 4)
             .attr("height", vis.cellHeight * 4)
-            .attr("x", 110)
-            .attr("y", vis.height - (vis.margin.top * vis.margin.bottom))
+            .attr("x", 210)
+            .attr("y", vis.legendY)
             .attr("fill", "#de2d26")
 
-        vis.legendText = vis.svg.append("g")
-            .attr('class', 'ratings-legend')
-            .attr('transform', `translate(${vis.width * 2.8 / 4}, ${vis.height - 20})`)
-
+        vis.svg.append('text')
+            .text("7-10")
+            .attr("x", 240)
+            .attr("y", vis.legendY + 15)
+            .attr("fill", "white")
 
         vis.wrangleData();
     }
@@ -93,6 +105,7 @@ class Grid {
 
     updateVis(){
         let vis = this;
+        var clicked = false;
 
         // visualization caption
         vis.text = vis.svg.append("text")
@@ -115,39 +128,65 @@ class Grid {
 
             // linked view
             .on('click', function(event, d){
-                // clear any existing data
-                d3.selectAll(".title-row").remove()
 
-                if (vis.isMovies == true){
+                clicked = true;
 
+                // // change stroke
+                // d3.select(this)
+                //     .attr("stroke", "white");
+
+                if (vis.isMovies == true) {
+
+                    // remove existing data
+                    d3.select('#movie-table').selectAll('.table-row').remove();
+
+                    // show table
                     document.getElementById("movie-table").style.display = "block";
 
                     // append data to bootstrap table
-                    d3.select("#movie-title-row").append("th").attr("scope", "row").text("Title").attr("class", "title-row")
-                    d3.select("#movie-title-row").append("td").text(d.title).attr("class", "title-row")
+                    d3.select("#movie-title-row").append("th").attr("scope", "row").text("Title").attr("class", "table-row")
+                    d3.select("#movie-title-row").append("td").text(d.title).attr("class", "table-row")
 
-                    d3.select("#movie-rating-row").append("th").attr("scope", "row").text("IMDB Rating").attr("class", "title-row")
-                    d3.select("#movie-rating-row").append("td").text(d.rating).attr("class", "title-row")
+                    d3.select("#movie-description-row").append("th").attr("scope", "row").text("Description").attr("class", "table-row")
+                    d3.select("#movie-description-row").append("td").text(d.description).attr("class", "table-row")
 
-                    d3.select("#movie-release-row").append("th").attr("scope", "row").text("Release Year").attr("class", "title-row")
-                    d3.select("#movie-release-row").append("td").text(d.release_year).attr("class", "title-row")
+                    d3.select("#movie-release-row").append("th").attr("scope", "row").text("Release Year").attr("class", "table-row")
+                    d3.select("#movie-release-row").append("td").text(d.release_year).attr("class", "table-row")
+
+                    d3.select("#movie-rating-row").append("th").attr("scope", "row").text("IMDB Rating").attr("class", "table-row")
+                    d3.select("#movie-rating-row").append("td").text(d.rating).attr("class", "table-row")
+
                 }
 
                 else {
 
+                    // remove existing data
+                    d3.select('#tv-table').selectAll('.table-row').remove();
+
+                    // show table
                     document.getElementById("tv-table").style.display = "block";
 
                     // append data to bootstrap table
-                    d3.select("#tv-title-row").append("th").attr("scope", "row").text("Title").attr("class", "title-row")
-                    d3.select("#tv-title-row").append("td").text(d.title).attr("class", "title-row")
+                    d3.select("#tv-title-row").append("th").attr("scope", "row").text("Title").attr("class", "table-row")
+                    d3.select("#tv-title-row").append("td").text(d.title).attr("class", "table-row")
 
-                    d3.select("#tv-rating-row").append("th").attr("scope", "row").text("IMDB Rating").attr("class", "title-row")
-                    d3.select("#tv-rating-row").append("td").text(d.rating).attr("class", "title-row")
+                    d3.select("#tv-description-row").append("th").attr("scope", "row").text("Description").attr("class", "table-row")
+                    d3.select("#tv-description-row").append("td").text(d.description).attr("class", "table-row")
 
-                    d3.select("#tv-release-row").append("th").attr("scope", "row").text("Release Year").attr("class", "title-row")
-                    d3.select("#tv-release-row").append("td").text(d.release_year).attr("class", "title-row")
+                    d3.select("#tv-release-row").append("th").attr("scope", "row").text("Release Year").attr("class", "table-row")
+                    d3.select("#tv-release-row").append("td").text(d.release_year).attr("class", "table-row")
+
+                    d3.select("#tv-rating-row").append("th").attr("scope", "row").text("IMDB Rating").attr("class", "table-row")
+                    d3.select("#tv-rating-row").append("td").text(d.rating).attr("class", "table-row")
+
                 }
             })
+            // .on('mouseout', function(event, d){
+            //
+            //     // reset stroke
+            //     d3.select(this)
+            //         .attr("stroke", "none");
+            // })
 
             // rectangle attributes
             .transition()
@@ -167,6 +206,12 @@ class Grid {
                 else if (6 < d.rating && d.rating <= 10)
                     return "#de2d26";
 
+            })
+            .attr("stroke", d => {
+                if(clicked == true)
+                    return "white"
+                else
+                    return "none"
             })
     }
 }

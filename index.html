@@ -126,7 +126,7 @@
                         <br> Take a guess using the slider! </p>
                     <div id="movie-slider"></div>
                     <div class="rating-guess">Your guess is an average rating of <span id="movie-guess"></span>.</div>
-                    <input type="button" name="answer" value="Check" onclick="showMovie()"/>
+                    <button type="button" class="btn btn-danger" name="answer" onclick="showMovie()">Check</button>
                     <div class="rating-actual" id="m-act">The actual average rating is <span id="movie-actual"></span>.
                     </div>
                 </div>
@@ -138,7 +138,7 @@
                         <br> Take a guess using the slider! </p>
                     <div id="show-slider"></div>
                     <div class="rating-guess">Your guess is an average rating of <span id="show-guess"></span>.</div>
-                    <input type="button" name="answer" value="Check" onclick="showTV()"/>
+                    <button type="button" class="btn btn-danger" name="answer" onclick="showTV()">Check</button>
                     <div class="rating-actual" id="s-act">The actual average rating is <span id="show-actual"></span>.</div>
                 </div>
             </div>
@@ -154,14 +154,15 @@
                 <div class="col">
                     <!-- Bootstrap table -->
                     <table class="table" id="movie-table">
-                        <tbody class="table">
-                        <tr>
-                            <th scope="col"></th>
-                            <th scope="col"></th>
-                        </tr>
-                        <tr id="movie-title-row"></tr>
-                        <tr id="movie-release-row"></tr>
-                        <tr id="movie-rating-row"></tr>
+                        <tbody>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                            </tr>
+                            <tr id="movie-title-row"></tr>
+                            <tr id="movie-description-row"></tr>
+                            <tr id="movie-release-row"></tr>
+                            <tr id="movie-rating-row"></tr>
                         </tbody>
                     </table>
                 </div>
@@ -176,13 +177,14 @@
                     <div id="show-ratings-viz"></div>
                 </div>
                 <div class="col">
-                    <table class="table" id="tv-table">
-                        <tbody class="table">
+                    <table class="table table-fixed" id="tv-table">
+                        <tbody>
                         <tr>
                             <th scope="col"></th>
                             <th scope="col"></th>
                         </tr>
                         <tr id="tv-title-row"></tr>
+                        <tr id="tv-description-row"></tr>
                         <tr id="tv-release-row"></tr>
                         <tr id="tv-rating-row"></tr>
                         </tbody>
@@ -194,28 +196,74 @@
 
     <!-- Recommendations -->
     <div class="section" id="recs">
-        <h1 class="section-headers"> Our Recommendations </h1>
+        <h1 class="section-headers recs-text"> Our Recommendations </h1>
+<!--        <h2 class="top-picks"> Top Picks for Adelson </h2>-->
+<!--        <h2 class="top-picks"> Top Picks for Belinda </h2>-->
+        <h2 class="top-picks"> Top Picks for Michelle </h2>
+
         <audio data-autoplay>
             <source src="intro-sound.mp3" type="audio/mp3">
         </audio>
-        <div class="row">
-            <div class="col">
+
+        <div class="row recs-row">
+            <div class="col recs-col">
                 <img class="icons" src="img/icon-1.png">
-                <h2> Adelson's Recs </h2>
+                <h2 class="recs-text"> Adelson's Recs </h2>
+                <!-- Recommendations -->
+                <img class="recs" src="img/gossip-girl.png" id="first">
             </div>
-            <div class="col">
+
+            <div class="col recs-col">
                 <img class="icons" src="img/icon-2.png">
-                <h2> Belinda's Recs </h2>
+                <h2 class="recs-text"> Belinda's Recs </h2>
+                <!-- Recommendations -->
+                <img class="recs" src="img/schitts-creek.png">
             </div>
-            <div class="col">
-                <img class="icons" src="img/icon-3.png">
-                <h2> Michelle's Recs </h2>
+
+            <div class="col recs-col">
+                <img class="icons" src="img/icon-3.png" onclick="onClick()">
+                <h2 class="recs-text"> Michelle's Recs </h2>
+                <!-- Recommendations -->
+                <img class="recs" src="img/social-network.png">
+            </div>
+
+            <!-- Recommendations -->
+            <div class="column recs-col">
+                <img class="recs" src="img/bling-ring.png">
+            </div>
+            <div class="column recs-col">
+                <img class="recs" src="img/new-girl.png">
+            </div>
+            <div class="column recs-col">
+                <img class="recs" src="img/ladybird.png">
             </div>
         </div>
     </div>
 
     <!-- Acknowledgements -->
-    <div class="section" id="end">Resources/Acknowledgements</div>
+    <div class="section" id="end">
+        <h2> Top Picks for Michelle </h2>
+        <div class="row recs-row">
+            <div class="column recs-col">
+                <img src="img/gossip-girl.png">
+            </div>
+            <div class="column recs-col">
+                <img src="img/schitts-creek.png">
+            </div>
+            <div class="column recs-col">
+                <img src="img/social-network.png">
+            </div>
+            <div class="column recs-col">
+                <img src="img/bling-ring.png">
+            </div>
+            <div class="column recs-col">
+                <img src="img/new-girl.png">
+            </div>
+            <div class="column recs-col">
+                <img src="img/ladybird.png">
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- JS libraries -->
@@ -242,6 +290,7 @@
 <script src="js/worldMap.js"></script>
 <script src="js/stackedAreaChart.js"></script>
 <script src="js/tables.js"></script>
+<script src="js/recommendations.js"></script>
 <script src="js/main.js"></script>
 
 <script type="text/javascript">

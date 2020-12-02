@@ -22,7 +22,7 @@
     position: relative;
 }
 
-h2 {
+#intro h2 {
     font-size: 30px;
     font-family: 'Bebas Neue';
     color: white;
@@ -177,15 +177,12 @@ text.legendTitle {
 }
 
 .table {
+    padding-top: 50px;
     border-radius: 5px;
     width: 50%;
     margin: 0px auto;
     float: none;
-    /*display: none;*/
-}
-
-th {
-    color: white;
+    display: none;
 }
 
 tr {
@@ -220,35 +217,56 @@ tr {
     height: 90%;
 }
 
-.icons {
+img {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 80px;
+    /*padding-top: 80px;*/
     border: solid 5px transparent;
 }
 
-.icons:hover img {
-    border: solid 10px white;
+img:hover {
+    border: solid 1px white;
 }
 
-.icons:hover {
-    color: red;
-}
 
-#recs h2 {
+.recs-row h2 {
     font-family: Helvetica;
     font-size: 2em;
     padding-top: 15px;
     text-align: center;
+    color: white;
 }
 
 /* Acknowledgements */
 
-#end {
-    font-size: 1em;
-    font-family: helvetica, arial;
-    color: white;
-    text-align: center;
-    position: relative;
+.recs-col {
+    float: left;
+    width: 16%;
+    padding: 3px;
+}
+
+/* Clear floats after image containers */
+.recs-row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.recs {
+    display: none;
+}
+
+.top-picks {
+    display: none;
+    font-size: 20px;
+    font-family: Helvetica;
+    font-weight: bold;
+    color: lightgray;
+    text-align: left;
+    padding-left: 20px;
+}
+
+#first {
+    padding-left: 20px;
 }
