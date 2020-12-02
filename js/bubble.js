@@ -42,7 +42,7 @@ class BubbleChart {
         vis.svg = d3.select("#" + vis.parentElement).append("svg")
             .attr("width", vis.width + vis.margin.left + vis.margin.right)
             .attr("height", vis.height + vis.margin.top + vis.margin.bottom)
-            .attr("viewBox", `-${vis.width / 2} -${vis.height / 2} ${vis.width} ${vis.height}`)
+            .attr("viewBox", `-${vis.width / 2} -${vis.height / 1.5} ${vis.width} ${vis.height}`)
             .style("display", "block")
             .style("margin", "0 -14px")
             .style("background", "black")
@@ -114,7 +114,7 @@ class BubbleChart {
                 // TODO: tooltip when scrolling out
                 // TODO: movie / tv show label on top
             })
-            .on("mouseout", function () {
+            .on("mouseout", function (d) {
                 d3.select(this).attr("stroke", null);
 
                 vis.tt.hide(d, this);
@@ -187,6 +187,7 @@ class BubbleChart {
 
 // TODO: romance movies? absorb into drama?
 // TODO: add labels to show up when you zoom in and disappear when you zoom out
+// TODO: genres - is it ethical to directly change?
 
 // Minor changes
 // TODO: color circles accordingly
