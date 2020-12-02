@@ -21,7 +21,6 @@ class Grid {
         vis.cellHeight = 5;
         vis.cellWidth = vis.cellHeight;
         vis.cellPadding = 10;
-        vis.legendY = vis.height - (vis.margin.top * vis.margin.bottom)
 
         // SVG drawing area
         vis.svg = d3.select("#" + vis.parentElement).append("svg")
@@ -30,8 +29,6 @@ class Grid {
             .append("g")
             .attr("transform", "translate(" + vis.width/3 + "," + vis.margin.bottom + ")")
             .attr("width", vis.width + vis.margin.left + vis.margin.right)
-         //   .attr("height", vis.height + vis.margin.top + vis.margin.bottom);
-
 
         vis.wrangleData();
     }
@@ -61,13 +58,15 @@ class Grid {
             vis.displayData.push(vis.data.splice(0, size));
         }
 
+        console.log(vis.displayData.length);
+
         vis.updateVis();
     }
 
     updateVis(){
         let vis = this;
         var clicked = false;
-        var position = vis.displayData.length * (vis.cellHeight + vis.cellPadding)
+        var position = (vis.displayData.length * vis.cellHeight * 2) + 30
 
         // legend
         vis.svg.append('rect')
@@ -106,7 +105,7 @@ class Grid {
         vis.svg.append('text')
             .text("7-10")
             .attr("x", 240)
-            .attr("y", position + 15)
+            .attr("y",  position + 15)
             .attr("fill", "white")
 
         // visualization caption
@@ -116,6 +115,7 @@ class Grid {
             .attr("class", "ratings-viz-text")
             .attr("x", "50")
 
+        // visualization
         vis.row = vis.svg.selectAll(".row").data(vis.displayData)
             .enter()
             .append('g')
@@ -127,15 +127,16 @@ class Grid {
         vis.row.selectAll('.rectangle').data(function(d, i) {return vis.displayData[i]})
             .enter()
             .append("rect")
-
             // linked view
             .on('click', function(event, d){
 
                 clicked = true;
 
-                // // change stroke
-                // d3.select(this)
-                //     .attr("stroke", "white");
+                console.log(clicked)
+
+                // change stroke
+                d3.select(this)
+                    .attr("stroke", "white");
 
                 if (vis.isMovies == true) {
 
@@ -183,16 +184,8 @@ class Grid {
 
                 }
             })
-            // .on('mouseout', function(event, d){
-            //
-            //     // reset stroke
-            //     d3.select(this)
-            //         .attr("stroke", "none");
-            // })
 
             // rectangle attributes
-            .transition()
-            .duration(1000)
             .attr("class", "rectangle")
             .attr("height", vis.cellHeight)
             .attr("width", vis.cellWidth)
@@ -209,11 +202,12 @@ class Grid {
                     return "#de2d26";
 
             })
-            .attr("stroke", d => {
-                if(clicked == true)
+            .attr("stroke", function(){
+                if (clicked == true)
                     return "white"
                 else
                     return "none"
             })
+
     }
 }
