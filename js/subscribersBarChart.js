@@ -33,7 +33,7 @@ var subscribers_tip = d3.tip()
     .attr('class', 'd3-tip subscribers')
     .html(function(d) {
         return "<strong>Platform:</strong> <span style='color:red'>" + d.platform + "<br>" + "</span>" +
-            "<strong>Number of Subscribers:</strong> <span style='color:red'>" + parseInt(d.numSubscribers); + "</span>";
+            "<strong>Number of Subscribers:</strong> <span style='color:red'>" + parseInt(d.numSubscribers) + " Million" + "</span>";
     })
 
 svgSubscribers.call(subscribers_tip);
@@ -43,21 +43,29 @@ subsDataset.then(function(data) {
     x.domain(data.map(function(d) { return d.platform; }));
     y.domain([0, d3.max(data, function(d) { return d.numSubscribers; })]);
 
-    // appending rectangles
-    svgSubscribers.selectAll(".bar")
+    let bars = svgSubscribers.selectAll(".bar")
         .data(data)
-        .enter().append("rect")
+
+    // appending rectangles
+    bars.enter()
+        .append("rect")
         .attr("class", "bar")
+        .attr("fill", (d, i) => {
+            return color[i % 6]
+        })
+        .merge(bars)
+        .attr("pointer-events", "all")
         .attr("x", function(d) { return x(d.platform); })
         .attr("width", x.bandwidth())
         .attr("y", function(d) { return y(d.numSubscribers); })
         .attr("height", function(d) { return height - y(d.numSubscribers);
         })
-        .attr("fill", (d, i) => {
-            return color[i % 6]
+        .on('mouseover', function (event, d) {
+            subscribers_tip.show(d, this);
         })
-        .on('mouseover', subscribers_tip.show)
-        .on('mouseout', subscribers_tip.hide);
+        .on("mouseout", function (event, d) {
+            subscribers_tip.hide(d, this);
+        });
 
     // add x-axis
     svgSubscribers.append("g")
