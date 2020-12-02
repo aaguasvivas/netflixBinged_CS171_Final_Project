@@ -249,6 +249,8 @@ img:hover {
 #switch {
     display: none;
     float: right;
+    margin-bottom: 20px;
+
 }
 
 .recs {
@@ -261,8 +263,8 @@ img:hover {
 
 .recs-col {
     float: left;
-    width: 16%;
-    padding: 3px;
+    width: 16.66%;
+    padding: 10px;
 }
 
 /* Clear floats after image containers */
