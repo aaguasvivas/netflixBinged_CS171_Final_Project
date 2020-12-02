@@ -32,45 +32,6 @@ class Grid {
             .attr("width", vis.width + vis.margin.left + vis.margin.right)
          //   .attr("height", vis.height + vis.margin.top + vis.margin.bottom);
 
-        // legend
-        vis.svg.append('rect')
-            .attr("width", vis.cellWidth * 4)
-            .attr("height", vis.cellHeight * 4)
-            .attr("x", 50)
-            .attr("y", vis.legendY)
-            .attr("fill", "#fee0d2")
-
-        vis.svg.append('text')
-            .text("0-3")
-            .attr("x", 80)
-            .attr("y", vis.legendY + 15)
-            .attr("fill", "white")
-
-        vis.svg.append('rect')
-            .attr("width", vis.cellWidth * 4)
-            .attr("height", vis.cellHeight * 4)
-            .attr("x", 130)
-            .attr("y", vis.legendY)
-            .attr("fill", "#fc9272")
-
-        vis.svg.append('text')
-            .text("4-6")
-            .attr("x", 160)
-            .attr("y", vis.legendY + 15)
-            .attr("fill", "white")
-
-        vis.svg.append('rect')
-            .attr("width", vis.cellWidth * 4)
-            .attr("height", vis.cellHeight * 4)
-            .attr("x", 210)
-            .attr("y", vis.legendY)
-            .attr("fill", "#de2d26")
-
-        vis.svg.append('text')
-            .text("7-10")
-            .attr("x", 240)
-            .attr("y", vis.legendY + 15)
-            .attr("fill", "white")
 
         vis.wrangleData();
     }
@@ -106,6 +67,47 @@ class Grid {
     updateVis(){
         let vis = this;
         var clicked = false;
+        var position = vis.displayData.length * (vis.cellHeight + vis.cellPadding)
+
+        // legend
+        vis.svg.append('rect')
+            .attr("width", vis.cellWidth * 4)
+            .attr("height", vis.cellHeight * 4)
+            .attr("x", 50)
+            .attr("y", position)
+            .attr("fill", "#fee0d2")
+
+        vis.svg.append('text')
+            .text("0-3")
+            .attr("x", 80)
+            .attr("y", position + 15)
+            .attr("fill", "white")
+
+        vis.svg.append('rect')
+            .attr("width", vis.cellWidth * 4)
+            .attr("height", vis.cellHeight * 4)
+            .attr("x", 130)
+            .attr("y", position)
+            .attr("fill", "#fc9272")
+
+        vis.svg.append('text')
+            .text("4-6")
+            .attr("x", 160)
+            .attr("y", position + 15)
+            .attr("fill", "white")
+
+        vis.svg.append('rect')
+            .attr("width", vis.cellWidth * 4)
+            .attr("height", vis.cellHeight * 4)
+            .attr("x", 210)
+            .attr("y", position)
+            .attr("fill", "#de2d26")
+
+        vis.svg.append('text')
+            .text("7-10")
+            .attr("x", 240)
+            .attr("y", position + 15)
+            .attr("fill", "white")
 
         // visualization caption
         vis.text = vis.svg.append("text")

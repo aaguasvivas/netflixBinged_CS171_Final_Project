@@ -1,6 +1,7 @@
-function onClick(){
+function onClick(element){
 
     console.log("icon clicked")
+    console.log(element.id)
 
     // hide
     var text = document.getElementsByClassName("recs-text");
@@ -14,15 +15,33 @@ function onClick(){
     }
 
     //show
-    var topPicks = document.getElementsByClassName("top-picks");
-    for (var i = 0; i < topPicks.length; i++){
-        topPicks[i].style.display = "block";
+    document.getElementById('switch').style.display = 'block';
+
+    var elements = document.getElementsByClassName(element.id);
+    for (var i = 0; i < elements.length; i++){
+        elements[i].style.display = "block";
     }
 
-    var recs = document.getElementsByClassName("recs");
-    for (var i = 0; i < recs.length; i++){
-        recs[i].style.display = "block";
-    }
+    // if (element.id == "adelson"){
+    //
+    // }
+    //
+    // else if (element.id == "belinda") {
+    //
+    // }
+    //
+    // else if (element.id == "michelle"){
+    //
+    // }
+    // var topPicks = document.getElementsByClassName("top-picks");
+    // for (var i = 0; i < topPicks.length; i++){
+    //     topPicks[i].style.display = "block";
+    // }
+    //
+    // var recs = document.getElementsByClassName("recs");
+    // for (var i = 0; i < recs.length; i++){
+    //     recs[i].style.display = "block";
+    // }
 
 }
 

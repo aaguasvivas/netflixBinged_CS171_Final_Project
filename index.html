@@ -197,9 +197,10 @@
     <!-- Recommendations -->
     <div class="section" id="recs">
         <h1 class="section-headers recs-text"> Our Recommendations </h1>
-<!--        <h2 class="top-picks"> Top Picks for Adelson </h2>-->
-<!--        <h2 class="top-picks"> Top Picks for Belinda </h2>-->
-        <h2 class="top-picks"> Top Picks for Michelle </h2>
+        <button type="button" class="btn btn-outline-light" id="switch"> Switch Account </button>
+        <h2 class="top-picks adelson"> Top Picks for Adelson </h2>
+        <h2 class="top-picks belinda"> Top Picks for Belinda </h2>
+        <h2 class="top-picks michelle"> Top Picks for Michelle </h2>
 
         <audio data-autoplay>
             <source src="intro-sound.mp3" type="audio/mp3">
@@ -207,35 +208,47 @@
 
         <div class="row recs-row">
             <div class="col recs-col">
-                <img class="icons" src="img/icon-1.png">
+                <img class="icons" src="img/icon-1.png" id="adelson" onclick="onClick(this)">
                 <h2 class="recs-text"> Adelson's Recs </h2>
                 <!-- Recommendations -->
-                <img class="recs" src="img/gossip-girl.png" id="first">
+                <img class="recs adelson" src="img/avatar.png">
+                <img class="recs belinda" src="img/good-place.png">
+                <img class="recs michelle" src="img/gossip-girl.png" id="first">
             </div>
 
             <div class="col recs-col">
-                <img class="icons" src="img/icon-2.png">
+                <img class="icons" src="img/icon-2.png" id="belinda" onclick="onClick(this)">
                 <h2 class="recs-text"> Belinda's Recs </h2>
                 <!-- Recommendations -->
-                <img class="recs" src="img/schitts-creek.png">
+                <img class="recs adelson" src="img/good-place.png">
+                <img class="recs belinda" src="img/sherlock.png">
+                <img class="recs michelle" src="img/schitts-creek.png">
             </div>
 
             <div class="col recs-col">
-                <img class="icons" src="img/icon-3.png" onclick="onClick()">
+                <img class="icons" src="img/icon-3.png" id="michelle" onclick="onClick(this)">
                 <h2 class="recs-text"> Michelle's Recs </h2>
                 <!-- Recommendations -->
-                <img class="recs" src="img/social-network.png">
+                <img class="recs adelson" src="img/spiderman.png">
+                <img class="recs belinda" src="img/imposters.png">
+                <img class="recs michelle" src="img/social-network.png">
             </div>
 
             <!-- Recommendations -->
             <div class="column recs-col">
-                <img class="recs" src="img/bling-ring.png">
+                <img class="recs adelson" src="img/umbrella-academy.png">
+                <img class="recs belinda" src="img/old-guard.png">
+                <img class="recs michelle" src="img/bling-ring.png">
             </div>
             <div class="column recs-col">
-                <img class="recs" src="img/new-girl.png">
+                <img class="recs adelson" src="img/bojack.png">
+                <img class="recs belinda" src="img/okay.png">
+                <img class="recs michelle" src="img/new-girl.png">
             </div>
             <div class="column recs-col">
-                <img class="recs" src="img/ladybird.png">
+                <img class="recs adelson" src="img/money-heist.png">
+                <img class="recs belinda" src="img/sex-ed.png">
+                <img class="recs michelle" src="img/ladybird.png">
             </div>
         </div>
     </div>
