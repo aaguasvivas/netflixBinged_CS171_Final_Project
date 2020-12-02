@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Martel+Sans:wght@200&display=swap');
 
 .row {
     height: 90%;
@@ -30,7 +31,7 @@
 
 text.legendTitle {
     font-size: 22px;
-    font-family: 'Helvetica';
+    font-family: 'Helvetica Neue';
     fill: white;
 }
 
@@ -228,9 +229,9 @@ img:hover {
     border: solid 1px white;
 }
 
-.recs-row h2 {
-    font-family: Helvetica;
-    font-size: 2em;
+.recs-col h2 {
+    font-family: "Helvetica Neue";
+    font-size: 1em;
     padding-top: 15px;
     text-align: center;
     color: white;
@@ -239,7 +240,7 @@ img:hover {
 .top-picks {
     display: none;
     font-size: 20px;
-    font-family: Helvetica;
+    font-family: "Helvetica Neue";
     font-weight: bold;
     color: lightgray;
     padding-left: 20px;
@@ -264,7 +265,7 @@ img:hover {
 .recs-col {
     float: left;
     width: 16.66%;
-    padding: 10px;
+    padding: 20px;
 }
 
 /* Clear floats after image containers */
@@ -273,11 +274,6 @@ img:hover {
     clear: both;
     display: table;
 }
-
-#first {
-    padding-left: 20px;
-}
-
 
 /* Acknowledgements */
 
