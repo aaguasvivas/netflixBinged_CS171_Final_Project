@@ -21,7 +21,7 @@ var revenue_tip = d3.tip()
     .attr('class', 'd3-tip revenue')
     .html(function(d) {
         return "<strong>Year:</strong> <span style='color:red'>" + d.year + "<br>" + "</span>" +
-            "<strong>Revenue:</strong> <span style='color:red'>" + parseInt(d.revenue); + "</span>";
+            "<strong>Revenue:</strong> <span style='color:red'>" + parseInt(d.revenue) + " Million" + "</span>";
     })
 
 svgRevenue.call(revenue_tip);
@@ -31,18 +31,27 @@ revenueData.then(function(data) {
     x.domain(data.map(function(d) { return d.year; }));
     y.domain([0, d3.max(data, function(d) { return d.revenue; })]);
 
-    // appending rectangles
-    svgRevenue.selectAll(".bar")
+    let revenue_bars = svgRevenue.selectAll(".bar")
         .data(data)
+
+    // appending rectangles
+    revenue_bars
         .enter().append("rect")
         .attr("class", "bar")
+        .attr("fill", "#df051a")
+        .merge(revenue_bars)
+        .attr("pointer-events", "all")
         .attr("x", function(d) { return x(d.year); })
         .attr("width", x.bandwidth())
         .attr("y", function(d) { return y(d.revenue); })
         .attr("height", function(d) { return height - y(d.revenue);
         })
-        .attr("fill", "#df051a").on('mouseover', revenue_tip.show)
-        .on('mouseout', revenue_tip.hide);
+        .on('mouseover', function (event, d) {
+            revenue_tip.show(d, this);
+        })
+        .on("mouseout", function (event, d) {
+            revenue_tip.hide(d, this);
+        });
 
     // add x-axis
     svgRevenue.append("g")
