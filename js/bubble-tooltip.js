@@ -22,6 +22,10 @@ class Tooltip {
             vis.tt.style('width', vis.width);
         }
 
+        // vis.tt = d3.tip()
+        //     .attr('class', 'd3-tip bubble')
+
+
         // Initially it is hidden.
         vis.hideTooltip();
 
@@ -31,8 +35,11 @@ class Tooltip {
 
         let vis = this;
 
-        vis.tt.style('opacity', 1.0)
+        vis.tt
+            // .style('opacity', 1.0)
             .html(text);
+
+        // vis.svg.call(vis.tt);
 
         vis.updatePosition(event);
     }

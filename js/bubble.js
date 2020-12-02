@@ -26,8 +26,6 @@ class BubbleChart {
             .count(d => d.count)
         console.log(vis.grouped_titles)
 
-        // TODO: remove extraneous circles
-
         vis.pack = d3.pack()
             .size([vis.width, vis.height])
             .padding(3)
@@ -55,13 +53,15 @@ class BubbleChart {
             .attr('class', 'formatLabel')
             .attr('transform', `translate(${vis.width / 2}, 0)`)
 
+        vis.tt = d3.tip()
+            .attr('class', 'd3-tip bubble')
 
         // END OF V2 ZOOMABLE PACKING
 
-        vis.updateVis();
+        vis.createVis();
     }
 
-    updateVis() {
+    createVis() {
 
         let vis = this;
 
@@ -93,29 +93,46 @@ class BubbleChart {
                 // console.log(d.depth)
 
                 if (d.depth === 1) {
+                    // format
                     vis.content = '<span class="value">' + text;
                 } if (d.depth === 2) {
+                    // genre
                     vis.content = '<span class="value">' + text;
                 } if (d.depth === 3) {
-                    vis.content = '<span class="name">Title: </span><span class="value">' + text;
+                    // listing
+                    vis.content = '<span class="value">' + text;
+                    // vis.content = '<span class="name">Title: </span><span class="value">' + text;
                 }
 
-                vis.genretooltip.showTooltip(vis.content, event);
+                vis.tt
+                    .html(vis.content)
+
+                vis.svg.call(vis.tt);
+                vis.tt.show(d, this);
+                // vis.genretooltip.showTooltip(vis.content, event);
 
                 // TODO: tooltip when scrolling out
                 // TODO: movie / tv show label on top
-                // TODO: disable zooming in to circle
-
             })
             .on("mouseout", function () {
                 d3.select(this).attr("stroke", null);
-                vis.genretooltip.hideTooltip();
+
+                vis.tt.hide(d, this);
+
+                // vis.genretooltip.hideTooltip();
             })
             .on("click", (event, d) => {
 
+                // console.log(event.stopPropagation())
+                // console.log(d)
+
                 // when you zoom, check if leaf and if so, zoom on parent
                 // if not, zoom in on d itself
-                vis.focus !== d && (vis.zoom(event, d), event.stopPropagation())
+                if (d.depth !== 3) {
+                    vis.focus !== d && (vis.zoom(event, d), event.stopPropagation())
+                }
+                // TODO: how to stay on white circle instead of zooming out
+
             });
 
         vis.formatLabel.append('text')
@@ -149,7 +166,6 @@ class BubbleChart {
         vis.node
             .attr("pointer-events", d => !d.children ? "visibleFill" : null)
 
-
     }
 
     zoomTo(v) {
@@ -163,7 +179,6 @@ class BubbleChart {
         vis.node
             .attr("transform", d => `translate(${(d.x - v[0]) * vis.k},${(d.y - v[1]) * vis.k})`)
             .attr("r", d => d.r * vis.k);
-
     }
 
 
@@ -171,6 +186,7 @@ class BubbleChart {
 
 
 // TODO: romance movies? absorb into drama?
+// TODO: add labels to show up when you zoom in and disappear when you zoom out
 
 // Minor changes
 // TODO: color circles accordingly
