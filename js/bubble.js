@@ -123,8 +123,6 @@ class BubbleChart {
                 vis.tt.show(d, this);
                 // vis.genretooltip.showTooltip(vis.content, event);
 
-                // TODO: tooltip when scrolling out
-                // TODO: movie / tv show label on top
             })
             .on("mouseout", function (d) {
                 d3.select(this).attr("stroke", null);
@@ -143,7 +141,6 @@ class BubbleChart {
                 if (d.depth !== 3) {
                     vis.focus !== d && (vis.zoom(event, d), event.stopPropagation())
                 }
-                // TODO: how to stay on white circle instead of zooming out
 
             });
 
@@ -177,6 +174,7 @@ class BubbleChart {
 
         vis.node
             .attr("pointer-events", d => !d.children ? "visibleFill" : null)
+            // .attr("pointer-events", d => !d.children ? "none" : null)
 
     }
 
@@ -198,7 +196,10 @@ class BubbleChart {
 
 
 // TODO: add labels to show up when you zoom in and disappear when you zoom out
-// TODO: taylor positions
+// TODO: tailor positions
+// TODO: zooming in then out, tooltip for listings show
+// TODO: how to stay on white circle instead of zooming out
+// TODO: movie / tv show label on top
 
 // Minor changes
 // TODO: color circles accordingly
