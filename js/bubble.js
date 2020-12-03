@@ -75,12 +75,17 @@ class BubbleChart {
             // TODO: set the event property pointer-events to be only applicable -
             //  none for smallest circles when zoomed all the way out,
             //  when zoomed in a little, should be allowable
-            .attr("pointer-events", d => !d.children ? "none" : null)
+            .attr("pointer-events", d => {
+                if (d.depth !== 0) {
+                    return !d.children ? "none" : null
+                }
+            })
             .on("mouseover", function (event, d) {
                 d3.select(this)
                     .attr("stroke", "#860404");
 
                 // console.log(d.data.id)
+                console.log(d.data.release_year)
 
                 let text;
                 if (d.data.id.substring(0, 2) === "m_") {
@@ -100,7 +105,14 @@ class BubbleChart {
                     vis.content = '<span class="value">' + text;
                 } if (d.depth === 3) {
                     // listing
-                    vis.content = '<span class="value">' + text;
+                    vis.content = '<span class="value">' + text + "<br>" + "</span>" +
+                        "<strong>Release Year: </strong> <span style='color:red'>" + d.data.date_added + "<br>" + "</span>" +
+                        "<strong>Rating </strong> <span style='color:red'>" + d.data.release_year + "</span>" + "<br>" + "</span>" +
+                        "<strong>Subgenres: </strong> <span style='color:red'>" + d.data.duration + "</span>" + "<br>" + "</span>" +
+                        "<strong>Director: </strong> <span style='color:red'>" + d.data.title + "</span>" + "<br>" + "</span>" +
+                    "<strong>Cast: </strong> <span style='color:red'>" + d.data.director + "</span>" + "<br>" + "</span>" +
+                        "<strong>Country: </strong> <span style='color:red'>" + d.data.cast + "</span>" + "<br>" + "</span>" +
+                        "<strong>Description: </strong> <span style='color:red'>" + d.data.count + "</span>";
                     // vis.content = '<span class="name">Title: </span><span class="value">' + text;
                 }
 
@@ -185,9 +197,8 @@ class BubbleChart {
 }
 
 
-// TODO: romance movies? absorb into drama?
 // TODO: add labels to show up when you zoom in and disappear when you zoom out
-// TODO: genres - is it ethical to directly change?
+// TODO: taylor positions
 
 // Minor changes
 // TODO: color circles accordingly
