@@ -15,12 +15,25 @@ function onClick(element){
     }
 
     //show
+        // show switch account button
     document.getElementById('switch').style.display = 'block';
 
-    let elements = document.getElementsByClassName(element.id);
+        // show all shows
+    var elements = document.getElementsByClassName(element.id);
     for (var i = 0; i < elements.length; i++){
         elements[i].style.display = "block";
     }
+
+        // show breaks
+    var br = document.getElementsByTagName('br');
+    for (var i = 0; i < br.length; i++){
+        br[i].style.display = "block";
+    }
+
+    // var cols = document.getElementsByClassName("extra-col");
+    // for (var i = 0; i < cols.length; i++){
+    //     cols[i].style.display = "block";
+    // }
 
 }
 
@@ -49,6 +62,16 @@ function switchUser() {
     for (var i = 0; i < header.length; i++){
         header[i].style.display = "none";
     }
+
+    var br = document.getElementsByTagName('br');
+    for (var i = 0; i < br.length; i++){
+        br[i].style.display = "none";
+    }
+
+    // var cols = document.getElementsByClassName("extra-col");
+    // for (var i = 0; i < cols.length; i++){
+    //     cols[i].style.display = "none";
+    // }
 }
 
 

@@ -22,7 +22,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $('#fullpage').fullpage({
-                sectionsColor: ['#000000', '#000000', '#000000', '#000000', '#000000', '#000000', '#000000'],
+                sectionsColor: ['#000000', '#000000', '#000000', '#000000', '#000000', '#000000', '#000000', '#000000'],
             });
         });
     </script>
@@ -200,9 +200,12 @@
         <!-- Headers -->
         <h1 class="section-headers recs-text"> Our Recommendations </h1>
         <button type="button" class="btn btn-outline-light" id="switch" onclick="switchUser()"> Switch Account </button>
-        <h2 class="top-picks adelson"> Top Picks for Adelson </h2>
-        <h2 class="top-picks belinda"> Top Picks for Belinda </h2>
-        <h2 class="top-picks michelle"> Top Picks for Michelle </h2>
+        <br/>
+        <br/>
+        <br/>
+        <h2 class="top-picks adelson"> Top TV Shows for Adelson </h2>
+        <h2 class="top-picks belinda"> Top TV Shows for Belinda </h2>
+        <h2 class="top-picks michelle"> Top TV Shows for Michelle </h2>
 
         <!-- Audio -->
         <audio data-autoplay>
@@ -210,77 +213,108 @@
         </audio>
 
         <div class="row recs-row">
-            <div class="col recs-col">
-                <img class="icons" src="img/icon-1.png" id="adelson" onclick="onClick(this)">
-                <h2 class="recs-text"> Adelson </h2>
-                <!-- Recommendations -->
-                <img class="recs adelson" src="img/avatar.png">
-                <img class="recs belinda" src="img/good-place.png">
-                <img class="recs michelle" src="img/gossip-girl.png" id="first">
-            </div>
+            <div class="col">
 
-            <div class="col recs-col">
-                <img class="icons" src="img/icon-2.png" id="belinda" onclick="onClick(this)">
-                <h2 class="recs-text"> Belinda </h2>
-                <!-- Recommendations -->
-                <img class="recs adelson" src="img/good-place.png">
-                <img class="recs belinda" src="img/sherlock.png">
-                <img class="recs michelle" src="img/schitts-creek.png">
-            </div>
+                <!-- Icons -->
+                <div class="inline-block">
+                    <img class="icons" src="img/icon-1.png" id="adelson" onclick="onClick(this)">
+                 <h2 class="recs-text names"> Adelson </h2>
+                </div>
 
-            <div class="col recs-col">
-                <img class="icons" src="img/icon-3.png" id="michelle" onclick="onClick(this)">
-                <h2 class="recs-text"> Michelle </h2>
-                <!-- Recommendations -->
-                <img class="recs adelson" src="img/spiderman.png">
-                <img class="recs belinda" src="img/imposters.png">
-                <img class="recs michelle" src="img/social-network.png">
-            </div>
+                <div class="inline-block">
+                    <img class="icons" src="img/icon-2.png" id="belinda" onclick="onClick(this)">
+                    <h2 class="recs-text names"> Belinda </h2>
+                </div>
 
-            <!-- Recommendations -->
-            <div class="column recs-col">
-                <img class="recs adelson" src="img/umbrella-academy.png">
-                <img class="recs belinda" src="img/old-guard.png">
-                <img class="recs michelle" src="img/bling-ring.png">
-            </div>
-            <div class="column recs-col">
-                <img class="recs adelson" src="img/bojack.png">
-                <img class="recs belinda" src="img/okay.png">
-                <img class="recs michelle" src="img/new-girl.png">
-            </div>
-            <div class="column recs-col">
-                <img class="recs adelson" src="img/money-heist.png">
-                <img class="recs belinda" src="img/sex-ed.png">
-                <img class="recs michelle" src="img/ladybird.png">
+                <div class="inline-block">
+                    <img class="icons" src="img/icon-3.png" id="michelle" onclick="onClick(this)">
+                    <h2 class="recs-text names"> Michelle </h2>
+                </div>
+
+                <!-- Movies and Shows -->
+                <div class="inline-block">
+                    <img class="recs adelson" src="img/avatar.png">
+                    <img class="recs belinda" src="img/good-place.png">
+                    <img class="recs michelle" src="img/gossip-girl.png">
+                </div>
+
+                <div class="inline-block">
+                    <img class="recs adelson" src="img/good-place.png">
+                    <img class="recs belinda" src="img/sherlock.png">
+                    <img class="recs michelle" src="img/schitts-creek.png">
+                </div>
+
+                <div class="inline-block">
+                    <img class="recs adelson" src="img/umbrella-academy.png">
+                    <img class="recs belinda" src="img/imposters.png">
+                    <img class="recs michelle" src="img/new-girl.png">
+                </div>
+
+                <div class="inline-block">
+                    <img class="recs adelson" src="img/when-they-see.png">
+                    <img class="recs belinda" src="img/old-guard.png">
+                    <img class="recs michelle" src="img/dynasty.png">
+                </div>
+
+                <div class="inline-block">
+                    <img class="recs adelson" src="img/bojack.png">
+                    <img class="recs belinda" src="img/okay.png">
+                    <img class="recs michelle" src="img/you.png">
+                </div>
+
+                <div class="inline-block">
+                    <img class="recs adelson" src="img/money-heist.png">
+                    <img class="recs belinda" src="img/sex-ed.png">
+                    <img class="recs michelle" src="img/jane.png">
+                </div>
+
+                <h2 class="top-picks adelson"> Top Movies for Adelson </h2>
+                <h2 class="top-picks belinda"> Top Movies for Belinda </h2>
+                <h2 class="top-picks michelle"> Top Movies for Michelle </h2>
+
+                <div class="inline-block">
+                    <img class="recs michelle first" src="img/social-network.png">
+                    <img class="recs adelson first" src="img/spiderman.png">
+                </div>
+
+                <div class="inline-block">
+                    <img class="recs michelle" src="img/bling-ring.png">
+                    <img class="recs adelson" src="img/13th.png">
+                </div>
+
+                <div class="inline-block">
+                    <img class="recs michelle" src="img/ladybird.png">
+                    <img class="recs adelson" src="img/roma.png">
+                </div>
+
+                <div class="inline-block">
+                    <img class="recs michelle" src="img/valentines.png">
+                    <img class="recs adelson" src="img/bee.png">
+                </div>
+
+                <div class="inline-block">
+                    <img class="recs michelle" src="img/to-all-the-boys.png">
+                    <img class="recs adelson" src="img/bandersnatch.png">
+                </div>
+
+                <div class="inline-block">
+                    <img class="recs michelle" src="img/murder-mystery.png">
+                    <img class="recs adelson" src="img/bird-box.png">
+                </div>
             </div>
         </div>
+    </div>
+
+
+    <!-- Conclusion -->
+    <div class="section" id="conclusion">
+        Conclusion
     </div>
 
     <!-- Acknowledgements -->
     <div class="section" id="end">
-        <h2> Top Picks for Michelle </h2>
-        <div class="row recs-row">
-            <div class="column recs-col">
-                <img src="img/gossip-girl.png">
-            </div>
-            <div class="column recs-col">
-                <img src="img/schitts-creek.png">
-            </div>
-            <div class="column recs-col">
-                <img src="img/social-network.png">
-            </div>
-            <div class="column recs-col">
-                <img src="img/bling-ring.png">
-            </div>
-            <div class="column recs-col">
-                <img src="img/new-girl.png">
-            </div>
-            <div class="column recs-col">
-                <img src="img/ladybird.png">
-            </div>
-        </div>
+        Acknowledgements
     </div>
-</div>
 
 <!-- JS libraries -->
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
@@ -318,5 +352,6 @@
     }
 </script>
 
+</div>
 </body>
 </html>

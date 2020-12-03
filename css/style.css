@@ -227,18 +227,35 @@ tr {
 /* Recommendations */
 .recs-row {
     height: 90%;
+    width: 100%;
 }
 
+.inline-block {
+    display: inline-block;
+}
+
+br {
+    display: none;
+}
+
+    /* Netflix icons */
 .icons {
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
 
+    /* Netflix icon names */
+.names{
+    font-family: "Helvetica Neue";
+    font-size: 1em;
+    color: white;
+    text-align: center;
+    padding-top: 15px;
+}
+
+    /* Hover effect for all images */
 img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
     border: solid 5px transparent;
 }
 
@@ -246,31 +263,27 @@ img:hover {
     border: solid 1px white;
 }
 
-.recs-col h2 {
-    font-family: "Helvetica Neue";
-    font-size: 1em;
-    padding-top: 15px;
-    text-align: center;
-    color: white;
-}
-
+    /* Top Picks heading */
 .top-picks {
     display: none;
     font-size: 20px;
     font-family: "Helvetica Neue";
     font-weight: bold;
     color: lightgray;
-    padding-left: 20px;
     text-align: left;
+    padding-top: 60px;
+    padding-left: 20px;
 }
 
+    /* Switch Account button */
 #switch {
     display: none;
     float: right;
-    margin-bottom: 20px;
-
+    margin-top: 6%;
+    margin-right: 2%;
 }
 
+    /* Movie/Show photos */
 .recs {
     display: none;
 }
@@ -279,17 +292,12 @@ img:hover {
     clear: both;
 }
 
-.recs-col {
-    float: left;
-    width: 16.66%;
-    padding: 20px;
+.inline-block .recs {
+    margin-right: -5px;
 }
 
-/* Clear floats after image containers */
-.recs-row::after {
-    content: "";
-    clear: both;
-    display: table;
+.first {
+    margin-left: 15px;
 }
 
 /* Acknowledgements */
