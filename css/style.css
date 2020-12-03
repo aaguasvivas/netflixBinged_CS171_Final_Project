@@ -137,6 +137,23 @@ text.legendTitle {
     position: relative;
 }
 
+/* Background Information Bar Charts */
+
+div.col.subscribersText {
+    color: white;
+}
+
+div#subscribersByPlatform.col.subscribers {
+    color: white;
+}
+
+div#revenueNetflix.col.revenue {
+    color: white;
+}
+
+div.col.revenueText {
+    color: white;
+}
 
 /* Content Diversity */
 #content-diversity {
