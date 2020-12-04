@@ -12,13 +12,13 @@ class BubbleChart {
 
         let vis = this;
 
-        vis.margin = {top: 20, right: 20, bottom: 20, left: 40};
+        vis.margin = {top: 10, right: 20, bottom: 10, left: 40};
         vis.width = $("#" + vis.parentElement).width() - vis.margin.left - vis.margin.right;
         vis.height = $("#" + vis.parentElement).height() - vis.margin.top - vis.margin.bottom;
         // vis.height = vis.width;
 
         // drawing tooltip
-        vis.genretooltip = new Tooltip('genre_tooltip', 240);
+        // vis.genretooltip = new Tooltip('genre_tooltip', 240);
 
 
         // V2 using zoomable circle packing
@@ -42,9 +42,9 @@ class BubbleChart {
         vis.svg = d3.select("#" + vis.parentElement).append("svg")
             .attr("width", vis.width + vis.margin.left + vis.margin.right)
             .attr("height", vis.height + vis.margin.top + vis.margin.bottom)
-            .attr("viewBox", `-${vis.width / 2} -${vis.height / 1.5} ${vis.width} ${vis.height}`)
+            .attr("viewBox", `-${vis.width / 2} -${vis.height / 1.8} ${vis.width} ${vis.height}`)
             .style("display", "block")
-            .style("margin", "0 -14px")
+            // .style("margin", "4px 7px")
             .style("background", "black")
             .style("cursor", "pointer")
             .on("click", (event) => vis.zoom(event, vis.root));
@@ -107,7 +107,7 @@ class BubbleChart {
                     // listing
                     vis.content = '<span class="value">' + text + "<br>" + "</span>" +
                         "<strong>Release Year: </strong> <span style='color:red'>" + d.data.date_added + "<br>" + "</span>" +
-                        "<strong>Rating </strong> <span style='color:red'>" + d.data.release_year + "</span>" + "<br>" + "</span>" +
+                        "<strong>Rating: </strong> <span style='color:red'>" + d.data.release_year + "</span>" + "<br>" + "</span>" +
                         "<strong>Subgenres: </strong> <span style='color:red'>" + d.data.duration + "</span>" + "<br>" + "</span>" +
                         "<strong>Director: </strong> <span style='color:red'>" + d.data.title + "</span>" + "<br>" + "</span>" +
                     "<strong>Cast: </strong> <span style='color:red'>" + d.data.director + "</span>" + "<br>" + "</span>" +
@@ -195,15 +195,12 @@ class BubbleChart {
 }
 
 
-// TODO: add labels to show up when you zoom in and disappear when you zoom out
+// TODO:  add labels to show up when you zoom in and disappear when you zoom out
 // TODO: zooming in then out, tooltip for listings show
+// TODO: flexible sizing vh?
 // TODO: how to stay on white circle instead of zooming out
 // TODO: movie / tv show label on top
-
-// Minor changes
-// TODO: color circles accordingly
 // TODO: update and format text
-// TODO: changing between circles, labels show up?
 
 // ** RESOURCES **
 // TODO: V1 John Haldeman: https://observablehq.com/@johnhaldeman/tutorial-on-d3-basics-and-circle-packing-heirarchical-bubb
