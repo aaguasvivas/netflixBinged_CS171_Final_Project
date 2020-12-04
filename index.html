@@ -46,10 +46,14 @@
             <div class="card text-center">
                 <div class="card-body">
                     <br><br><br>
-                    In an increasingly virtual world, streaming platforms are becoming more and more popular. Netflix began
-                    offering movie streaming to its subscribers in 2007 and promptly became one of the world's largest streaming
-                    platforms. In 2010, Netflix converted into a streaming-only provider and began expanding outside of the
-                    United States. Today, Netflix has not only become the go-to streaming platform, but a widespread cultural norm.
+                    In an increasingly virtual world, streaming platforms are becoming more and more popular. Netflix
+                    began
+                    offering movie streaming to its subscribers in 2007 and promptly became one of the world's largest
+                    streaming
+                    platforms. In 2010, Netflix converted into a streaming-only provider and began expanding outside of
+                    the
+                    United States. Today, Netflix has not only become the go-to streaming platform, but a widespread
+                    cultural norm.
                 </div>
             </div>
         </div>
@@ -89,10 +93,14 @@
     <div class="section" id="content-diversity">
         <h1 class="section-headers">Netflix Listings</h1>
         <div class="col">
-                Netflix has a wide array of listings across thousands of movies and TV shows. From drama, romance,
-                horror, comedy, and more, Netflix users are able to finds a show or movie to suit their interests.
+            Netflix has a wide array of listings across 6000+ movies and TV shows. From drama, romance, horror, comedy,
+            and more, Netflix users are able to find a show or movie to suit their interests.
 
-                To navigate this map, click into circles to zoom in and click into surrounding space to zoom out.
+            <br>
+
+            <strong>How to navigate: </strong>
+            To navigate this map, click into circles to zoom in and hover on the white circles to learn more about each
+            listing. To zoom out, click into surrounding space to zoom out. Each listing has its own set of subgenres.
         </div>
         <div class="row" id="bubblechart"></div>
     </div>
@@ -124,7 +132,8 @@
                     <div id="show-slider"></div>
                     <div class="rating-guess">Your guess is an average rating of <span id="show-guess"></span>.</div>
                     <button type="button" class="btn btn-danger" name="answer" onclick="showTV()">Check</button>
-                    <div class="rating-actual" id="s-act">The actual average rating is <span id="show-actual"></span>.</div>
+                    <div class="rating-actual" id="s-act">The actual average rating is <span id="show-actual"></span>.
+                    </div>
                 </div>
             </div>
         </div>
@@ -140,14 +149,14 @@
                     <!-- Bootstrap table -->
                     <table class="table" id="movie-table">
                         <tbody>
-                            <tr>
-                                <th scope="col"></th>
-                                <th scope="col"></th>
-                            </tr>
-                            <tr id="movie-title-row"></tr>
-                            <tr id="movie-description-row"></tr>
-                            <tr id="movie-release-row"></tr>
-                            <tr id="movie-rating-row"></tr>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                        </tr>
+                        <tr id="movie-title-row"></tr>
+                        <tr id="movie-description-row"></tr>
+                        <tr id="movie-release-row"></tr>
+                        <tr id="movie-rating-row"></tr>
                         </tbody>
                     </table>
                 </div>
@@ -208,7 +217,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Conclusion -->
     <div class="section" id="conclusion">
         <h1 class="section-headers">Conclusion</h1>
@@ -219,7 +228,7 @@
 
         <!-- Headers -->
         <h1 class="section-headers recs-text"> Our Recommendations </h1>
-        <button type="button" class="btn btn-outline-light" id="switch" onclick="switchUser()"> Switch Account </button>
+        <button type="button" class="btn btn-outline-light" id="switch" onclick="switchUser()"> Switch Account</button>
         <br/>
         <br/>
         <br/>
@@ -238,7 +247,7 @@
                 <!-- Icons -->
                 <div class="inline-block">
                     <img class="icons" src="img/icon-1.png" id="adelson" onclick="onClick(this)">
-                 <h2 class="recs-text names"> Adelson </h2>
+                    <h2 class="recs-text names"> Adelson </h2>
                 </div>
 
                 <div class="inline-block">
@@ -330,41 +339,41 @@
         Acknowledgements
     </div>
 
-<!-- JS libraries -->
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-        crossorigin="anonymous"></script>
+    <!-- JS libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+            crossorigin="anonymous"></script>
 
-<!-- d3 -->
-<script src="https://d3js.org/d3.v6.min.js"></script>
-<script src="https://d3js.org/topojson.v2.min.js"></script>
-<script src="https://d3js.org/d3-queue.v3.min.js"></script>
+    <!-- d3 -->
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://d3js.org/topojson.v2.min.js"></script>
+    <script src="https://d3js.org/d3-queue.v3.min.js"></script>
 
-<!-- own js files -->
-<script src="js/d3-tip.js"></script>
-<script src="js/subscribersBarChart.js"></script>
-<script src="js/revenueBarChart.js"></script>
-<script src="js/bubble.js"></script>
-<script src="js/bubble-tooltip.js"></script>
-<script src="js/viewerEnjoyment.js"></script>
-<script src="js/ratings.js"></script>
-<script src="js/worldMap.js"></script>
-<script src="js/stackedAreaChart.js"></script>
-<script src="js/tables.js"></script>
-<script src="js/recommendations.js"></script>
-<script src="js/main.js"></script>
+    <!-- own js files -->
+    <script src="js/d3-tip.js"></script>
+    <script src="js/subscribersBarChart.js"></script>
+    <script src="js/revenueBarChart.js"></script>
+    <script src="js/bubble.js"></script>
+    <script src="js/bubble-tooltip.js"></script>
+    <script src="js/viewerEnjoyment.js"></script>
+    <script src="js/ratings.js"></script>
+    <script src="js/worldMap.js"></script>
+    <script src="js/stackedAreaChart.js"></script>
+    <script src="js/tables.js"></script>
+    <script src="js/recommendations.js"></script>
+    <script src="js/main.js"></script>
 
-<script type="text/javascript">
-    window.onload = function () {
-        if (localStorage.getItem("hasCodeRunBefore") === null) {
-            document.getElementById("intro-audio").play();
-            localStorage.setItem("hasCodeRunBefore", true);
+    <script type="text/javascript">
+        window.onload = function () {
+            if (localStorage.getItem("hasCodeRunBefore") === null) {
+                document.getElementById("intro-audio").play();
+                localStorage.setItem("hasCodeRunBefore", true);
+            }
         }
-    }
-</script>
+    </script>
 
 </div>
 </body>

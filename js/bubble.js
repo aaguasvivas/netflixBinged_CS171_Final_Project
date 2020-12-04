@@ -85,12 +85,12 @@ class BubbleChart {
                     .attr("stroke", "#860404");
 
                 // console.log(d.data.id)
-                console.log(d.data.release_year)
+                // console.log(d.data.release_year)
 
                 let text;
                 if (d.data.id.substring(0, 2) === "m_") {
                     text = d.data.id.substring(2, d.data.id.length)
-                    // console.log(genre)
+                    // console.log(genre)s
                 } else {
                     text = d.data.id;
                 }
@@ -196,7 +196,6 @@ class BubbleChart {
 
 
 // TODO: add labels to show up when you zoom in and disappear when you zoom out
-// TODO: tailor positions
 // TODO: zooming in then out, tooltip for listings show
 // TODO: how to stay on white circle instead of zooming out
 // TODO: movie / tv show label on top
