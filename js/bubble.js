@@ -42,16 +42,16 @@ class BubbleChart {
         vis.svg = d3.select("#" + vis.parentElement).append("svg")
             .attr("width", vis.width + vis.margin.left + vis.margin.right)
             .attr("height", vis.height + vis.margin.top + vis.margin.bottom)
-            .attr("viewBox", `-${vis.width / 2} -${vis.height / 1.8} ${vis.width} ${vis.height}`)
+            .attr("viewBox", `-${(vis.width + vis.margin.left + vis.margin.right)/ 2} -${(vis.height + vis.margin.top + vis.margin.bottom) / 1.8} ${vis.width} ${vis.height}`)
             .style("display", "block")
             // .style("margin", "4px 7px")
             .style("background", "black")
             .style("cursor", "pointer")
             .on("click", (event) => vis.zoom(event, vis.root));
 
-        vis.formatLabel = vis.svg.append("g")
-            .attr('class', 'formatLabel')
-            .attr('transform', `translate(${vis.width / 2}, 0)`)
+        // vis.formatLabel = vis.svg.append("g")
+        //     .attr('class', 'formatLabel')
+        //     .attr('transform', `translate(${vis.width / 2}, 0)`)
 
         vis.tt = d3.tip()
             .attr('class', 'd3-tip bubble')
@@ -77,7 +77,7 @@ class BubbleChart {
             //  when zoomed in a little, should be allowable
             .attr("pointer-events", d => {
                 if (d.depth !== 0) {
-                    return !d.children ? "none" : null
+                    return d.depth === 3 ? "none" : null
                 }
             })
             .on("mouseover", function (event, d) {
@@ -138,17 +138,20 @@ class BubbleChart {
 
                 // when you zoom, check if leaf and if so, zoom on parent
                 // if not, zoom in on d itself
+
                 if (d.depth !== 3) {
                     vis.focus !== d && (vis.zoom(event, d), event.stopPropagation())
                 }
+                // vis.focus !== d && (vis.zoom(event, d), event.stopPropagation())
+
 
             });
 
-        vis.formatLabel.append('text')
-            .attr("class", "formatLabel")
-            .text("Movies")
-            .attr("x", 10)
-            .attr("y",  10)
+        // vis.formatLabel.append('text')
+        //     .attr("class", "formatLabel")
+        //     .text("Movies")
+        //     .attr("x", 10)
+        //     .attr("y",  10)
 
         vis.zoomTo([vis.root.x, vis.root.y, vis.root.r * 2]);
 
@@ -161,9 +164,10 @@ class BubbleChart {
         vis.focus0 = vis.focus;
 
         // console.log(vis.focus)
-        // console.log(d)
+        console.log(d)
 
         vis.focus = d;
+        // what we are zooming to
 
         vis.transition = vis.svg.transition()
             .duration(event.altKey ? 7500 : 750)
@@ -173,9 +177,12 @@ class BubbleChart {
             });
 
         vis.node
-            .attr("pointer-events", d => !d.children ? "visibleFill" : null)
-            // .attr("pointer-events", d => !d.children ? "none" : null)
-
+            .attr("pointer-events", e => {
+                if (d.depth === 2) {
+                    return e.depth >= 2 ? "visibleFill" : "none"
+                } else {
+                    return e.depth === 3 ? "none" : "visibleFill"
+                }})
     }
 
     zoomTo(v) {
@@ -196,9 +203,7 @@ class BubbleChart {
 
 
 // TODO:  add labels to show up when you zoom in and disappear when you zoom out
-// TODO: zooming in then out, tooltip for listings show
-// TODO: flexible sizing vh?
-// TODO: how to stay on white circle instead of zooming out
+// TODO: how to stay on white circle instead of zooming out / in
 // TODO: movie / tv show label on top
 // TODO: update and format text
 
