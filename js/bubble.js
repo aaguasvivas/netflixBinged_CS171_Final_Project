@@ -43,7 +43,7 @@ class BubbleChart {
         vis.svg = d3.select("#" + vis.parentElement).append("svg")
             .attr("width", vis.width + vis.margin.left + vis.margin.right)
             .attr("height", vis.height + vis.margin.top + vis.margin.bottom)
-            .attr("viewBox", `-${(vis.width + vis.margin.left + vis.margin.right)/ 2} -${(vis.height + vis.margin.top + vis.margin.bottom) ${vis.width} ${vis.height}`)
+            .attr("viewBox", `-${(vis.width + vis.margin.left + vis.margin.right)/ 2} -${(vis.height + vis.margin.top + vis.margin.bottom) / 2} ${vis.width} ${vis.height}`)
             .style("display", "block")
             // .style("margin", "4px 7px")
             .style("background", "black")
@@ -162,7 +162,7 @@ class BubbleChart {
 
         vis.focus0 = vis.focus;
 
-        console.log(vis.focus)
+        // console.log(vis.focus)
         // console.log(d)
 
         vis.focus = d;
@@ -171,7 +171,7 @@ class BubbleChart {
         vis.transition = vis.svg.transition()
             .duration(event.altKey ? 7500 : 750)
             .tween("zoom", d => {
-                let i = d3.interpolateZoom(vis.view, [vis.focus.x, vis.focus.y, vis.focus.r * 2.5]);
+                let i = d3.interpolateZoom(vis.view, [vis.focus.x, vis.focus.y * 2, vis.focus.r * 3]);
                 return t => vis.zoomTo(i(t));
             });
 
@@ -205,6 +205,7 @@ class BubbleChart {
 // TODO: how to stay on white circle instead of zooming out / in
 // TODO: movie / tv show label on top
 // TODO: update and format text
+// TODO: upon loadiing - how to make it most zoomed out
 
 // TODO: delete bubble trash and bubble tooltip
 
