@@ -18,7 +18,7 @@ revenueData.then(function(data) {
 });
 
 var revenue_tip = d3.tip()
-    .attr('class', 'd3-tip revenue')
+    .attr('class', 'd3-tip revenueNetflixTooltip')
     .html(function(d) {
         return "<strong>Year:</strong> <span style='color:red'>" + d.year + "<br>" + "</span>" +
             "<strong>Revenue:</strong> <span style='color:red'>" + parseInt(d.revenue) + " Million" + "</span>";
