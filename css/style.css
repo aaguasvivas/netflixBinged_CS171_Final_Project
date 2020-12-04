@@ -64,8 +64,6 @@ text.legendTitle {
     left: 0;
 }
 
-
-
 /* Scroll Icon */
 /* https://codepen.io/nxworld/pen/OyRrGy */
 #intro span {
@@ -186,7 +184,7 @@ div.col.revenueText {
 }
 
 #viewer-enjoyment .guess-description {
-   margin-top: 40%;
+   margin-top: 20%;
 }
 
 .rating-guess {

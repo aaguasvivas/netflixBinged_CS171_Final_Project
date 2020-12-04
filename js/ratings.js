@@ -66,7 +66,7 @@ class Grid {
     updateVis(){
         let vis = this;
         var clicked = false;
-        var position = (vis.displayData.length * vis.cellHeight * 2) + 30
+        var position = (vis.displayData.length * vis.cellHeight * 2) + 60
 
         // legend
         vis.svg.append('rect')
@@ -114,6 +114,14 @@ class Grid {
             .attr("fill", "white")
             .attr("class", "ratings-viz-text")
             .attr("x", "50")
+            .attr("y", "0")
+
+        vis.text = vis.svg.append("text")
+            .text("Click on a square to find out more info.")
+            .attr("fill", "white")
+            .attr("class", "ratings-viz-text")
+            .attr("x", "50")
+            .attr("y", "25")
 
         // visualization
         vis.row = vis.svg.selectAll(".row").data(vis.displayData)
@@ -132,11 +140,9 @@ class Grid {
 
                 clicked = true;
 
-                console.log(clicked)
-
                 // change stroke
-                d3.select(this)
-                    .attr("stroke", "white");
+                // d3.select(this)
+                //     .attr("stroke", "white");
 
                 if (vis.isMovies == true) {
 
@@ -190,7 +196,7 @@ class Grid {
             .attr("height", vis.cellHeight)
             .attr("width", vis.cellWidth)
             .attr("x", (d, i) => (i * 6) + 50)
-            .attr("y", 20)
+            .attr("y", 40)
             .attr("fill", function(d){
                 if (0 <= d.rating && d.rating <= 3)
                     return "#fee0d2"
