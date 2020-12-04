@@ -241,6 +241,11 @@ tr {
     font: 14px sans-serif;
 }
 
+div.col.internationalPresenceText {
+    color: white;
+    text-align: center;
+}
+
 /* Recommendations */
 .recs-row {
     height: 90%;

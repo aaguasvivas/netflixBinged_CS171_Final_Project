@@ -30,7 +30,7 @@ subsDataset.then(function(data) {
 });
 
 var subscribers_tip = d3.tip()
-    .attr('class', 'd3-tip subscribers')
+    .attr('class', 'd3-tip subscribersPlatformsTooltip')
     .html(function(d) {
         return "<strong>Platform:</strong> <span style='color:red'>" + d.platform + "<br>" + "</span>" +
             "<strong>Number of Subscribers:</strong> <span style='color:red'>" + parseInt(d.numSubscribers) + " Million" + "</span>";
