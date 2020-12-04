@@ -43,7 +43,7 @@ class BubbleChart {
         vis.svg = d3.select("#" + vis.parentElement).append("svg")
             .attr("width", vis.width + vis.margin.left + vis.margin.right)
             .attr("height", vis.height + vis.margin.top + vis.margin.bottom)
-            .attr("viewBox", `-${(vis.width + vis.margin.left + vis.margin.right)/ 2} -${(vis.height + vis.margin.top + vis.margin.bottom) / 2} ${vis.width} ${vis.height}`)
+            .attr("viewBox", `-${(vis.width + vis.margin.left + vis.margin.right)/ 2} -${(vis.height + vis.margin.top + vis.margin.bottom) / 3 ${vis.width} ${vis.height}`)
             .style("display", "block")
             // .style("margin", "4px 7px")
             .style("background", "black")
