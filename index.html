@@ -45,15 +45,10 @@
             <h1 class="section-headers">Background</h1>
             <div class="card text-center">
                 <div class="card-body">
-                    <br><br><br>
-                    In an increasingly virtual world, streaming platforms are becoming more and more popular. Netflix
-                    began
-                    offering movie streaming to its subscribers in 2007 and promptly became one of the world's largest
-                    streaming
-                    platforms. In 2010, Netflix converted into a streaming-only provider and began expanding outside of
-                    the
-                    United States. Today, Netflix has not only become the go-to streaming platform, but a widespread
-                    cultural norm.
+                    <br>
+                    In an increasingly virtual world, streaming platforms for movies and TV shows have become more and more popular amongst consumers. People have opted to stream from their personal devices instead of watching entertainment on live cable or in theaters.
+                    Since the year after its inception in 1997, Netflix offered online movie rentals in which customers would receive their DVD in the mail. However, by the end of 2010, Netflix users were streaming their entertainment at a far greater pace than those renting, and Netflix became a solely online streaming platform. As it developed its streaming services and expanded outside of the United States, Netflix has become a staple of modern entertainment. Not only is it the go-to platform for most users, but Netflix has become a cultural icon for current generations.
+                    Despite increasing competition as rivals enter the streaming space, Netflix continues to come out on top. Let's analyze Netflix's astounding success in an increasingly competitive landscape.
                 </div>
             </div>
         </div>
@@ -110,12 +105,14 @@
         <!-- Guess Sliders -->
         <div class="slide">
             <h1 class="section-headers">Viewer Enjoyment</h1>
+            <p id="ve-text">Not only does Netflix have a wide array of movies and shows, it also provides top-quality offerings that viewers enjoy.
+                Netflix's catalog includes highly-rated movies on IMDB, which uses a rating scale of 1-10.</p>
             <div class="row d-flex justify-content-center">
 
                 <!-- Movies -->
                 <div class="col-5" id="movie-ratings">
                     <!-- Slider -->
-                    <p> What's the average IMDB rating (scored out of 10) of Netflix's movies?
+                    <p class="guess-description"> What's the average IMDB rating (scored out of 10) of Netflix's movies?
                         <br> Take a guess using the slider! </p>
                     <div id="movie-slider"></div>
                     <div class="rating-guess">Your guess is an average rating of <span id="movie-guess"></span>.</div>
@@ -127,7 +124,7 @@
                 <!-- TV Shows -->
                 <div class="col-5" id="show-ratings">
                     <!-- Slider -->
-                    <p> What's the average IMDB rating (scored out of 10) of Netflix's TV shows?
+                    <p class="guess-description"> What's the average IMDB rating (scored out of 10) of Netflix's TV shows?
                         <br> Take a guess using the slider! </p>
                     <div id="show-slider"></div>
                     <div class="rating-guess">Your guess is an average rating of <span id="show-guess"></span>.</div>
@@ -221,6 +218,13 @@
     <!-- Conclusion -->
     <div class="section" id="conclusion">
         <h1 class="section-headers">Conclusion</h1>
+        <div class="card text-center">
+            <div class="card-body">
+                <br>
+                The diverse offerings of top-rated movies for a global audience has kept Netflix as the most successful, fan-favorite streaming service. Even as multiple new platforms have emerged in the industry and online streaming has surged in popularity during the 2020 quarantine, Netflix continues to stand out amongst its competitors.
+                Now that you're convinced to join Netflix, check out our recommendations below and get binging!
+            </div>
+        </div>
     </div>
 
     <!-- Recommendations -->
@@ -242,23 +246,26 @@
         </audio>
 
         <div class="row recs-row">
-            <div class="col">
+            <div class="col test">
 
                 <!-- Icons -->
-                <div class="inline-block">
-                    <img class="icons" src="img/icon-1.png" id="adelson" onclick="onClick(this)">
-                    <h2 class="recs-text names"> Adelson </h2>
+                <div class="icon-group">
+                    <div class="inline-block icons">
+                        <img class="icons" src="img/icon-1.png" id="adelson" onclick="onClick(this)">
+                        <h2 class="recs-text names"> Adelson </h2>
+                    </div>
+
+                    <div class="inline-block icons">
+                        <img class="icons" src="img/icon-2.png" id="belinda" onclick="onClick(this)">
+                        <h2 class="recs-text names"> Belinda </h2>
+                    </div>
+
+                    <div class="inline-block icons">
+                        <img class="icons" src="img/icon-3.png" id="michelle" onclick="onClick(this)">
+                        <h2 class="recs-text names"> Michelle </h2>
+                    </div>
                 </div>
 
-                <div class="inline-block">
-                    <img class="icons" src="img/icon-2.png" id="belinda" onclick="onClick(this)">
-                    <h2 class="recs-text names"> Belinda </h2>
-                </div>
-
-                <div class="inline-block">
-                    <img class="icons" src="img/icon-3.png" id="michelle" onclick="onClick(this)">
-                    <h2 class="recs-text names"> Michelle </h2>
-                </div>
 
                 <!-- Movies and Shows -->
                 <div class="inline-block">
@@ -336,7 +343,7 @@
 
     <!-- Acknowledgements -->
     <div class="section" id="end">
-        Acknowledgements
+        <img class="icons" src="img/icon-1.png" onclick="onClick(this)">
     </div>
 
     <!-- JS libraries -->

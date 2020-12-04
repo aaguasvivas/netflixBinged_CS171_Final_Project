@@ -10,7 +10,7 @@
     color: red;
     font-size: 4em;
     text-align: center;
-    padding-top: 40px;
+    padding-top: 50px;
 }
 
 /* Intro Page */
@@ -181,7 +181,11 @@ div.col.revenueText {
     text-align: center;
 }
 
-#viewer-enjoyment p {
+#ve-text {
+    color: white;
+}
+
+#viewer-enjoyment .guess-description {
    margin-top: 40%;
 }
 
@@ -246,6 +250,11 @@ div.col.internationalPresenceText {
     text-align: center;
 }
 
+/* Conclusion */
+#conclusion p {
+    color: white;
+}
+
 /* Recommendations */
 .recs-row {
     height: 90%;
@@ -265,10 +274,14 @@ div.col.internationalPresenceText {
 }
 
     /* Netflix icons */
-.icons {
+.icon-group {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+.icons {
+    display: inline-block;
 }
 
     /* Netflix icon names */
@@ -324,6 +337,12 @@ img:hover {
 
 .first {
     margin-left: 15px;
+}
+
+.test {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Acknowledgements */
