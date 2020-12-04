@@ -24,17 +24,6 @@ function onClick(element){
         elements[i].style.display = "block";
     }
 
-        // show breaks
-    var br = document.getElementsByTagName('br');
-    for (var i = 0; i < br.length; i++){
-        br[i].style.display = "block";
-    }
-
-    // var cols = document.getElementsByClassName("extra-col");
-    // for (var i = 0; i < cols.length; i++){
-    //     cols[i].style.display = "block";
-    // }
-
 }
 
 function switchUser() {
@@ -62,16 +51,6 @@ function switchUser() {
     for (var i = 0; i < header.length; i++){
         header[i].style.display = "none";
     }
-
-    var br = document.getElementsByTagName('br');
-    for (var i = 0; i < br.length; i++){
-        br[i].style.display = "none";
-    }
-
-    // var cols = document.getElementsByClassName("extra-col");
-    // for (var i = 0; i < cols.length; i++){
-    //     cols[i].style.display = "none";
-    // }
 }
 
 

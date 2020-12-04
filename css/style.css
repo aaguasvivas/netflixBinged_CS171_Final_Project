@@ -251,8 +251,8 @@ tr {
     display: inline-block;
 }
 
-br {
-    display: none;
+.section-headers .recs-text {
+    padding-top: 40px; 
 }
 
     /* Netflix icons */
