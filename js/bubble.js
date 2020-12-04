@@ -79,9 +79,7 @@ class BubbleChart {
                 }
             })
             .on("mouseover", function (event, d) {
-                let circle = d3.select(this)
-
-                circle
+                d3.select(this)
                     .attr("stroke", "#860404");
 
                 // console.log(d.data.id)
@@ -123,19 +121,15 @@ class BubbleChart {
                 vis.tt.show(d, this);
 
             })
-            .on("mouseout", d => {
+            .on("mouseout", function (event, d) {
 
-                console.log(this)
-                let circle = d3.select(this)
-
-                circle
-                    .attr("stroke", "none");
+                d3.select(this)
+                    .attr('stroke-width', '0px')
 
                 vis.tt.hide(d, this);
 
-                // vis.genretooltip.hideTooltip();
             })
-            .on("click", (event, d) => {
+            .on("click", function (event, d) {
 
                 // console.log(d)
 
