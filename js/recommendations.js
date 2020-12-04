@@ -24,6 +24,12 @@ function onClick(element){
         elements[i].style.display = "block";
     }
 
+    // show all breaks
+    var breaks = document.getElementsByClassName('break');
+    for (var i = 0; i < breaks.length; i++){
+        breaks[i].style.display = "block";
+    }
+
 }
 
 function switchUser() {
@@ -50,6 +56,12 @@ function switchUser() {
     var header = document.getElementsByClassName('top-picks');
     for (var i = 0; i < header.length; i++){
         header[i].style.display = "none";
+    }
+
+    // hide all breaks
+    var breaks = document.getElementsByClassName('break');
+    for (var i = 0; i < breaks.length; i++) {
+        breaks[i].style.display = "none";
     }
 }
 
