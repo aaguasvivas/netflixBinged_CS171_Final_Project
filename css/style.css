@@ -171,6 +171,10 @@ div.col.revenueText {
     font-family: helvetica, arial;
 }
 
+#bubblechart {
+    padding: 40px;
+}
+
 /* Viewer Enjoyment */
 #viewer-enjoyment {
     font-size: 1em;
@@ -315,7 +319,7 @@ img:hover {
     font-size: 20px;
     font-family: "Helvetica Neue";
     font-weight: bold;
-    color: lightgray;
+    color: white;
     text-align: left;
     padding-top: 60px;
     padding-left: 20px;
@@ -354,8 +358,36 @@ img:hover {
 
 /* Acknowledgements */
 
+h2 {
+    font-size: 2em;
+    font-family: 'Bebas Neue';
+    color: white;
+    font-weight: bold;
+}
 
+h4 {
+    font-size: 14px;
+    font-family: 'Bebas Neue';
+    color: white;
+}
 
+p {
+    font-size: 1em;
+    font-family: helvetica, arial;
+    color: white;
+    text-align: left;
+}
+
+li {
+    font-size: 1em;
+    font-family: helvetica, arial;
+    color: white;
+    text-align: left;
+}
+
+#acknowledgements {
+    padding: 40px;
+}
 
 
 
