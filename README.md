@@ -86,8 +86,6 @@ First, we will need an IDE. We personally used WebStorm to develop the website, 
 
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
 The goal of this project was to give a complete overview of Netflix as a company, and analyze why they have been so sucessful, using data and visualizations. We start off by looking at Netflix's number of subscribers compared to other online streaming platforms, as well as its revenue over the years. Netflix is number one across the board, in every category imaginable, and we believe it is because of their huge number of listings, content diversity, high ratings, and strong international presence.
 
 Below is our background for the project:
@@ -104,7 +102,7 @@ _For more examples, please refer to the [website](https://cs171binged.com/)_
 
 ## Process and Roadmap
 
-See our [process book](https://docs.google.com/document/d/1Z0NSNz0EhzR-iLzrMAGHifLIgXAKyokxjqZu1ZPVqSA/edit?usp=sharing) for a complete overview of our process in developing this website, brainstorming, inspirations, rough ideas and more..
+See our [process book](https://docs.google.com/document/d/1Z0NSNz0EhzR-iLzrMAGHifLIgXAKyokxjqZu1ZPVqSA/edit?usp=sharing) for a complete overview of our process in developing this website, brainstorming, inspirations, rough ideas and more.
 
 <!-- CONTACT -->
 
