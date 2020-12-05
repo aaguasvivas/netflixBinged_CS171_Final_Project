@@ -9,6 +9,9 @@
   <p align="center">
     <strong>ACCESS THE WEBSITE HERE:</strong> https://cs171binged.com/
   </p>
+  <p align="center">
+    <strong>ACCESS THE SCREENCAST HERE:</strong> https://cs171binged.com/
+  </p>
 </p>
 
 <!-- TABLE OF CONTENTS -->
@@ -120,7 +123,7 @@ Project Link: [https://github.com/aaguasvivas/netflixBinged_CS171_Final_Project]
 
 ## Acknowledgements
 
-- Put acknowledgements here
+- Put acknowledgements here, including libraries (d3 topojson, bootstrap, noUiSlider, Tabulator)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
