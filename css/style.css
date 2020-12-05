@@ -397,13 +397,12 @@ img:hover {
 }
 
 /* Acknowledgements */
-
-/*h2 {*/
-/*    font-size: 2em;*/
-/*    font-family: 'Bebas Neue';*/
-/*    color: white;*/
-/*    font-weight: bold;*/
-/*}*/
+#acknowledgements h2 {
+    font-size: 2em;
+    font-family: 'Bebas Neue';
+    color: white;
+    font-weight: bold;
+}
 
 p {
     font-size: 1em;
