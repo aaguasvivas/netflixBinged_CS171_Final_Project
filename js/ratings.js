@@ -58,8 +58,6 @@ class Grid {
             vis.displayData.push(vis.data.splice(0, size));
         }
 
-        console.log(vis.displayData.length);
-
         vis.updateVis();
     }
 
