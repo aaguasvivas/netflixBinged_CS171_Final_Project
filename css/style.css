@@ -127,14 +127,19 @@ text.legendTitle {
     height: 18em;
     margin: 0 auto;
     float: none;
+    background-color: black;
 }
 
 .card-body {
     font-size: 1em;
     font-family: helvetica, arial;
-    color: black;
     text-align: center;
     position: relative;
+    background-color: black;
+}
+
+.card-text {
+    color: white;
 }
 
 /* Background Information Bar Charts */
@@ -247,7 +252,7 @@ tr {
     text-align: center;
     font: 12px sans-serif;
 }
-.tooltip h3,h4 {
+.tooltip h3 {
     text-align: left;
 }
 .tooltip h4 {
