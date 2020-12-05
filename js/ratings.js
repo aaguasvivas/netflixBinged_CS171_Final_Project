@@ -90,7 +90,7 @@ class Grid {
             .attr("fill", "#fc9272")
 
         vis.svg.append('text')
-            .text("4-6")
+            .text("3.1-6")
             .attr("x", 160)
             .attr("y", position + 15)
             .attr("fill", "white")
@@ -103,7 +103,7 @@ class Grid {
             .attr("fill", "#de2d26")
 
         vis.svg.append('text')
-            .text("7-10")
+            .text("6.1-10")
             .attr("x", 240)
             .attr("y",  position + 15)
             .attr("fill", "white")

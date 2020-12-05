@@ -10,7 +10,6 @@ let MyAreaChart;
 
 let promises = [
     d3.csv("data/netflix_titles.csv"),
-    d3.csv("data/dummyshow"),
     d3.csv("data/netflixIMDB.csv"),
     d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json"),
     d3.csv("data/internationalPresence.csv"),
@@ -26,11 +25,10 @@ function initMainPage(data){
 
     // data
     titles = data[0]
-    dummy = data[1]
-    imdb = data[2]
-    mapData = data[3]
-    internationalData = data[4]
-    globalExpansion = data[5]
+    imdb = data[1]
+    mapData = data[2]
+    internationalData = data[3]
+    globalExpansion = data[4]
 
     globalExpansion.layers.forEach(function(d) {
         d.Year = parseDate(d.Year)
@@ -92,7 +90,7 @@ function initMainPage(data){
     })
 
     // initialize visualizations
-    MyBubbleChart = new BubbleChart('bubblechart', titles, dummy);
+    MyBubbleChart = new BubbleChart('bubblechart', titles);
     movieRatings = new Grid('movie-ratings-viz', imdbMovies, true);
     showRatings = new Grid('show-ratings-viz', imdbShows, false);
     MyMap = new MapVis("worldMap", mapData, internationalData);
