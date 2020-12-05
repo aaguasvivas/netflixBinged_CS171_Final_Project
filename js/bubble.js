@@ -171,7 +171,7 @@ class BubbleChart {
         vis.transition = vis.svg.transition()
             .duration(event.altKey ? 7500 : 750)
             .tween("zoom", d => {
-                let i = d3.interpolateZoom(vis.view, [vis.focus.x, vis.focus.y * 2, vis.focus.r * 3]);
+                let i = d3.interpolateZoom(vis.view, [vis.focus.x, vis.focus.y, vis.focus.r * 3.5]);
                 return t => vis.zoomTo(i(t));
             });
 
@@ -206,6 +206,7 @@ class BubbleChart {
 // TODO: movie / tv show label on top
 // TODO: update and format text
 // TODO: upon loadiing - how to make it most zoomed out
+// TODO: how to make it zoom to circle when it is zooming out - add margins?
 
 // TODO: delete bubble trash and bubble tooltip
 
