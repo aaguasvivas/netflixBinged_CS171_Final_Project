@@ -78,6 +78,7 @@ class BubbleChart {
                     return d.depth === 3 ? "none" : null
                 }
             })
+            // .on("load", )
             .on("mouseover", function (event, d) {
                 d3.select(this)
                     .attr("stroke", "#860404");
@@ -140,6 +141,9 @@ class BubbleChart {
 
                 if (d.depth !== 3) {
                     vis.focus !== d && (vis.zoom(event, d), event.stopPropagation())
+                } else {
+                    let url = "https://www.netflix.com/title/" + d.data.show_id
+                    window.open(url);
                 }
                 // vis.focus !== d && (vis.zoom(event, d), event.stopPropagation())
 
@@ -162,11 +166,12 @@ class BubbleChart {
 
         vis.focus0 = vis.focus;
 
-        // console.log(vis.focus)
         // console.log(d)
 
         vis.focus = d;
         // what we are zooming to
+        console.log(vis.focus)
+
 
         vis.transition = vis.svg.transition()
             .duration(event.altKey ? 7500 : 750)

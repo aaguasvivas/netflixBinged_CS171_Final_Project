@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+<<<<<<< HEAD
+=======
+
+/*General Styling */
+>>>>>>> ef13af0a3d1fab918ced82dde7f99584648ee49e
 
 .row {
     height: 90%;
@@ -9,12 +14,12 @@
     color: red;
     font-size: 4em;
     text-align: center;
-    padding-top: 50px;
+    padding-top: 7%;
+    /*50px*/
 }
 
 /* Intro Page */
 #intro {
-
     font-size: 6em;
     font-family: 'Bebas Neue';
     color: red;
@@ -37,6 +42,7 @@ text.legendTitle {
 .d3-tip {
     line-height: 1;
     font-weight: bold;
+    font-height: 40px;
     padding: 12px;
     background: rgba(0, 0, 0, 0.8);
     color: #fff;
@@ -124,14 +130,19 @@ text.legendTitle {
     height: 18em;
     margin: 0 auto;
     float: none;
+    background-color: black;
 }
 
 .card-body {
     font-size: 1em;
     font-family: helvetica, arial;
-    color: black;
     text-align: center;
     position: relative;
+    background-color: black;
+}
+
+.card-text {
+    color: white;
 }
 
 /* Background Information Bar Charts */
@@ -171,7 +182,12 @@ div.col.revenueText {
 }
 
 #bubblechart {
-    padding: 40px;
+    padding: 5%;
+    /*40px*/
+}
+
+#bubble {
+    text-align: center;
 }
 
 /* Viewer Enjoyment */
@@ -239,7 +255,7 @@ tr {
     text-align: center;
     font: 12px sans-serif;
 }
-.tooltip h3,h4 {
+.tooltip h3 {
     text-align: left;
 }
 .tooltip h4 {
@@ -276,7 +292,8 @@ div#stacked-area-chart.col {
 }
 
 .section-headers .recs-text {
-    padding-top: 40px; 
+    padding-top: 7%;
+    /*40px*/
 }
 
 .break {
@@ -288,7 +305,7 @@ div#stacked-area-chart.col {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 20%;
+    margin-top: 40%;
 }
 
 
@@ -298,7 +315,7 @@ div#stacked-area-chart.col {
     font-size: 1em;
     color: white;
     text-align: center;
-    padding-top: 15px;
+    padding-top: 2%;
 }
 
     /* Hover effect for all images */
@@ -318,15 +335,15 @@ img:hover {
     font-weight: bold;
     color: white;
     text-align: left;
-    padding-top: 60px;
-    padding-left: 20px;
+    padding-top: 9%;
+    padding-left: 2%;
 }
 
     /* Switch Account button */
 #switch {
     display: none;
     float: right;
-    margin-top: 6%;
+    margin-top: 10%;
     margin-right: 2%;
 }
 
@@ -355,12 +372,12 @@ img:hover {
 
 /* Acknowledgements */
 
-h2 {
-    font-size: 2em;
-    font-family: 'Bebas Neue';
-    color: white;
-    font-weight: bold;
-}
+/*h2 {*/
+/*    font-size: 2em;*/
+/*    font-family: 'Bebas Neue';*/
+/*    color: white;*/
+/*    font-weight: bold;*/
+/*}*/
 
 p {
     font-size: 1em;
@@ -377,7 +394,9 @@ li {
 }
 
 #acknowledgements {
-    padding: 40px;
+    padding-left: 7%;
+    padding-right: 7%;
+
 }
 
 
