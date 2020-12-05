@@ -178,6 +178,10 @@ div.col.revenueText {
     /*40px*/
 }
 
+#bubble {
+    text-align: center;
+}
+
 /* Viewer Enjoyment */
 #viewer-enjoyment {
     font-size: 1em;

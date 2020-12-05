@@ -141,6 +141,9 @@ class BubbleChart {
 
                 if (d.depth !== 3) {
                     vis.focus !== d && (vis.zoom(event, d), event.stopPropagation())
+                } else {
+                    let url = "https://www.netflix.com/title/" + d.data.show_id
+                    window.open(url);
                 }
                 // vis.focus !== d && (vis.zoom(event, d), event.stopPropagation())
 
