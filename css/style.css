@@ -1,10 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-<<<<<<< HEAD
-=======
 
 /*General Styling */
->>>>>>> ef13af0a3d1fab918ced82dde7f99584648ee49e
-
 .row {
     height: 90%;
 }
@@ -335,15 +331,15 @@ img:hover {
     font-weight: bold;
     color: white;
     text-align: left;
-    padding-top: 9%;
-    padding-left: 2%;
+    padding-top: 4%;
+    padding-left: 1.5%;
 }
 
     /* Switch Account button */
 #switch {
     display: none;
     float: right;
-    margin-top: 10%;
+    margin-top: 5%;
     margin-right: 2%;
 }
 
