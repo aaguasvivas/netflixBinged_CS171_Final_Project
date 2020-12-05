@@ -39,7 +39,7 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://cs171binged.com/)
+[![Netflix Binged Screen Shot][binged-screenshot]](https://cs171binged.com/)
 
 GIVE BRIEF PROJECT EXPLANATION/MOTIVATIONS/DESCRIPTION
 
@@ -56,7 +56,7 @@ This project is a culmination of all of the work and learning we did for our cla
 
 ## Getting Started
 
-If you want to view the project, you can do so by visiting [this website](https://cs171binged.com/): https://cs171binged.com/
+If you want to view the project, you can do so by visiting [this website](https://cs171binged.com/): https://cs171binged.com/.
 
 If you want to set up your own local version, follow the steps below where we outline an example of the software needed, how to install it, important commands and how to get things running.
 
@@ -88,21 +88,35 @@ First, we will need an IDE. We personally used WebStorm to develop the website, 
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+The goal of this project was to give a complete overview of Netflix as a company, and analyze why they have been so sucessful, using data and visualizations. We start off by looking at Netflix's number of subscribers compared to other online streaming platforms, as well as its revenue over the years. Netflix is number one across the board, in every category imaginable, and we believe it is because of their huge number of listings, content diversity, high ratings, and strong international presence.
+
+Below is our background for the project:
+
+[![Netflix Binged Background Screen Shot][background-screenshot]](https://cs171binged.com/)
+
+Here is an example of one of our visualizations:
+
+[![Netflix Binged Visualization Screen Shot][visualization-screenshot]](https://cs171binged.com/)
+
+_For more examples, please refer to the [website](https://cs171binged.com/)_
 
 <!-- ROADMAP -->
 
 ## Process and Roadmap
 
-See the [process book](https://github.com/othneildrew/Best-README-Template/issues) for a list of proposed features (and known issues).
+See our [process book](https://docs.google.com/document/d/1Z0NSNz0EhzR-iLzrMAGHifLIgXAKyokxjqZu1ZPVqSA/edit?usp=sharing) for a complete overview of our process in developing this website, brainstorming, inspirations, rough ideas and more..
 
 <!-- CONTACT -->
 
 ## Contact
 
-Your Name - [LinkedIn](https://twitter.com/your_username) - email@example.com
+Adelson Aguasvivas - [LinkedIn](https://www.linkedin.com/in/aaguasvivas/) - aaguasvivas@college.harvard.edu
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Belinda Hu - [LinkedIn](https://www.linkedin.com/in/belinda-hu-2021/) - belindahu@college.harvard.edu
+
+Michelle Hunnewell - [LinkedIn](https://www.linkedin.com/in/mhunnewell/) - mhunnewell@college.harvard.edu
+
+Project Link: [https://github.com/aaguasvivas/netflixBinged_CS171_Final_Project](https://github.com/aaguasvivas/netflixBinged_CS171_Final_Project)
 
 <!-- ACKNOWLEDGEMENTS -->
 
@@ -113,4 +127,6 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[product-screenshot]: screenshot.png
+[binged-screenshot]: img/intro_screenshot.png
+[background-screenshot]: img/background_screenshot.png
+[visualization-screenshot]: img/visualization_screenshot.png
