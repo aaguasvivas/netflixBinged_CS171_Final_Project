@@ -46,6 +46,10 @@
 
 GIVE BRIEF PROJECT EXPLANATION/MOTIVATIONS/DESCRIPTION
 
+STILL NEED SCREENCAST, NEED TO CLEAN UP CODE, DELETE EXTRA COMMENTS
+
+The README file must give an overview of what you are handing in: which parts are your code, which parts are libraries, and so on. The README must contain URLs to your project websites and screencast videos. The README must also explain any non-obvious features of your interface.
+
 ### Built With
 
 This project is a culmination of all of the work and learning we did for our class, CS171: Visualization at Harvard University. The major programming languages and frameworks we used include:
