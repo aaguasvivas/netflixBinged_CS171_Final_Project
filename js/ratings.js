@@ -65,7 +65,7 @@ class Grid {
 
     updateVis(){
         let vis = this;
-        var clicked = false;
+        var clicked;
         var position = (vis.displayData.length * vis.cellHeight * 2) + 60
 
         // legend
@@ -132,17 +132,16 @@ class Grid {
                 return "translate(0, " + i * vis.cellPadding + ")"
             })
 
-        vis.row.selectAll('.rectangle').data(function(d, i) {return vis.displayData[i]})
-            .enter()
+        vis.rectangles = vis.row.selectAll('.rectangle').data(function(d, i) {return vis.displayData[i]})
+
+        vis.rectangles.enter()
             .append("rect")
+            .merge(vis.rectangles)
             // linked view
             .on('click', function(event, d){
 
-                clicked = true;
+                clicked = d;
 
-                // change stroke
-                // d3.select(this)
-                //     .attr("stroke", "white");
 
                 if (vis.isMovies == true) {
 
@@ -208,12 +207,14 @@ class Grid {
                     return "#de2d26";
 
             })
-            .attr("stroke", function(){
-                if (clicked == true)
+            .attr("stroke", function(d){
+                if (clicked == d)
                     return "white"
                 else
                     return "none"
             })
+
+        vis.rectangles.exit().remove();
 
     }
 }
