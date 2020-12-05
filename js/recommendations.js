@@ -148,6 +148,5 @@ function goToNetflix(element){
     }
 
 
-
 }
 
