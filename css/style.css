@@ -194,12 +194,28 @@ div.col.revenueText {
     text-align: center;
 }
 
+#guess-heading {
+    font-family: "Bebas Neue";
+    color: red;
+    font-size: 50px;
+    text-align: left;
+    padding-top: 10%;
+}
+
 #ve-text {
     color: white;
 }
 
 #viewer-enjoyment .guess-description {
-   margin-top: 20%;
+    font-size: 18px;
+}
+
+#movie-ratings .guess-description {
+    margin-top: 5.8%;
+}
+
+#show-ratings .guess-description {
+    margin-top: 30%;
 }
 
 .rating-guess {
@@ -212,6 +228,8 @@ div.col.revenueText {
     padding-top: 15px;
     padding-bottom: 15px;
     text-align: center;
+    font-size: 25px;
+    font-weight: bold;
 }
 
 #movie-ratings {

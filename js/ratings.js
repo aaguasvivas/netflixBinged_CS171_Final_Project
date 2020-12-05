@@ -140,7 +140,6 @@ class Grid {
 
                 clicked = d;
 
-
                 if (vis.isMovies == true) {
 
                     // remove existing data
