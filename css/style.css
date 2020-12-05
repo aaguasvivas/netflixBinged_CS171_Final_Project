@@ -248,6 +248,15 @@ div.col.internationalPresenceText {
     text-align: center;
 }
 
+p.areaChartTitle {
+    color: white;
+    font-size: 34px;
+}
+
+div#stacked-area-chart.col {
+    color: white;
+}
+
 /* Conclusion */
 #conclusion p {
     color: white;
