@@ -127,7 +127,7 @@ Project Link: [https://github.com/aaguasvivas/netflixBinged_CS171_Final_Project]
 
 ## Acknowledgements
 
-- Put acknowledgements here, including libraries (d3 topojson, bootstrap, noUiSlider, Tabulator)
+- Put acknowledgements here, including libraries (fullpage, d3 topojson, bootstrap, noUiSlider, Tabulator)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
