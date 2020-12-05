@@ -1,13 +1,13 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <h2 align="center">Netflix Binged</h2>
+  <h1 align="center">Netflix Binged</h1>
 
   <p align="center">
     A web application analyzing Netflix's Success!
   </p>
   <p align="center">
-    <strong>ACCESS THE WEBSITE HERE: </strong> https://cs171binged.com/
+    <strong>ACCESS THE WEBSITE HERE:</strong> https://cs171binged.com/
   </p>
 </p>
 
@@ -39,59 +39,48 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][product-screenshot]](https://cs171binged.com/)
 
-There are many great README templates available on GitHub, however, I didn't find one that really suit my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
-
-Here's why:
-
-- Your time should be focused on creating something amazing. A project that solves a problem and helps others
-- You shouldn't be doing the same tasks over and over like creating a README from scratch
-- You should element DRY principles to the rest of your life :smile:
-
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have have contributed to expanding this template!
-
-A list of commonly used resources that I find helpful are listed in the acknowledgements.
+GIVE BRIEF PROJECT EXPLANATION/MOTIVATIONS/DESCRIPTION
 
 ### Built With
 
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+This project is a culmination of all of the work and learning we did for our class, CS171: Visualization at Harvard University. The major programming languages and frameworks we used include:
 
-- [Bootstrap](https://getbootstrap.com)
-- [JQuery](https://jquery.com)
-- [Laravel](https://laravel.com)
+- [D3.js](https://d3js.org/)
+- [JavaScript](https://www.javascript.com/)
+- [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
 
 <!-- GETTING STARTED -->
 
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+If you want to view the project, you can do so by visiting [this website](https://cs171binged.com/): https://cs171binged.com/
+
+If you want to set up your own local version, follow the steps below where we outline an example of the software needed, how to install it, important commands and how to get things running.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
+First, we will need an IDE. We personally used WebStorm to develop the website, as it was the main IDE used in class, but also because it is a very powerful IDE for JavaScript, providing you with several features, such as code completion, error handling, and a quick and intuitive way to get your index.html up and running.
 
-- npm
-  ```sh
-  npm install npm@latest -g
-  ```
+- [WebStorm by JetBrains](https://www.jetbrains.com/webstorm/)
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/aaguasvivas/netflixBinged_CS171_Final_Project.git
    ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```JS
-   const API_KEY = 'ENTER YOUR API';
-   ```
+2. Open WebStorm
+
+3. Through WebStorm, locate the project and open it
+
+4. Click on index.html
+
+5. Locate the symbol of your favorite web browser and click it
+
+6. You should see a local version of the website!
 
 <!-- USAGE EXAMPLES -->
 
