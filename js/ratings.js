@@ -18,7 +18,7 @@ class Grid {
         vis.margin = {top: 10, right: 0, bottom: 20, left: 0};
         vis.width = $('#' + vis.parentElement).width() - vis.margin.left - vis.margin.right;
         vis.height = vis.width;
-        vis.cellHeight = 5;
+        vis.cellHeight = 5.5;
         vis.cellWidth = vis.cellHeight;
         vis.cellPadding = 10;
 
@@ -27,7 +27,7 @@ class Grid {
             .attr("width", vis.width + vis.margin.left + vis.margin.right)
             .attr("height", vis.height + vis.margin.top + vis.margin.bottom)
             .append("g")
-            .attr("transform", "translate(" + vis.width/3 + "," + vis.margin.bottom + ")")
+            .attr("transform", "translate(" + vis.width/15 + "," + vis.margin.bottom + ")")
             .attr("width", vis.width + vis.margin.left + vis.margin.right)
 
         vis.wrangleData();
@@ -35,7 +35,7 @@ class Grid {
 
     wrangleData(){
         let vis = this;
-        var size = 100;
+        var size = 90;
         var count = 0;
 
         // sort in descending order by ratings
@@ -63,8 +63,14 @@ class Grid {
 
     updateVis(){
         let vis = this;
-        var clicked;
-        var position = (vis.displayData.length * vis.cellHeight * 2) + 60
+        var position = 0;
+
+        if (vis.isMovies == true){
+            position = (vis.displayData.length * vis.cellHeight * 2) + 5;
+        }
+        else {
+            position = (vis.displayData.length * vis.cellHeight * 2) + 35;
+        }
 
         // legend
         vis.svg.append('rect')
@@ -138,8 +144,6 @@ class Grid {
             // linked view
             .on('click', function(event, d){
 
-                clicked = d;
-
                 if (vis.isMovies == true) {
 
                     // remove existing data
@@ -186,12 +190,20 @@ class Grid {
 
                 }
             })
+            .on("mouseover", function(event){
+                d3.select(this)
+                    .attr("stroke", "white")
+            })
+            .on("mouseout", function(event){
+                d3.select(this)
+                    .attr("stroke", "none")
+            })
 
             // rectangle attributes
             .attr("class", "rectangle")
             .attr("height", vis.cellHeight)
             .attr("width", vis.cellWidth)
-            .attr("x", (d, i) => (i * 6) + 50)
+            .attr("x", (d, i) => (i * 6.5) + 50)
             .attr("y", 40)
             .attr("fill", function(d){
                 if (0 <= d.rating && d.rating <= 3)
@@ -202,16 +214,8 @@ class Grid {
 
                 else if (6 < d.rating && d.rating <= 10)
                     return "#de2d26";
-
-            })
-            .attr("stroke", function(d){
-                if (clicked == d)
-                    return "white"
-                else
-                    return "none"
             })
 
         vis.rectangles.exit().remove();
-
     }
 }

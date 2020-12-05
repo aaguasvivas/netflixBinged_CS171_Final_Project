@@ -240,6 +240,10 @@ div.col.revenueText {
     padding-left: 50px;
 }
 
+.ratings-viz-text {
+    font-size: 18px;
+}
+
 .table {
     padding-top: 50px;
     border-radius: 5px;
