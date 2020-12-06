@@ -73,194 +73,204 @@ function switchUser() {
 // link to netflix
 function goToNetflix(element){
 
-    console.log("hi")
-    console.log(element.className)
+    var classNames = element.className;
+    var classArray = new Array();
 
-    if (element.className == "gossip-girl"){
+    // get class name of selected element
+    classNames = classNames.split(" ");
+
+    for(var i =0; i < classNames.length; i++){
+        classArray.push(classNames[i]);
+        if(i != classNames.length-1){
+            classArray.push(" ");
+        }
+    }
+
+    if (classArray[4] == "gossip-girl"){
         window.open("https://www.netflix.com/title/70143811");
     }
 
-    else if (element.className == "schitts-creek"){
+    else if (classArray[4] == "schitts-creek"){
         window.open("https://www.netflix.com/title/80036165");
     }
 
-    else if (element.className == "new-girl"){
+    else if (classArray[4] == "new-girl"){
         window.open("https://www.netflix.com/title/70196145");
     }
 
-    else if (element.className == "dynasty") {
+    else if (classArray[4] == "dynasty") {
         window.open("https://www.netflix.com/title/80179394");
     }
 
-    else if (element.className == "you") {
+    else if (classArray[4] == "you") {
         window.open("https://www.netflix.com/title/80211991");
     }
 
-    else if (element.className == "jane") {
+    else if (classArray[4] == "jane") {
         window.open("https://www.netflix.com/title/80027158");
     }
 
-    else if (element.className == "social-network"){
+    else if (classArray[4] == "social-network"){
         window.open("https://www.netflix.com/title/70132721");
     }
 
-    else if (element.className == "bling-ring"){
+    else if (classArray[4] == "bling-ring"){
         window.open("https://www.netflix.com/title/70271454");
     }
 
-    else if (element.className == "lady-bird"){
+    else if (classArray[4] == "lady-bird"){
         window.open("https://www.netflix.com/title/80205227");
     }
 
-    else if (element.className == "valentines"){
+    else if (classArray[4] == "valentines"){
         window.open("https://www.netflix.com/title/70124804");
     }
 
-    else if (element.className == "to-all-the-boys"){
+    else if (classArray[4] == "to-all-the-boys"){
         window.open("https://www.netflix.com/title/80203147");
     }
 
-    else if (element.className == "murder-mystery"){
+    else if (classArray[4] == "murder-mystery"){
         window.open("https://www.netflix.com/title/80242619");
     }
 
-    else if (element.className == "social-dilemma"){
+    else if (classArray[4] == "social-dilemma"){
         window.open("https://www.netflix.com/title/81254224");
     }
 
-    else if (element.className == "tvd"){
+    else if (classArray[4] == "tvd"){
         window.open("https://www.netflix.com/title/70143860");
     }
 
-    else if (element.className == "rebecca"){
+    else if (classArray[4] == "rebecca"){
         window.open("https://www.netflix.com/title/81002196");
     }
 
-    else if (element.className == "waiting-for-superman"){
+    else if (classArray[4] == "waiting-for-superman"){
         window.open("https://www.netflix.com/title/70129364");
     }
 
-    else if (element.className == "miss-americana"){
+    else if (classArray[4] == "miss-americana"){
         window.open("https://www.netflix.com/title/81028336");
     }
 
-    else if (element.className == "the-boy"){
+    else if (classArray[4] == "the-boy"){
         window.open("https://www.netflix.com/title/80200047");
     }
 
-    else if (element.className == "good-place"){
+    else if (classArray[4] == "good-place"){
         window.open("https://www.netflix.com/title/80113701");
     }
 
-    else if (element.className == "sherlock"){
+    else if (classArray[4] == "sherlock"){
         window.open("https://www.netflix.com/title/70202589");
     }
 
-    else if (element.className == "imposters"){
+    else if (classArray[4] == "imposters"){
         window.open("https://www.netflix.com/title/80161628");
     }
 
-    else if (element.className == "okay"){
+    else if (classArray[4] == "okay"){
         window.open("https://www.netflix.com/lu-en/title/81243992");
     }
 
-    else if (element.className == "avatar"){
+    else if (classArray[4] == "avatar"){
         window.open("https://www.netflix.com/title/70142405");
     }
 
-    else if (element.className == "sex-ed"){
+    else if (classArray[4] == "sex-ed"){
         window.open("https://www.netflix.com/title/80197526");
     }
 
-    else if (element.className == "old-guard"){
+    else if (classArray[4] == "old-guard"){
         window.open("https://www.netflix.com/title/81038963");
     }
 
-    else if (element.className == "knock-down"){
+    else if (classArray[4] == "knock-down"){
         window.open("https://www.netflix.com/title/81080637");
     }
 
-    else if (element.className == "enola-holmes"){
+    else if (classArray[4] == "enola-holmes"){
         window.open("https://www.netflix.com/title/81277950");
     }
 
-    else if (element.className == "marriage-story"){
+    else if (classArray[4] == "marriage-story"){
         window.open("https://www.netflix.com/title/80223779");
     }
 
-    else if (element.className == "guernsey"){
+    else if (classArray[4] == "guernsey"){
         window.open("https://www.netflix.com/title/80223371");
     }
 
-    else if (element.className == "selena"){
+    else if (classArray[4] == "selena"){
         window.open("https://www.netflix.com/title/81022733");
     }
 
-    else if (element.className == "crown"){
+    else if (classArray[4] == "crown"){
         window.open("https://www.netflix.com/title/80025678");
     }
 
-    else if (element.className == "baking"){
+    else if (classArray[4] == "baking"){
         window.open("https://www.netflix.com/title/80063224");
     }
 
-    else if (element.className == "dear-white-people"){
+    else if (classArray[4] == "dear-white-people"){
         window.open("https://www.netflix.com/title/80095698");
     }
 
-    else if (element.className == "legend-of-korra"){
+    else if (classArray[4] == "legend-of-korra"){
         window.open("https://www.netflix.com/title/80027563");
     }
 
-    else if (element.className == "umbrella-academy"){
+    else if (classArray[4] == "umbrella-academy"){
         window.open("https://www.netflix.com/title/80186863")
     }
 
-    else if (element.className == "when-they-see"){
+    else if (classArray[4] == "when-they-see"){
         window.open("https://www.netflix.com/title/80200549")
     }
 
-    else if (element.className == "bojack"){
+    else if (classArray[4] == "bojack"){
         window.open("https://www.netflix.com/title/70300800")
     }
 
-    else if (element.className == "money-heist"){
+    else if (classArray[4] == "money-heist"){
         window.open("https://www.netflix.com/title/80192098")
     }
 
-    else if (element.className == "spiderman"){
+    else if (classArray[4] == "spiderman"){
         window.open("https://www.netflix.com/title/81002747")
     }
 
-    else if (element.className == "13th"){
+    else if (classArray[4] == "13th"){
         window.open("https://www.netflix.com/title/80091741")
     }
 
-    else if (element.className == "roma"){
+    else if (classArray[4] == "roma"){
         window.open("https://www.netflix.com/title/80240715")
     }
 
-    else if (element.className == "bee"){
+    else if (classArray[4] == "bee"){
         window.open("https://www.netflix.com/title/70060010")
     }
 
-    else if (element.className == "bandersnatch"){
+    else if (classArray[4] == "bandersnatch"){
         window.open("https://www.netflix.com/title/80988062")
     }
 
-    else if (element.className == "bird-box"){
+    else if (classArray[4] == "bird-box"){
         window.open("https://www.netflix.com/title/80196789")
     }
 
-    else if (element.className == "big-mouth"){
+    else if (classArray[4] == "big-mouth"){
         window.open("https://www.netflix.com/title/80117038")
     }
 
-    else if (element.className == "hunter-x-hunter"){
+    else if (classArray[4] == "hunter-x-hunter"){
         window.open("https://www.netflix.com/title/70300472")
     }
 
-    else if (element.className == "sabrina"){
+    else if (classArray[4] == "sabrina"){
         window.open("https://www.netflix.com/title/80223989")
     }
 
