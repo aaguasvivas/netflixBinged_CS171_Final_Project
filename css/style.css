@@ -163,6 +163,18 @@ div.col.revenueText {
     color: white;
 }
 
+h4.background_subscribers_text {
+    color: white;
+    font-family: helvetica;
+    text-align: left;
+}
+
+h4.background_revenue_text {
+    color: white;
+    font-family: helvetica;
+    text-align: left;
+}
+
 /* Content Diversity */
 #content-diversity {
     font-size: 1em;
@@ -296,6 +308,11 @@ p.areaChartTitle {
 
 div#stacked-area-chart.col {
     color: white;
+}
+
+h4.international_text_header {
+    color: white;
+    font-family: helvetica;
 }
 
 /* Conclusion */

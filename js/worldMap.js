@@ -172,8 +172,8 @@ class MapVis {
                     .style("left", event.pageX + 20 + "px")
                     .style("top", event.pageY + "px")
                     .html(`
-                         <div style="border: thin solid grey; border-radius: 5px; background: lightgrey; padding: 20px">
-                             <h3>${d.properties.name}<h3>
+                         <div style="color: white; text-align: left; border: thin solid grey; border-radius: 5px; background: black; padding: 20px">
+                             <h3 style="color: red">${d.properties.name}<h3>
                              <h4> Name: ${d.properties.name}</h4>      
                              <h4> Number of TV Shows: ${vis.countryInfo[d.properties.name].numTVShows}</h4> 
                              <h4> Number of Movies: ${vis.countryInfo[d.properties.name].numMovies}</h4>   
