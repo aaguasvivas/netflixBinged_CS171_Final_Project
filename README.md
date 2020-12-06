@@ -72,7 +72,7 @@ This project is a culmination of all of the work and learning we did for our cla
 
 If you want to view the project, you can do so by visiting [this website](https://cs171binged.com/): https://cs171binged.com/.
 
-If you want to see a demo of this project, you can do so by visiting [this link](https://youtu.be/mW2P7d2TUAk)
+If you want to see a demo of this project, you can do so by visiting [this link](https://youtu.be/mW2P7d2TUAk).
 
 If you want to set up your own local version, follow the steps below where we outline an example of the software needed, how to install it, important commands and how to get things running.
 
