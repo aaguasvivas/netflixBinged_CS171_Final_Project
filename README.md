@@ -137,6 +137,16 @@ Project Link: [https://github.com/aaguasvivas/netflixBinged_CS171_Final_Project]
 
 ### Libraries Used
 
+This project is a culmination of all of the work and learning we did for our class, CS171: Visualization at Harvard University. The major programming languages and frameworks we used include:
+
+Most of our code was written by us and inspired by the material learned in the course through labs and homeworks. However, below are some of the libraries we used to carry out some of our ideas. These libraries were incredibly helpful in giving the page the feel and information we wanted.
+
+- [fullPage.js](https://github.com/alvarotrigo/fullPage.js/): For the one page scroll layout.
+- [World Atlas TopoJSON](https://github.com/topojson/world-atlas): Pre-built TopoJSON from Natural Earth allowed us to create the map visualization very quickly and effectively. This was also inspired by the Week 8 Lab.
+- [Bootstrap](https://getbootstrap.com/): Used to design and customize some of our tables in the Viewer Enjoyment section quickly
+- [noUiSlider](https://refreshless.com/nouislider): Used to develop the sliders on the Viewer Enjoyment rating guessing section.
+- [Tabulator](http://tabulator.info/): For the tables in the International Presence section
+
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
