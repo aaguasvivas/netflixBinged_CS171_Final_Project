@@ -269,6 +269,20 @@ h4.background_revenue_text {
     font-weight: bold;
 }
 
+#movie-actual {
+    color: red;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: helvetica, arial;
+}
+
+#show-actual {
+    color: red;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: helvetica, arial;
+}
+
 .ratings_header {
     padding-top: 0%;
 }
