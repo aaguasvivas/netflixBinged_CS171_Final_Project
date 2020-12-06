@@ -169,11 +169,11 @@ Most of our code was written by us and inspired by the material learned in the c
 
 - [fullPage.js](https://github.com/alvarotrigo/fullPage.js/): For the one page scroll layout.
 - [D3 Pack Layout](https://observablehq.com/@d3/circle-packing) and [Zoomable Circle Packing](https://observablehq.com/@d3/zoomable-circle-packing): For the content listing bubble map.
-- [World Atlas TopoJSON](https://github.com/topojson/world-atlas): Pre-built TopoJSON from Natural Earth allowed us to create the map visualization very quickly and effectively. This was also inspired by the Week 8 Lab.
-- [Bootstrap](https://getbootstrap.com/): Used to design and customize some of our tables in the Viewer Enjoyment section quickly
+- [World Atlas TopoJSON](https://github.com/topojson/world-atlas): Pre-built TopoJSON from Natural Earth allowed us to create the map visualization very effectively. This was also inspired by the Week 8 Lab.
+- [Bootstrap](https://getbootstrap.com/): Used to design and customize some of our tables in the Viewer Enjoyment section quickly.
 - [noUiSlider](https://refreshless.com/nouislider): Used to develop the sliders on the Viewer Enjoyment rating guessing section.
-- [Tabulator](http://tabulator.info/): For the tables in the International Presence section
-- [CSS Scroll Down Button](https://codepen.io/nxworld/pen/OyRrGy): For the scroll down arrows in the landing page
+- [Tabulator](http://tabulator.info/): For the tables in the International Presence section.
+- [CSS Scroll Down Button](https://codepen.io/nxworld/pen/OyRrGy): For the scroll down arrows in the landing page.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
