@@ -30,12 +30,10 @@ class StackedAreaChart {
     initVis(){
         let vis = this;
 
-        vis.margin = {top: 100, right: 20, bottom: 100, left: 150};
+        vis.margin = {top: 20, right: 20, bottom: 145, left: 125};
 
         vis.width = $('#' + vis.parentElement).width() - vis.margin.left - vis.margin.right;
         vis.height = $('#' + vis.parentElement).height() - vis.margin.top - vis.margin.bottom;
-
-
 
         // SVG drawing area
         vis.svg = d3.select("#" + vis.parentElement).append("svg")
@@ -147,13 +145,16 @@ class StackedAreaChart {
 
                 vis.svg.selectAll(".tooltips")
                     .text(d.key)
-                    .style("font-size", "20px")
+                    .style("font-size", "24px")
+                    .style("fill", "red")
+                    .style("font-weight", "bold")
+
             })
 
         vis.svg.append("text")
             .attr("transform",
                 "translate(" + (vis.width/2) + " ," +
-                (vis.height + vis.margin.top - 40) + ")")
+                (vis.height + vis.margin.top + 5) + ")")
             .style("text-anchor", "middle")
             .text("Year")
             .attr("fill", "white")
