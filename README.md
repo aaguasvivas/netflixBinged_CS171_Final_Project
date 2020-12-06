@@ -10,7 +10,7 @@
     <strong>ACCESS THE WEBSITE HERE:</strong> https://cs171binged.com/
   </p>
   <p align="center">
-    <strong>ACCESS THE SCREENCAST HERE:</strong> https://cs171binged.com/
+    <strong>ACCESS THE SCREENCAST HERE:</strong> https://youtu.be/mW2P7d2TUAk 
   </p>
 </p>
 
@@ -72,6 +72,8 @@ This project is a culmination of all of the work and learning we did for our cla
 
 If you want to view the project, you can do so by visiting [this website](https://cs171binged.com/): https://cs171binged.com/.
 
+If you want to see a demo of this project, you can do so by visiting [this link](https://youtu.be/mW2P7d2TUAk)
+
 If you want to set up your own local version, follow the steps below where we outline an example of the software needed, how to install it, important commands and how to get things running.
 
 ### Prerequisites
@@ -106,9 +108,23 @@ Below is our background for the project:
 
 [![Netflix Binged Background Screen Shot][background-screenshot]](https://cs171binged.com/)
 
-Here is an example of one of our visualizations:
+Here are some examples of some of the content we included on our website:
 
-[![Netflix Binged Visualization Screen Shot][visualization-screenshot]](https://cs171binged.com/)
+[![Netflix Binged First Visualization Screen Shot][first-visualization-screenshot]](https://cs171binged.com/)
+
+[![Netflix Binged Second Visualization Screen Shot][second-visualization-screenshot]](https://cs171binged.com/)
+
+[![Netflix Binged Third Visualization Screen Shot][third-visualization-screenshot]](https://cs171binged.com/)
+
+[![Netflix Binged Fourth Visualization Screen Shot][fourth-visualization-screenshot]](https://cs171binged.com/)
+
+[![Netflix Binged Fifth Visualization Screen Shot][fifth-visualization-screenshot]](https://cs171binged.com/)
+
+[![Netflix Binged Sixth Visualization Screen Shot][sixth-visualization-screenshot]](https://cs171binged.com/)
+
+[![Netflix Binged Seventh Visualization Screen Shot][seventh-visualization-screenshot]](https://cs171binged.com/)
+
+[![Netflix Binged Eighth Visualization Screen Shot][eighth-visualization-screenshot]](https://cs171binged.com/)
 
 _For more examples, please refer to the [website](https://cs171binged.com/)_
 
@@ -163,4 +179,11 @@ Most of our code was written by us and inspired by the material learned in the c
 
 [binged-screenshot]: img/intro_screenshot.png
 [background-screenshot]: img/background_screenshot.png
-[visualization-screenshot]: img/visualization_screenshot.png
+[first-visualization-screenshot]: img/visualization_screenshot.png
+[second-visualization-screenshot]: img/second_visualization_screenshot.png
+[third-visualization-screenshot]: img/third_visualization_screenshot.png
+[fourth-visualization-screenshot]: img/fourth_visualization_screenshot.png
+[fifth-visualization-screenshot]: img/fifth_visualization_screenshot.png
+[sixth-visualization-screenshot]: img/sixth_visualization_screenshot.png
+[seventh-visualization-screenshot]: img/seventh_visualization_screenshot.png
+[eighth-visualization-screenshot]: img/eighth_visualization_screenshot.png
