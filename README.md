@@ -116,7 +116,7 @@ _For more examples, please refer to the [website](https://cs171binged.com/)_
 
 ## Process and Roadmap
 
-See our [process book](https://docs.google.com/document/d/1Z0NSNz0EhzR-iLzrMAGHifLIgXAKyokxjqZu1ZPVqSA/edit?usp=sharing) for a complete overview of our process in developing this website, brainstorming, inspirations, rough ideas and more.
+See our [process book](https://docs.google.com/document/d/1OttblJyIrcRFK_hVJbnrpJ0W-cRbauX8_-p-TUS5f78/edit?usp=sharing) for a complete overview of our process in developing this website, brainstorming, inspirations, rough ideas and more.
 
 <!-- CONTACT -->
 
