@@ -10,7 +10,7 @@
     color: rgb(223, 5, 26);
     font-size: 4em;
     text-align: center;
-    padding-top: 7%;
+    padding-top: 4%;
     /*50px*/
 }
 
@@ -149,18 +149,22 @@ text.legendTitle {
 
 div.col.subscribersText {
     color: white;
+    font-family: helvetica, arial;
 }
 
 div#subscribersByPlatform.col.subscribers {
     color: white;
+    font-family: helvetica, arial;
 }
 
 div#revenueNetflix.col.revenue {
     color: white;
+    font-family: helvetica, arial;
 }
 
 div.col.revenueText {
     color: white;
+    font-family: helvetica, arial;
 }
 
 /* Content Diversity */
@@ -182,12 +186,17 @@ div.col.revenueText {
 }
 
 #bubblechart {
-    padding: 5%;
+    /*padding: 2%;*/
     /*40px*/
+    height: 75vh;
 }
 
 #bubble {
     text-align: center;
+}
+
+#circle {
+    align-content: center;
 }
 
 /* Viewer Enjoyment */
