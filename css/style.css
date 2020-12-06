@@ -7,7 +7,7 @@
 
 .section-headers {
     font-family: "Bebas Neue";
-    color: red;
+    color: rgb(223, 5, 26);
     font-size: 4em;
     text-align: center;
     padding-top: 7%;
@@ -18,7 +18,7 @@
 #intro {
     font-size: 6em;
     font-family: 'Bebas Neue';
-    color: red;
+    color: rgb(223, 5, 26);
     text-align: center;
     position: relative;
 }
@@ -200,7 +200,7 @@ div.col.revenueText {
 
 #guess-heading {
     font-family: "Bebas Neue";
-    color: red;
+    color: rgb(223, 5, 26);
     font-size: 50px;
     text-align: left;
     padding-top: 10%;
@@ -402,6 +402,16 @@ img:hover {
     font-family: 'Bebas Neue';
     color: white;
     font-weight: bold;
+}
+
+a {
+    color: rgb(223, 5, 26);
+    text-decoration: underline;
+}
+
+a:hover {
+    color: rgb(119, 11, 15);
+    text-decoration: underline;
 }
 
 p {
