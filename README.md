@@ -52,7 +52,11 @@
 [![Netflix Binged Screen Shot][binged-screenshot]](https://cs171binged.com/)
 
 GIVE BRIEF PROJECT EXPLANATION/MOTIVATIONS/DESCRIPTION
-Scrolling slide by slide, arrows point to different visualizations and parts of the website
+Netflix Binged is a web application focused on analyzing Netflix's success. We were initially inspired by Spotify Wrapped, which is an annual summary of the Spotify platform, but added a Netflix twist to it. We focused heavily on stats, as well as what sets Netflix apart. We broke it down to several different sections on why we believe Netflix has become such a powerhouse in the industry. Netflix remains atop of the number of subscribers list by a huge margin, for several reasons, namely their huge number of listings, content diversity, high ratings, and strong international presence. Each corresponding section has data and visualizations to explore, visualize and back our claims.
+
+We tried to make navigating the website as simple as possible, while still giving it that Netflix aesthetic that is such a critical part of the platform. We use fullpage.js, which allows you to scroll from section to section, slide by slide. Some sections have arrows that point to different visualizations and parts of the website. We go from background stats, to our core points, to finally providing you with the movies and tv shows we love or have been meaning to start watching.
+
+We hope you enjoy taking a deeper look at what makes Netflix THE online streaming platform to beat, as well as exploring the things we personally love about it.
 
 ### Built With
 
