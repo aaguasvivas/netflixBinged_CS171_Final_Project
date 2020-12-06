@@ -38,16 +38,13 @@ class BubbleChart {
         vis.svg = d3.select("#" + vis.parentElement).append("svg")
             .attr("width", vis.width + vis.margin.left + vis.margin.right)
             .attr("height", vis.height + vis.margin.top + vis.margin.bottom)
-            .attr("viewBox", `-${(vis.width + vis.margin.left + vis.margin.right)/ 2} -${(vis.height + vis.margin.top + vis.margin.bottom) / 2} ${vis.width} ${vis.height}`)
+            // .attr("viewBox", [0, 0, vis.width, vis.height])
+            .attr("viewBox", `-${(vis.width + vis.margin.left + vis.margin.right)/ 2} -${(vis.height + vis.margin.top + vis.margin.bottom) / 1.2} ${vis.width} ${vis.height *2}`)
             .style("display", "block")
-            // .style("margin", "4px 7px")
+            // .style("margin", "0px -14px")
             .style("background", "black")
             .style("cursor", "pointer")
             .on("click", (event) => vis.zoom(event, vis.root));
-
-        // vis.formatLabel = vis.svg.append("g")
-        //     .attr('class', 'formatLabel')
-        //     .attr('transform', `translate(${vis.width / 2}, 0)`)
 
         vis.tt = d3.tip()
             .attr('class', 'd3-tip bubble')
@@ -132,7 +129,7 @@ class BubbleChart {
                 // when you zoom, check if leaf and if so, zoom on parent
                 // if not, zoom in on d itself
 
-                console.log(d.depth)
+                // console.log(d.depth)
 
                 if (d.depth !== 3) {
                     vis.focus !== d && (vis.zoom(event, d), event.stopPropagation())
@@ -144,12 +141,6 @@ class BubbleChart {
 
 
             });
-
-        // vis.formatLabel.append('text')
-        //     .attr("class", "formatLabel")
-        //     .text("Movies")
-        //     .attr("x", 10)
-        //     .attr("y",  10)
 
         vis.zoomTo([vis.root.x, vis.root.y, vis.root.r * 2]);
 
@@ -173,7 +164,7 @@ class BubbleChart {
         vis.transition = vis.svg.transition()
             .duration(event.altKey ? 7500 : 750)
             .tween("zoom", d => {
-                let i = d3.interpolateZoom(vis.view, [vis.focus.x, vis.focus.y, vis.focus.r * 3]);
+                let i = d3.interpolateZoom(vis.view, [vis.focus.x, vis.focus.y, vis.focus.r * 2.5]);
                 return t => vis.zoomTo(i(t));
             });
 
@@ -205,17 +196,12 @@ class BubbleChart {
 }
 
 
-// TODO:  add labels to show up when you zoom in and disappear when you zoom out
 // TODO: how to stay on white circle instead of zooming out / in
-// TODO: movie / tv show label on top
-// TODO: update and format text
 // TODO: upon loading - how to make it most zoomed out
-// TODO: how to make it zoom to circle when it is zooming out - add margins?
 
-// TODO: delete bubble trash and bubble tooltip
 
 // ** RESOURCES **
-// TODO: V1 John Haldeman: https://observablehq.com/@johnhaldeman/tutorial-on-d3-basics-and-circle-packing-heirarchical-bubb
-// TODO: (working so far) V2 zoomable packing - https://observablehq.com/@d3/zoomable-circle-packing
-// TODO: V3 simple circle packing https://bl.ocks.org/denjn5/6d5ddd4226506d644bb20062fc60b53f
-// TODO: https://www.freecodecamp.org/news/a-gentle-introduction-to-d3-how-to-build-a-reusable-bubble-chart-9106dc4f6c46/
+// V1 John Haldeman: https://observablehq.com/@johnhaldeman/tutorial-on-d3-basics-and-circle-packing-heirarchical-bubb
+// V2 zoomable packing - https://observablehq.com/@d3/zoomable-circle-packing
+// V3 simple circle packing https://bl.ocks.org/denjn5/6d5ddd4226506d644bb20062fc60b53f
+// https://www.freecodecamp.org/news/a-gentle-introduction-to-d3-how-to-build-a-reusable-bubble-chart-9106dc4f6c46/
