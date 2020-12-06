@@ -15,11 +15,6 @@ class BubbleChart {
         vis.margin = {top: 10, right: 20, bottom: 10, left: 40};
         vis.width = $("#" + vis.parentElement).width() - vis.margin.left - vis.margin.right;
         vis.height = $("#" + vis.parentElement).height() - vis.margin.top - vis.margin.bottom;
-        // vis.height = vis.width;
-
-        // drawing tooltip
-        // vis.genretooltip = new Tooltip('genre_tooltip', 240);
-
 
         // V2 using zoomable circle packing
         vis.grouped_titles = d3.stratify()(vis.titles)
@@ -78,7 +73,7 @@ class BubbleChart {
                     return d.depth === 3 ? "none" : null
                 }
             })
-            // .on("load", )
+            // .on("load", vis.zoom(vis.grouped_titles))
             .on("mouseover", function (event, d) {
                 d3.select(this)
                     .attr("stroke", "#860404");
@@ -162,6 +157,8 @@ class BubbleChart {
 
     zoom(event, d) {
 
+        console.log(event)
+        console.log(d)
         let vis = this;
 
         vis.focus0 = vis.focus;
@@ -170,13 +167,13 @@ class BubbleChart {
 
         vis.focus = d;
         // what we are zooming to
-        console.log(vis.focus)
+        // console.log(vis.focus)
 
 
         vis.transition = vis.svg.transition()
             .duration(event.altKey ? 7500 : 750)
             .tween("zoom", d => {
-                let i = d3.interpolateZoom(vis.view, [vis.focus.x, vis.focus.y, vis.focus.r * 3.5]);
+                let i = d3.interpolateZoom(vis.view, [vis.focus.x, vis.focus.y, vis.focus.r * 3]);
                 return t => vis.zoomTo(i(t));
             });
 
@@ -196,11 +193,13 @@ class BubbleChart {
         vis.k = vis.width / v[2];
 
         vis.view = v;
+        // console.log(v)
 
         vis.node
             .attr("transform", d => `translate(${(d.x - v[0]) * vis.k},${(d.y - v[1]) * vis.k})`)
             .attr("r", d => d.r * vis.k);
-    }
+
+        }
 
 
 }
@@ -210,7 +209,7 @@ class BubbleChart {
 // TODO: how to stay on white circle instead of zooming out / in
 // TODO: movie / tv show label on top
 // TODO: update and format text
-// TODO: upon loadiing - how to make it most zoomed out
+// TODO: upon loading - how to make it most zoomed out
 // TODO: how to make it zoom to circle when it is zooming out - add margins?
 
 // TODO: delete bubble trash and bubble tooltip

@@ -147,6 +147,69 @@ function goToNetflix(element){
         window.open("https://www.netflix.com/title/80200047");
     }
 
+    else if (element.src == link + "good-place.png"){
+        window.open("https://www.netflix.com/title/80113701");
+    }
+
+    else if (element.src == link + "sherlock.png"){
+        window.open("https://www.netflix.com/title/70202589");
+    }
+
+    else if (element.src == link + "imposters.png"){
+        window.open("https://www.netflix.com/title/80161628");
+    }
+
+    else if (element.src == link + "okay.png"){
+        window.open("https://www.netflix.com/lu-en/title/81243992");
+    }
+
+    else if (element.src == link + "avatar.png"){
+        window.open("https://www.netflix.com/title/70142405");
+    }
+
+    else if (element.src == link + "sex-ed.png"){
+        window.open("https://www.netflix.com/title/80197526");
+    }
+
+    else if (element.src == link + "old-guard.png"){
+        window.open("https://www.netflix.com/title/81038963");
+    }
+
+    else if (element.src == link + "knock-down.png"){
+        window.open("https://www.netflix.com/title/81080637");
+    }
+
+    else if (element.src == link + "enola-holmes.png"){
+        window.open("https://www.netflix.com/title/81277950");
+    }
+
+    else if (element.src == link + "marriage-story.png"){
+        window.open("https://www.netflix.com/title/80223779");
+    }
+
+    else if (element.src == link + "guernsey.png"){
+        window.open("https://www.netflix.com/title/80223371");
+    }
+
+    else if (element.src == link + "selena.png"){
+        window.open("https://www.netflix.com/title/81022733");
+    }
+
+    else if (element.src == link + "crown.png"){
+        window.open("https://www.netflix.com/title/80025678");
+    }
+
+    else if (element.src == link + "baking.png"){
+        window.open("https://www.netflix.com/title/80063224");
+    }
+
+    else if (element.src == link + "dear-white-people.png"){
+        window.open("https://www.netflix.com/title/80095698");
+    }
+
+    else if (element.src == link + "legend-of-korra.png"){
+        window.open("https://www.netflix.com/title/80027563");
+    }
 
 }
 
