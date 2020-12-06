@@ -34,7 +34,13 @@
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Process and Roadmap</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgements">Acknowledgements</a></li>
+    <li>
+    <a href="#acknowledgements">Acknowledgements</a>
+      <ul>
+        <li><a href="#libraries-used">Libraries Used</a></li>
+      </ul>
+    </li>
+    
   </ol>
 </details>
 
@@ -128,6 +134,8 @@ Project Link: [https://github.com/aaguasvivas/netflixBinged_CS171_Final_Project]
 ## Acknowledgements
 
 - Put acknowledgements here, including libraries (fullpage, d3 topojson, bootstrap, noUiSlider, Tabulator)
+
+### Libraries Used
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
