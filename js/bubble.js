@@ -75,9 +75,6 @@ class BubbleChart {
                 d3.select(this)
                     .attr("stroke", "#860404");
 
-                // console.log(d.data.id)
-                // console.log(d.data.release_year)
-
                 let text;
                 if (d.data.id.substring(0, 2) === "m_") {
                     text = d.data.id.substring(2, d.data.id.length)
@@ -86,7 +83,6 @@ class BubbleChart {
                     text = d.data.id;
                 }
 
-                // console.log(d.depth)
 
                 if (d.depth === 1) {
                     // format
@@ -104,7 +100,6 @@ class BubbleChart {
                     "<strong>Cast: </strong> <span style='color:red'>" + d.data.director + "</span>" + "<br>" + "</span>" +
                         "<strong>Country: </strong> <span style='color:red'>" + d.data.cast + "</span>" + "<br>" + "</span>" +
                         "<strong>Description: </strong> <span style='color:red'>" + d.data.count + "</span>";
-                    // vis.content = '<span class="name">Title: </span><span class="value">' + text;
                 }
 
                 vis.tt
@@ -124,21 +119,12 @@ class BubbleChart {
             })
             .on("click", function (event, d) {
 
-                // console.log(d)
-
-                // when you zoom, check if leaf and if so, zoom on parent
-                // if not, zoom in on d itself
-
-                // console.log(d.depth)
-
                 if (d.depth !== 3) {
                     vis.focus !== d && (vis.zoom(event, d), event.stopPropagation())
                 } else {
                     let url = "https://www.netflix.com/title/" + d.data.show_id
                     window.open(url);
                 }
-                // vis.focus !== d && (vis.zoom(event, d), event.stopPropagation())
-
 
             });
 
@@ -154,12 +140,9 @@ class BubbleChart {
 
         vis.focus0 = vis.focus;
 
-        // console.log(d)
 
         vis.focus = d;
         // what we are zooming to
-        // console.log(vis.focus)
-
 
         vis.transition = vis.svg.transition()
             .duration(event.altKey ? 7500 : 750)
@@ -184,7 +167,6 @@ class BubbleChart {
         vis.k = vis.width / v[2];
 
         vis.view = v;
-        // console.log(v)
 
         vis.node
             .attr("transform", d => `translate(${(d.x - v[0]) * vis.k},${(d.y - v[1]) * vis.k})`)

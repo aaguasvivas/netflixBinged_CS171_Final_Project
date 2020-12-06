@@ -1,13 +1,3 @@
-/*
- * StackedAreaChart - ES6 Class
- * @param  parentElement 	-- the HTML element in which to draw the visualization
- * @param  data             -- the data the that's provided initially
- * @param  displayData      -- the data that will be used finally (which might vary based on the selection)
- *
- * @param  focus            -- a switch that indicates the current mode (focus or stacked overview)
- * @param  selectedIndex    -- a global 'variable' inside the class that keeps track of the index of the selected area
- */
-
 class StackedAreaChart {
 
 // constructor method to initialize StackedAreaChart object
@@ -45,7 +35,6 @@ class StackedAreaChart {
         vis.width = $('#' + vis.parentElement).width() - vis.margin.left - vis.margin.right;
         vis.height = $('#' + vis.parentElement).height() - vis.margin.top - vis.margin.bottom;
 
-        // console.log("data", vis.data)
 
 
         // SVG drawing area
@@ -85,17 +74,10 @@ class StackedAreaChart {
             .attr("class", "y-axis axis");
 
 
-        // TO-DO (Activity II): Initialize stack layout
-
         let stack = d3.stack()
             .keys(vis.dataCategories);
 
-        // TO-DO (Activity II) Stack data
-
         vis.stackedData = stack(vis.data);
-
-
-        // TO-DO (Activity II) Stacked area layout
 
         vis.area = d3.area()
             .curve(d3.curveCardinal)
@@ -105,7 +87,7 @@ class StackedAreaChart {
 
 
 
-        // TO-DO (Activity IV): Add Tooltip placeholder
+        // Add Tooltip placeholder
         vis.svg.append("text")
             .attr("class","tooltips")
             .attr("fill","white")
@@ -113,7 +95,7 @@ class StackedAreaChart {
             .attr("y", 20)
 
 
-        // TO-DO: (Filter, aggregate, modify data)
+        // Filter, aggregate, modify data
         vis.wrangleData();
 
     }

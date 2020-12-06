@@ -51,10 +51,7 @@
 [![Netflix Binged Screen Shot][binged-screenshot]](https://cs171binged.com/)
 
 GIVE BRIEF PROJECT EXPLANATION/MOTIVATIONS/DESCRIPTION
-
-STILL NEED SCREENCAST, NEED TO CLEAN UP CODE, DELETE EXTRA COMMENTS
-
-The README file must give an overview of what you are handing in: which parts are your code, which parts are libraries, and so on. The README must contain URLs to your project websites and screencast videos. The README must also explain any non-obvious features of your interface.
+Scrolling slide by slide, arrows point to different visualizations and parts of the website
 
 ### Built With
 
@@ -133,11 +130,7 @@ Project Link: [https://github.com/aaguasvivas/netflixBinged_CS171_Final_Project]
 
 ## Acknowledgements
 
-- Put acknowledgements here, including libraries (fullpage, d3 topojson, bootstrap, noUiSlider, Tabulator)
-
 ### Libraries Used
-
-This project is a culmination of all of the work and learning we did for our class, CS171: Visualization at Harvard University. The major programming languages and frameworks we used include:
 
 Most of our code was written by us and inspired by the material learned in the course through labs and homeworks. However, below are some of the libraries we used to carry out some of our ideas. These libraries were incredibly helpful in giving the page the feel and information we wanted.
 
@@ -146,6 +139,7 @@ Most of our code was written by us and inspired by the material learned in the c
 - [Bootstrap](https://getbootstrap.com/): Used to design and customize some of our tables in the Viewer Enjoyment section quickly
 - [noUiSlider](https://refreshless.com/nouislider): Used to develop the sliders on the Viewer Enjoyment rating guessing section.
 - [Tabulator](http://tabulator.info/): For the tables in the International Presence section
+- [CSS Scroll Down Button](https://codepen.io/nxworld/pen/OyRrGy): For the scroll down arrows in the landing page
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
