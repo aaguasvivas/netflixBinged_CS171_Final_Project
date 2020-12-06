@@ -73,6 +73,8 @@ function switchUser() {
 // link to netflix
 function goToNetflix(element){
 
+    console.log(element.className)
+
     if (element.className == "gossip-girl"){
         window.open("https://www.netflix.com/title/70143811");
     }
