@@ -73,6 +73,7 @@ function switchUser() {
 // link to netflix
 function goToNetflix(element){
 
+    console.log("hi")
     console.log(element.className)
 
     if (element.className == "gossip-girl"){
