@@ -211,5 +211,57 @@ function goToNetflix(element){
         window.open("https://www.netflix.com/title/80027563");
     }
 
+    else if (element.src == link + "umbrella-academy.png"){
+        window.open("https://www.netflix.com/title/80186863")
+    }
+
+    else if (element.src == link + "when-they-see.png"){
+        window.open("https://www.netflix.com/title/80200549")
+    }
+
+    else if (element.src == link + "bojack.png"){
+        window.open("https://www.netflix.com/title/70300800")
+    }
+
+    else if (element.src == link + "money-heist.png"){
+        window.open("https://www.netflix.com/title/80192098")
+    }
+
+    else if (element.src == link + "spiderman.png"){
+        window.open("https://www.netflix.com/title/81002747")
+    }
+
+    else if (element.src == link + "13th.png"){
+        window.open("https://www.netflix.com/title/80091741")
+    }
+
+    else if (element.src == link + "roma.png"){
+        window.open("https://www.netflix.com/title/80240715")
+    }
+
+    else if (element.src == link + "bee.png"){
+        window.open("https://www.netflix.com/title/70060010")
+    }
+
+    else if (element.src == link + "bandersnatch.png"){
+        window.open("https://www.netflix.com/title/80988062")
+    }
+
+    else if (element.src == link + "bird-box.png"){
+        window.open("https://www.netflix.com/title/80196789")
+    }
+
+    else if (element.src == link + "big-mouth.png"){
+        window.open("https://www.netflix.com/title/80117038")
+    }
+
+    else if (element.src == link + "hunter-x-hunter.png"){
+        window.open("https://www.netflix.com/title/70300472")
+    }
+
+    else if (element.src == link + "sabrina.png"){
+        window.open("https://www.netflix.com/title/80223989")
+    }
+
 }
 
