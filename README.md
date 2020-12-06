@@ -4,7 +4,7 @@
   <h1 align="center">Netflix Binged</h1>
 
   <p align="center">
-    A web application analyzing Netflix's Success!
+    A web application analyzing Netflix's success!
   </p>
   <p align="center">
     <strong>ACCESS THE WEBSITE HERE:</strong> https://cs171binged.com/
