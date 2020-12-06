@@ -115,7 +115,7 @@ class Grid {
         // visualization caption
         vis.text = vis.svg.append("text")
             .text(vis.percent + "% are rated 6 or higher on IMDB.")
-            .attr("fill", "white")
+            .attr("fill", "red")
             .attr("class", "ratings-viz-text")
             .attr("x", "50")
             .attr("y", "0")
@@ -123,7 +123,7 @@ class Grid {
         vis.text = vis.svg.append("text")
             .text("Click on a square to find out more info.")
             .attr("fill", "white")
-            .attr("class", "ratings-viz-text")
+            .attr("class", "ratings-viz-text-2")
             .attr("x", "50")
             .attr("y", "25")
 

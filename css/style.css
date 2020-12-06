@@ -109,9 +109,13 @@
 }
 
 text.legendTitle {
-    font-size: 22px;
+    font-size: 18px;
     font-family: helvetica, arial;
     fill: white;
+}
+
+.background .bar_headers {
+    padding-top: 4%;
 }
 
 .d3-tip {
@@ -202,10 +206,14 @@ h4.background_revenue_text {
 
 #bubble {
     text-align: center;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
 #bubble_zoom {
     text-align: center;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
 #circle {
@@ -218,6 +226,7 @@ h4.background_revenue_text {
     font-family: helvetica, arial;
     color: white;
     text-align: center;
+    padding-top: 4%;
 }
 
 #guess-heading {
@@ -230,6 +239,8 @@ h4.background_revenue_text {
 
 #ve-text {
     color: white;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
 #viewer-enjoyment .guess-description {
@@ -258,6 +269,10 @@ h4.background_revenue_text {
     font-weight: bold;
 }
 
+.ratings_header {
+    padding-top: 0%;
+}
+
 #movie-ratings {
     padding-right: 50px;
 }
@@ -267,7 +282,13 @@ h4.background_revenue_text {
 }
 
 .ratings-viz-text {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.ratings-viz-text-2 {
     font-size: 18px;
+    font-weight: normal;
 }
 
 .table {
@@ -289,9 +310,21 @@ tr {
     width: 100%;
 }
 
+#global_expansion_table {
+    margin-top: 5%;
+}
+
+#world_table {
+    margin-top: 3%;
+}
+
 #stacked-area-chart {
     height: 71vh;
     width: 100%;
+}
+
+.axis {
+    color: white;
 }
 
 .tooltip {
@@ -323,6 +356,8 @@ div#stacked-area-chart.col {
 h4.international_text_header {
     color: white;
     font-family: helvetica, arial;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
 /* Conclusion */

@@ -92,7 +92,7 @@ class StackedAreaChart {
             .attr("class","tooltips")
             .attr("fill","white")
             .attr("x", 40)
-            .attr("y", 20)
+            .attr("y", 3)
 
 
         // Filter, aggregate, modify data
@@ -146,7 +146,8 @@ class StackedAreaChart {
             .on("mouseover", function(event, d) {
 
                 vis.svg.selectAll(".tooltips")
-                    .text("You are hovering over: " + d.key).style("font-size", "24px")
+                    .text(d.key)
+                    .style("font-size", "20px")
             })
 
         vis.svg.append("text")
