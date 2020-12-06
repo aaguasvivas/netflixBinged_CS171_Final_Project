@@ -76,7 +76,6 @@ function goToNetflix(element){
     var link = "http://localhost:63342/netflixBinged_CS171_Final_Project/img/";
 
     if (element.src == link + "gossip-girl.png"){
-        console.log("hello")
         window.open("https://www.netflix.com/title/70143811");
     }
 
