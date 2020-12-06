@@ -168,7 +168,7 @@ This project would not have been possible without the support of our amazing TF,
 Most of our code was written by us and inspired by the material learned in the course through labs and homeworks. However, below are some of the libraries we used to carry out some of our ideas. These libraries were incredibly helpful in giving the page the feel and information we wanted.
 
 - [fullPage.js](https://github.com/alvarotrigo/fullPage.js/): For the one page scroll layout.
-- [D3 pack layout](https://observablehq.com/@d3/circle-packing) and [Zoomable Circle Packing](https://observablehq.com/@d3/zoomable-circle-packing): For the content listing bubble map.
+- [D3 Pack Layout](https://observablehq.com/@d3/circle-packing) and [Zoomable Circle Packing](https://observablehq.com/@d3/zoomable-circle-packing): For the content listing bubble map.
 - [World Atlas TopoJSON](https://github.com/topojson/world-atlas): Pre-built TopoJSON from Natural Earth allowed us to create the map visualization very quickly and effectively. This was also inspired by the Week 8 Lab.
 - [Bootstrap](https://getbootstrap.com/): Used to design and customize some of our tables in the Viewer Enjoyment section quickly
 - [noUiSlider](https://refreshless.com/nouislider): Used to develop the sliders on the Viewer Enjoyment rating guessing section.
