@@ -113,7 +113,6 @@ class StackedAreaChart {
 
     /*
      * The drawing function - should use the D3 update sequence (enter, update, exit)
-     * Function parameters only needed if different kinds of updates are needed
      */
     updateVis(){
         let vis = this;
@@ -140,7 +139,7 @@ class StackedAreaChart {
             .attr("d", d => vis.area(d))
 
 
-            // (Activity IV): update tooltip text on hover
+            // update tooltip text on hover
             .on("mouseover", function(event, d) {
 
                 vis.svg.selectAll(".tooltips")

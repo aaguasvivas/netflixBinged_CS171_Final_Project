@@ -153,7 +153,6 @@ class MapVis {
     }
 
 
-
     updateVis(){
         let vis = this;
 
@@ -224,7 +223,5 @@ class MapVis {
             .text("Total Catalog")
             .attr("x", 40)
             .attr("y",  "-115")
-
-
     }
 }

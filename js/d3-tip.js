@@ -2,7 +2,6 @@
 // Copyright (c) 2013 Justin Palmer
 // ES6 / D3 v4 Adaption Copyright (c) 2016 Constantin Gavrilete
 // Removal of ES6 for D3 v4 Adaption Copyright (c) 2016 David Gotz
-//
 // Tooltips for d3.js SVG visualizations
 
 d3.functor = function functor(v) {

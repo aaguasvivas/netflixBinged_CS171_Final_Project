@@ -96,7 +96,5 @@ subsDataset.then(function(data) {
         .text("Subscribers (in Millions)")
         .attr("fill", "white")
         .attr("fontSize", 22);
-
-
 })
 

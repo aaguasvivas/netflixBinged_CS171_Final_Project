@@ -141,6 +141,7 @@ class Grid {
         vis.rectangles.enter()
             .append("rect")
             .merge(vis.rectangles)
+
             // linked view
             .on('click', function(event, d){
 

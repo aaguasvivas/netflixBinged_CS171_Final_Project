@@ -2,11 +2,8 @@ let titles;
 let genres = [];
 let imdbMovies = [];
 let imdbShows = [];
-
 let worldMap;
 let MyAreaChart;
-
-//loadData();
 
 let promises = [
     d3.csv("data/netflix_titles.csv"),
@@ -21,6 +18,7 @@ Promise.all(promises)
     .catch(function(err){console.log(err)})
 
 function initMainPage(data){
+
     let parseDate = d3.timeParse("%Y");
 
     // data

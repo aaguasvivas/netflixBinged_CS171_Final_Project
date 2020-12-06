@@ -20,8 +20,6 @@ class BubbleChart {
         vis.grouped_titles = d3.stratify()(vis.titles)
             .count(d => d.count)
 
-        // console.log(vis.grouped_titles)
-
         vis.pack = d3.pack()
             .size([vis.width, vis.height])
             .padding(3)
@@ -38,10 +36,8 @@ class BubbleChart {
         vis.svg = d3.select("#" + vis.parentElement).append("svg")
             .attr("width", vis.width + vis.margin.left + vis.margin.right)
             .attr("height", vis.height + vis.margin.top + vis.margin.bottom)
-            // .attr("viewBox", [0, 0, vis.width, vis.height])
             .attr("viewBox", `-${(vis.width + vis.margin.left + vis.margin.right)/ 2} -${(vis.height + vis.margin.top + vis.margin.bottom) / 1.2} ${vis.width} ${vis.height *2}`)
             .style("display", "block")
-            // .style("margin", "0px -14px")
             .style("background", "black")
             .style("cursor", "pointer")
             .on("click", (event) => vis.zoom(event, vis.root));
@@ -70,7 +66,6 @@ class BubbleChart {
                     return d.depth === 3 ? "none" : null
                 }
             })
-            // .on("load", vis.zoom(vis.grouped_titles))
             .on("mouseover", function (event, d) {
                 d3.select(this)
                     .attr("stroke", "#860404");
@@ -78,8 +73,8 @@ class BubbleChart {
                 let text;
                 if (d.data.id.substring(0, 2) === "m_") {
                     text = d.data.id.substring(2, d.data.id.length)
-                    // console.log(genre)s
-                } else {
+                }
+                else {
                     text = d.data.id;
                 }
 
@@ -134,13 +129,8 @@ class BubbleChart {
 
     zoom(event, d) {
 
-        console.log(event)
-        console.log(d)
         let vis = this;
-
         vis.focus0 = vis.focus;
-
-
         vis.focus = d;
         // what we are zooming to
 
@@ -174,13 +164,7 @@ class BubbleChart {
 
         }
 
-
 }
-
-
-// TODO: how to stay on white circle instead of zooming out / in
-// TODO: upon loading - how to make it most zoomed out
-
 
 // ** RESOURCES **
 // V1 John Haldeman: https://observablehq.com/@johnhaldeman/tutorial-on-d3-basics-and-circle-packing-heirarchical-bubb
