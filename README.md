@@ -37,10 +37,11 @@
     <li>
     <a href="#acknowledgements">Acknowledgements</a>
       <ul>
+        <li><a href="#data-sources">Data Sources</a></li>
+        <li><a href="#other-sources">Other Sources</a></li>
         <li><a href="#libraries-used">Libraries Used</a></li>
       </ul>
-    </li>
-    
+    </li> 
   </ol>
 </details>
 
@@ -129,6 +130,19 @@ Project Link: [https://github.com/aaguasvivas/netflixBinged_CS171_Final_Project]
 <!-- ACKNOWLEDGEMENTS -->
 
 ## Acknowledgements
+
+This project would not have been possible without the support of our amazing TF, Ben Levy, as well as the rest of the CS171 teaching staff. We are grateful for all the help and expertise we have received over the semester.
+
+### Data Sources
+
+1. Subscriber and Revenue Growth: [Netflix Subscribers and Revenue by Country](https://www.kaggle.com/pariaagharabi/netflix2020)
+2. Content Diversity: [Netflix Movies and TV Shows](https://www.kaggle.com/shivamb/netflix-shows)
+3. Viewer Enjoyment: [Netflix's IMDB Ratings](https://www.kaggle.com/sarahjeeeze/imdbfile)
+4. International Presence: [Global Netflix Library Totals](https://www.finder.com/global-netflix-library-totals), [Subscribers Worldwide](https://www.statista.com/statistics/250934/quarterly-number-of-netflix-streaming-subscribers-worldwide/#:~:text=How%20many%20paid%20subscribers%20does,Netflix's%20total%20global%20subscriber%20base)
+
+### Other Sources
+
+1. [The Fascinating History of Netflix](https://interestingengineering.com/the-fascinating-history-of-netflix)
 
 ### Libraries Used
 
